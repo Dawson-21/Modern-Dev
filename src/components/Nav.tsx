@@ -4,7 +4,7 @@ export default function Nav() {
             <div className="bg-black/70 backdrop-blur-lg text-white p-4 mx-auto flex justify-center items-center w-fit mt-5 border-2 border-sky-950 rounded-full">
                 <div className="container mx-auto flex justify-center items-center">
                     <img src="/Header-Logo.png" alt="Your Logo Here" className="h-12 pr-6 hidden md:block"/>
-                    <ul className="flex space-x-3 sm:space-x-5 text-lg font-[Helvetica] font-semibold items-center">
+                    <ul className="flex space-x-2 sm:space-x-5 text-lg font-[Helvetica] font-semibold items-center">
                         <li>
                             <div className="flex flex-col group">   
                                 <a href="/"><img src="home-icon-white.svg" alt="Home" className="w-8 opacity-70 hover:opacity-100 transform hover:scale-[1.45] transition duration-200 ease-in-out"/></a>
@@ -36,7 +36,7 @@ export default function Nav() {
                             </div>
                         </li>
                         <li>
-                            <button className="bg-white/80 text-black ml-3 sm:ml-6 px-5 py-2 rounded-full text-sm hover:bg-white transform hover:scale-[1.15] transition duration-200 ease-in-out">Free Quote</button>
+                            <button className="bg-white/80 text-black ml-3 sm:ml-6 px-2 sm:px-5 py-2 rounded-full text-[12px] sm:text-sm hover:bg-white transform hover:scale-[1.15] transition duration-200 ease-in-out">Free Quote</button>
                         </li>
                     </ul>
                 </div>
