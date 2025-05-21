@@ -1,9 +1,9 @@
 export default function Nav() {
   return (
     <nav className="w-full h-fit fixed top-0 z-999">
-      <div className="bg-black/70 backdrop-blur-lg text-white p-2 sm:p-4 lg:px-9 mx-auto flex justify-center items-center w-fit mt-5 border-2 border-sky-950 rounded-full">
+      <div className="bg-black/70 backdrop-blur-lg text-white p-2 max-sm:px-4 sm:p-4 lg:px-9 mx-auto flex justify-center items-center w-fit mt-5 border-2 border-sky-950 rounded-full">
         <div className="container mx-auto flex justify-center items-center">
-          <img src="/Header-Logo.png" alt="Modern Dev Logo" className="h-8 sm:h-10 pr-1 sm:pr-7"/>
+          <img src="/Header-Logo.png" alt="Modern Dev Logo" className="hidden sm:block sm:h-10 pr-1 sm:pr-7 cursor-pointer"/>
           <ul className="flex space-x-2 sm:space-x-4 text-lg font-[Helvetica] font-semibold items-center">
             <li>
               <div className="flex flex-col items-center group sm:-mr-4">   
@@ -36,7 +36,7 @@ export default function Nav() {
               </div>
             </li>
             <li>
-              <button className="bg-white/80 text-black hidden sm:block ml-6 px-2 sm:px-5 py-2 rounded-full text-[12px] sm:text-sm hover:bg-white transform hover:scale-[1.15] transition duration-200 ease-in-out">Free Quote</button>
+              <button className="bg-white/80 text-black hidden sm:block ml-6 px-2 sm:px-5 py-2 rounded-full text-[12px] sm:text-sm hover:bg-white cursor-pointer transform hover:scale-[1.15] transition duration-200 ease-in-out">Free Quote</button>
             </li>
           </ul>
         </div>
