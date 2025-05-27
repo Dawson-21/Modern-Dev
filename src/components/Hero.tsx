@@ -7,7 +7,7 @@ export default function Hero() {
       </div>
       <div className="mr-auto place-self-center items-center flex flex-col justify-center pt-44 md:pt-56">
 
-        <img src="Hero-logo.png" alt="Modern Dev Logo" className="w-[75vw] sm:w-[55vw] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] 2xl:w-[25vw]"/>
+        <img src="Hero-logo2.png" alt="Modern Dev Logo" className="w-[75vw] sm:w-[55vw] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] 2xl:w-[25vw]"/>
 
         <div className="flex flex-row pt-8 space-x-2 sm:space-x-5 md:space-x-10">
           <a href="/about">
@@ -15,7 +15,7 @@ export default function Hero() {
           </a>
 
           <a href="#">
-            <button className="bg-sky-950/90 border-1 border-white/80 text-white px-3 sm:px-5 py-2 rounded-full text-[min(2.75vw,16px)] font-bold hover:bg-white hover:text-black cursor-pointer transform hover:scale-[1.15] transition duration-200 ease-in-out">View Recent Projects</button>
+            <button className="bg-sky-950/90 border-2 border-white/80 text-white px-3 sm:px-5 py-2 rounded-full text-[min(2.75vw,16px)] font-bold hover:bg-white hover:text-black cursor-pointer transform hover:scale-[1.15] transition duration-200 ease-in-out">View Recent Projects</button>
           </a>
         </div>
       </div>

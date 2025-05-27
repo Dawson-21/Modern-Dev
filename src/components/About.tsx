@@ -24,10 +24,13 @@ export default function About() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/15 border-1 text-white col-span-7 sm:col-span-3 lg:col-span-2 group">
-            <div className="group-hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/20 transition duration-500 p-5">  
-              <h2 className="text-3xl font-bold">About Me</h2>
-              <p className="text-[min(4.3vw,18px)] font-light leading-6 lg:leading-8 tracking-wide text-white/55 group-hover:text-white transition duration-500">I am a passionate developer with a love for creating modern web applications. I specialize in React and Tailwind CSS.</p>
+          <div className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/15 border-1 text-white col-span-7 sm:col-span-3 lg:col-span-2 group flex items-stretch overflow-hidden">
+            <div className="bg-[url(/hex.png)] group-hover:bg-[url(/hex2.png)] transition duration-500 size-[100%] bg-cover bg-no-repeat bg-center">
+              <div className="flex flex-col justify-center p-5 h-full">
+                <div className="h-32">social</div>
+                  <h2 className="text-xl font-bold">Reach Out</h2>
+                  <p className="text-[min(4.3vw,14px)] font-light leading-6 lg:leading-8 tracking-wide text-white/55 group-hover:text-white transition duration-500">Connect with me through my favorite platforms.</p>
+              </div>
             </div>
           </div>
 
