@@ -1,7 +1,7 @@
 // Purely for development purposes to visualize screen sizes easier
 function PageSizer() {
   return (
-    <div className='fixed top-30 left-3 bg-black border-2 border-white rounded-lg p-1 z-999 text-[12px]'>
+    <div className='fixed bottom-15 left-4 bg-black border-2 border-white rounded-lg p-1 z-999 text-[12px]'>
       <div className='block sm:hidden text-white'>xs</div>
       <div className='hidden sm:block md:hidden text-white'>sm</div>
       <div className='hidden md:block lg:hidden text-white'>md</div>

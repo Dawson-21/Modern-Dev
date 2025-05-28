@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@layer components {
+  .hex-btn {
+    @apply relative w-14 h-12 flex justify-center items-center bg-neutral-600 text-white font-semibold group-hover:bg-sky-900 hover:bg-white/80 transition-all duration-500 rotate-30 group-hover:scale-115;
+  }
+
+  .nav-icon {
+    @apply opacity-50 hover:opacity-100 transform group-hover:scale-[1.45] transition duration-200 ease-in-out;
+  }
+
+  .nav-label {
+    @apply hidden sm:block opacity-0 group-hover:opacity-100 hover:opacity-0 cursor-default rounded-md w-fit h-fit bg-sky-950 text-gray-200 text-sm translate-y-12 -mt-5 px-2;
+  }
+}

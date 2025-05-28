@@ -1,16 +1,24 @@
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
-import PageSizer from './components/PageSizer'
+import Projects from './components/Projects'
+import Services from './components/Services'
+import Contact from './components/Contact'
+// import PageSizer from './components/PageSizer'
+// import ScrollY from './components/ScrollY'
 
 function App() {
 
   return (
     <>
-      <PageSizer />
       <Nav />
       <Hero />
       <About />
+      <Projects />
+      <Services />
+      <Contact />
+      {/* <PageSizer /> */}
+      {/* <ScrollY /> */}
     </>
   )
 }
