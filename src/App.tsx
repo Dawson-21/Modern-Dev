@@ -4,8 +4,8 @@ import About from './components/About'
 import Projects from './components/Projects'
 import Services from './components/Services'
 import Contact from './components/Contact'
-// import PageSizer from './components/PageSizer'
-// import ScrollY from './components/ScrollY'
+import PageSizer from './components/PageSizer'
+import ScrollY from './components/ScrollY'
 
 function App() {
 
@@ -17,8 +17,8 @@ function App() {
       <Projects />
       <Services />
       <Contact />
-      {/* <PageSizer /> */}
-      {/* <ScrollY /> */}
+      <PageSizer />
+      <ScrollY />
     </>
   )
 }

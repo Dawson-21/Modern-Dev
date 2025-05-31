@@ -28,16 +28,16 @@ const testimonials: Testimonial[] = [
       "Dawson understood our needs right away and delivered exactly what we wanted — on time and beyond expectations.",
   },
   {
-    name: "Casey L.",
-    role: "Freelance Photographer",
-    quote:
-      "Dawson delivered a sleek, responsive portfolio site that perfectly captured my style. The whole process was smooth, and I couldn’t be happier.",
-  },
-  {
     name: "Morgan S.",
     role: "E-commerce Business Owner",
     quote:
       "The website Dawson built for my shop has completely transformed how I engage with customers. He understood my goals and built a solution that works perfectly.",
+  },
+  {
+    name: "Casey L.",
+    role: "Freelance Photographer",
+    quote:
+      "Dawson delivered a sleek, responsive portfolio site that perfectly captured my style. The whole process was smooth, and I couldn’t be happier.",
   },
   {
     name: "Sam T.",
@@ -83,27 +83,30 @@ export default function Carousel() {
 
   return (
     <div className="w-full">
-      <div className="relative px-6 py-3 transition duration-500 h-52 sm:h-44 justify-center" 
+      <div className="relative px-6 py-3 transition duration-500 h-52 sm:h-52 lg:h-52 justify-center items-center" 
       {...handlers}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       >
-        <p className="text-lg text-white/55 group-hover:text-white transition duration-500 italic mb-0">
-          “{testimonials[currentIndex].quote}”
-        </p>
-        <div className="text-right">
-          <p className="font-semibold text-white">
-            — {testimonials[currentIndex].name}
+        <div className="flex flex-col justify-between">
+          <p className="text-lg text-white/55 group-hover:text-white transition duration-500 italic">
+            “{testimonials[currentIndex].quote}”
           </p>
-          {testimonials[currentIndex].role && (
-            <p className="text-sm text-white/55">{testimonials[currentIndex].role}</p>
-          )}
+          
+          <div className="text-right">
+            <p className="font-semibold text-white">
+              — {testimonials[currentIndex].name}
+            </p>
+            {testimonials[currentIndex].role && (
+              <p className="text-sm text-white/55">{testimonials[currentIndex].role}</p>
+            )}
+          </div>
         </div>
 
         <div className="absolute inset-y-0 left-0 flex items-center">
           <button
             onClick={prevSlide}
-            className="text-white/55 text-2xl h-full hover:text-white hover:bg-white/10 px-1 transition"
+            className="text-white/55 text-3xl h-full rounded-sm hover:text-white hover:bg-white/10 px-1 transition"
             aria-label="Previous testimonial"
           >
             ‹
@@ -112,7 +115,7 @@ export default function Carousel() {
         <div className="absolute inset-y-0 right-0 flex items-center">
           <button
             onClick={nextSlide}
-            className="text-white/55 text-2xl h-full hover:text-white hover:bg-white/10 px-1 transition"
+            className="text-white/55 text-3xl h-full rounded-sm hover:text-white hover:bg-white/10 px-1 transition"
             aria-label="Next testimonial"
           >
             ›
@@ -120,7 +123,7 @@ export default function Carousel() {
         </div>
       </div>
 
-      <div className="flex justify-center gap-2">
+      <div className="flex justify-center gap-3">
         {testimonials.map((_, idx) => (
           <button
             key={idx}
