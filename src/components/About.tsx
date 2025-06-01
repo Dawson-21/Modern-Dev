@@ -158,12 +158,8 @@ export default function About() {
                 WordPress
               </div>
               <div className="tech-item">
-                <img src="/icon-html5.svg" alt="HTML5" className="h-6" />
-                HTML5
-              </div>
-              <div className="tech-item">
-                <img src="/icon-css3.svg" alt="CSS3" className="h-7" />
-                CSS3
+                <img src="/framer.png" alt="Framer Motion" className="h-6" />
+                Framer Motion
               </div>
             </div>
             <p className="text-sm text-center font-light pt-7 sm:pt-12 text-white/55 group-hover:text-white transition duration-500">I use this collection of tools and technologies to build exceptional digital experiences.</p>
