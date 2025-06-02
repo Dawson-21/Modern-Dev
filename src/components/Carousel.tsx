@@ -83,12 +83,12 @@ export default function Carousel() {
 
   return (
     <div className="w-full">
-      <div className="relative px-6 py-3 transition duration-500 h-52 sm:h-52 lg:h-52 justify-center items-center" 
+      <div className="relative px-6 py-3 transition duration-500 h-52 justify-center items-center" 
       {...handlers}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       >
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col">
           <p className="text-lg text-white/55 group-hover:text-white transition duration-500 italic">
             “{testimonials[currentIndex].quote}”
           </p>

@@ -13,10 +13,12 @@ function App() {
     <>
       <Nav />
       <Hero />
-      <About />
-      <Projects />
-      <Services />
-      <Contact />
+      <div className="bg-black/70 backdrop-blur-lg">
+        <About />
+        <Projects />
+        <Services />
+        <Contact />
+      </div>
       <PageSizer />
       <ScrollY />
     </>

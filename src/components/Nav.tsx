@@ -1,54 +1,45 @@
+import { useEffect } from "react";
+
 export default function Nav() {
+  useEffect(() => {
+    const home = document.getElementById("home");
+    const about = document.getElementById("about");
+    const projects = document.getElementById("projects");
+    const services = document.getElementById("services");
+    const contact = document.getElementById("contact");
 
-  const home = document.getElementById('home');
-  const about = document.getElementById('about');
-  const projects = document.getElementById('projects');
-  const services = document.getElementById('services');
-  const contact = document.getElementById('contact');
+    const updateActiveNav = () => {
+      const y = window.scrollY;
+      let startAbout = 700;
+      let startProjects = 1800;
+      let startServices = 2700;
+      let startContact = 3700;
 
-  let startAbout = 0;
-  let startProjects = 0;
-  let startServices = 0;
-  let startContact = 0;
-  if (window.innerWidth < 440) {
-    startAbout = 600;
-    startProjects = 2200;
-    startServices = 3000;
-    startContact = 3700;
-  }
-  else {
-    startAbout = 700;
-    startProjects = 1800;
-    startServices = 2700;
-    startContact = 3700;
-  }
+      if (window.innerWidth < 440) {
+        startAbout = 600;
+        startProjects = 2200;
+        startServices = 3000;
+        startContact = 3700;
+      }
 
-  window.onscroll = () => {
-    if (window.scrollY < startAbout)
-      home?.classList.add('opacity-100');
-    else
-      home?.classList.remove('opacity-100');
+      home?.classList.toggle("opacity-100", y < startAbout);
+      about?.classList.toggle("opacity-100", y >= startAbout && y < startProjects);
+      projects?.classList.toggle("opacity-100", y >= startProjects && y < startServices);
+      services?.classList.toggle("opacity-100", y >= startServices && y < startContact);
+      contact?.classList.toggle("opacity-100", y >= startContact);
+    };
 
-    if (window.scrollY >= startAbout && window.scrollY < startProjects)
-      about?.classList.add('opacity-100');
-    else
-      about?.classList.remove('opacity-100');
-    
-    if (window.scrollY >= startProjects && window.scrollY < startServices)
-      projects?.classList.add('opacity-100');
-    else
-      projects?.classList.remove('opacity-100');
+    // Run once on mount
+    updateActiveNav();
 
-    if (window.scrollY >= startServices && window.scrollY < startContact)
-      services?.classList.add('opacity-100');
-    else
-      services?.classList.remove('opacity-100');
+    // Attach scroll listener
+    window.addEventListener("scroll", updateActiveNav);
 
-    if (window.scrollY >= startContact)
-      contact?.classList.add('opacity-100');
-    else
-      contact?.classList.remove('opacity-100');
-  }
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener("scroll", updateActiveNav);
+    };
+  }, []);
 
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
@@ -59,7 +50,7 @@ export default function Nav() {
 
   return (
     <nav className="w-full h-fit fixed top-0 z-999">
-      <div className="bg-black/70 backdrop-blur-lg text-white p-2 max-sm:px-4 sm:p-4 lg:px-9 mx-auto flex justify-center items-center w-fit mt-5 border-2 border-sky-950 rounded-full">
+      <div className="bg-black/70 backdrop-blur-lg text-white p-2 max-sm:px-4 sm:p-4 lg:px-9 mx-auto flex justify-center items-center w-fit mt-5 border-2 border-sky-900 rounded-full">
         <div className="container mx-auto flex justify-center items-center">
           <img src="/Header-Logo.png" alt="Modern Dev Logo" onClick={() => handleClick('homeSection')} className="hidden sm:block sm:h-10 pr-1 sm:pr-7 cursor-pointer"/>
           <ul className="flex space-x-2 sm:space-x-4 text-lg font-[Helvetica] font-semibold items-center">

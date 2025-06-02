@@ -10,11 +10,10 @@ export default function About() {
   }
 
   return (
-    <div id='aboutSection' className="mt-[26vh] w-full h-fit bg-black/70 backdrop-blur-lg">
+    <div id='aboutSection' className="mt-[30vh] w-full h-fit">
       <div className="flex flex-col items-left justify-center max-w-[1100px] mx-auto px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px]">
         <div className="grid grid-cols-7 items-center">
-          <div className="w-[60vw] 2xl:w-[40vw] h-62 -my-62 translate-y-40 -translate-x-[6vw] bg-radial from-neutral-500/30 from-1% to-neutral-400/1 to-70%"></div>
-          <h1 className="col-span-7 text-[min(8vw,50px)] font-bold text-white mt-32">
+          <h1 className="col-span-7 text-[min(8vw,50px)] font-bold text-white mt-[10vh]">
             Welcome, I'm Dawson.
           </h1>
           <p className="col-span-7 md:col-span-4 text-[min(4.5vw,20px)] text-white/55 sm:mt-5">
@@ -35,7 +34,7 @@ export default function About() {
         {/****************** BACKGROUND ********************/}
 
         <div className="grid grid-cols-2 sm:grid-cols-7 gap-4 pb-10 mt-10">
-          <div className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/15 border-1 text-white group col-span-7 lg:col-span-5">
+          <div className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/15 border text-white group col-span-7 lg:col-span-5">
             <div className="group-hover:bg-gradient-to-tl from-sky-950/40 from-65% to-yellow-700/20 transition duration-500 p-6">
               <img src="/dawson.png" alt="" className="float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 rounded-md bg-neutral-800 group-hover:bg-gradient-to-br from-sky-950 to-yellow-700/30 group-hover:scale-110 transition duration-500" />
               <p className="text-[min(4.3vw,18px)] font-light leading-6 lg:leading-8 tracking-wide text-white/55 group-hover:text-white transition duration-500">I'm a Software Engineer passionate about building modern, user-focused websites and web applications. With a B.S. in Computer Science from Texas A&M University–Corpus Christi and a strong foundation in both business and technology, I craft digital solutions that not only look great but drive results. I thrive on taking on new challenges and helping businesses level up their online presence.</p>
@@ -44,7 +43,7 @@ export default function About() {
 
           {/****************** SOCIALS ********************/}
 
-          <div className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/15 border-1 text-white col-span-7 sm:col-span-3 lg:col-span-2 group flex items-stretch overflow-hidden">
+          <div className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/15 border text-white col-span-7 sm:col-span-3 lg:col-span-2 group flex items-stretch overflow-hidden">
             <div className="bg-[url(/hex.png)] group-hover:bg-[url(/hex2.png)] transition duration-500 size-[100%] bg-cover bg-no-repeat bg-center">
               <div className="flex flex-col justify-center p-5 max-sm:pt-11 h-full">
                 <div className="h-40 sm:h-36 place-items-center">
@@ -87,14 +86,14 @@ export default function About() {
 
           {/****************** TESTIMONIALS ********************/}
 
-          <div className="bg-black rounded-md border-white/15 border-1 text-white col-span-7 sm:col-span-4 lg:col-span-3 group hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/15 transition duration-500 p-4 sm:pt-5">
+          <div className="bg-black rounded-md border-white/15 border text-white col-span-7 sm:col-span-4 lg:col-span-3 group hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/15 transition duration-500 p-4 sm:pt-5">
             <h2 className="text-xl font-bold text-center">Real Feedback, Real Results</h2>
             <Carousel />
           </div>
 
           {/****************** TECH SKILLS ********************/}
 
-          <div className="bg-black hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/15 transition duration-500 rounded-md border-white/15 border-1 text-white group col-span-7 lg:col-span-4 p-5 lg:text-[12px] text-base">
+          <div className="bg-black hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/15 transition duration-500 rounded-md border-white/15 border text-white group col-span-7 lg:col-span-4 p-5 lg:text-[12px] text-base">
             <h2 className="text-center text-xl font-bold pb-5 sm:pb-8">Tech Skills</h2>
             <div className="h-fit flex flex-wrap justify-center items-center gap-2 group-hover:translate-x-4 transition duration-500">
               <div className="tech-item">

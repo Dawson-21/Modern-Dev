@@ -16,7 +16,7 @@ function ProjectCard({ title, description, fullDescription, technologies, imageU
   const [selectedProject, setSelectedProject] = useState(false);
 
   return (
-    <div className="w-full bg-white/5 p-4 rounded-lg">
+    <div className="w-full bg-black border-white/15 border p-4 rounded-lg">
 
       <div className="lg:flex justify-between items-center">
         <h3 className="text-lg font-semibold text-white">{title}</h3>
@@ -37,7 +37,7 @@ function ProjectCard({ title, description, fullDescription, technologies, imageU
           alt={imageAlt}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white p-4">
+        <div className="absolute inset-0 bg-neutral-900/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white p-4">
           <div className="text-center">
             <p className="text-sm mt-2">{description}</p>
           </div>
