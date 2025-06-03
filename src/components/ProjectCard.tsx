@@ -4,14 +4,18 @@ import Modal from "./Modal";
 
 interface Props {
   title: string
+  scope: string
   description: string
-  fullDescription?: string
+  problem: string
+  solution: string
+  results: string
   technologies: string[]
   imageUrl: string
   imageAlt: string
+  siteUrl?: string
 }
 
-function ProjectCard({ title, description, fullDescription, technologies, imageUrl, imageAlt }: Props) {
+function ProjectCard({ title, scope, description, problem, solution, results, technologies, imageUrl, imageAlt, siteUrl }: Props) {
 
   const [selectedProject, setSelectedProject] = useState(false);
 
@@ -20,7 +24,7 @@ function ProjectCard({ title, description, fullDescription, technologies, imageU
 
       <div className="lg:flex justify-between items-center">
         <h3 className="text-lg font-semibold text-white">{title}</h3>
-        <p className="text-sm text-white/70">{description}</p>
+        <p className="text-sm text-white/70">{scope}</p>
       </div>
 
       <div className="flex gap-2 mt-2">
@@ -46,7 +50,7 @@ function ProjectCard({ title, description, fullDescription, technologies, imageU
 
       <div className="flex justify-between items-center mt-3">
         <a 
-        href="#" 
+        href={siteUrl} 
         target="_blank"
         rel="noopener noreferrer"
         className="text-white text-[min(4vw,14px)] hover:underline">
@@ -66,7 +70,16 @@ function ProjectCard({ title, description, fullDescription, technologies, imageU
         onClose={() => setSelectedProject(false)}
       >
         <h2 className="text-2xl font-semibold text-white mb-4">{title}</h2>
-        <p className="text-white">{fullDescription}</p>
+        <p className="text-white/60 text-sm">{description}</p>
+
+        <h3 className="font-semibold text-sky-300 py-3">Problem</h3>
+        <p className="text-white/60 text-sm">{problem}</p>
+
+        <h3 className="font-semibold text-sky-300 py-3">Solution</h3>
+        <p className="text-white/60 text-sm">{solution}</p>
+
+        <h3 className="font-semibold text-sky-300 py-3">Results</h3>
+        <p className="text-white/60 text-sm">{results}</p>
       </Modal>
 
     </div>

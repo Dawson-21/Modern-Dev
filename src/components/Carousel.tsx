@@ -10,10 +10,10 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Jordan M.",
+    name: "Canyon P.",
     role: "Small Business Owner",
     quote:
-      "Working with Dawson was seamless from start to finish. He brought our vision to life with a modern, responsive website that exceeded our expectations.",
+      "I recently hired Dawson to build my website, and he did an outstanding job. His professionalism, creativity, and technical skills resulted in a sleek, user-friendly site that perfectly captures my brand. He communicated clearly throughout the process and delivered on time. I highly recommend Dawson for anyone needing a top-notch web developer!",
   },
   {
     name: "Taylor R.",

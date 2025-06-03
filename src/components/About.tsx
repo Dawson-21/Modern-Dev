@@ -45,36 +45,40 @@ export default function About() {
 
           <div className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/15 border text-white col-span-7 sm:col-span-3 lg:col-span-2 group flex items-stretch overflow-hidden">
             <div className="bg-[url(/hex.png)] group-hover:bg-[url(/hex2.png)] transition duration-500 size-[100%] bg-cover bg-no-repeat bg-center">
-              <div className="flex flex-col justify-center p-5 max-sm:pt-11 h-full">
-                <div className="h-40 sm:h-36 place-items-center">
-                  <button className="-ml-[63%] translate-y-15 sm:translate-y-10.5 hex-btn"
+              <div className="flex flex-col justify-center p-5 max-sm:pt-20 h-full">
+                <div className="h-48 sm:h-36 place-items-center">
+                  {/* Facebook */}
+                  <button className="-ml-[27%] sm:-ml-[63%] translate-y-5.75 sm:translate-y-10.5 hex-btn"
                     style={{
                       clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
                     }}
                   >
                     <a href="#" target="_blank"><img className="-rotate-30 w-12" src="/icon-fb.svg" /></a>
                   </button>
-                  <button className="-mt-12 max-sm:-mt-16 max-sm:mb-4 hex-btn"
+                  {/* GitHub */}
+                  <button className="-mt-12 max-sm:-translate-y-11 max-sm:-mt-16 max-sm:mb-4 hex-btn"
                     style={{
                       clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
                     }}
                   >
                     <a href="https://github.com/Dawson-21" target="_blank"><img className="-rotate-30 w-12" src="/icon-github.svg" /></a>
-                  </button>
-                  <button className="-mt-12 ml-[62%] translate-y-5 sm:translate-y-10.5 hex-btn"
+                  </button> 
+                  {/* Instagram */}
+                  <button className="-mt-15 sm:-mt-12 ml-[26.5%] sm:ml-[62%] translate-y-0.5 sm:translate-y-10.5 hex-btn"
                     style={{
                       clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
                     }}
                   >
                     <a href="#" target="_blank"><img className="-rotate-30 w-10" src="/icon-insta.svg" /></a>
-                  </button>
-                  <button className="-mt-1.75 translate-y-2 sm:translate-y-10.5 hex-btn"
+                  </button> 
+                  {/* LinkedIn */}
+                  <button className="-mt-1.75 translate-y-3 sm:translate-y-10.5 hex-btn"
                     style={{
                       clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
                     }}
                   >
                     <a href="https://www.linkedin.com/in/dawson-adams21/" target="_blank"><img className="-rotate-30 w-10" src="/icon-linkedin.svg" /></a>
-                  </button>
+                  </button>   
                 </div>
                 <div className="group-hover:-translate-x-2 duration-500 max-sm:pt-11">
                   <h2 className="text-xl font-bold">Reach Out</h2>

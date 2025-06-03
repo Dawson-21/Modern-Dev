@@ -2,7 +2,7 @@
 
 @layer components {
   .hex-btn {
-    @apply relative w-19 h-17 sm:w-14 sm:h-12 flex justify-center items-center bg-neutral-600 text-white font-semibold group-hover:bg-sky-900 hover:bg-white/80 transition-all duration-500 rotate-30 group-hover:scale-115;
+    @apply relative w-18 h-16 sm:w-14 sm:h-12 flex justify-center items-center bg-neutral-600 text-white font-semibold group-hover:bg-sky-900 hover:bg-white/80 transition-all duration-500 rotate-30 group-hover:scale-115;
   }
 
   .nav-icon {
