@@ -10,14 +10,14 @@ export default function About() {
   }
 
   return (
-    <div id='aboutSection' className="mt-[30vh] w-full h-fit">
+    <div id='aboutSection' className="w-full h-fit">
       <div className="flex flex-col items-left justify-center max-w-[1100px] mx-auto px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px]">
         <div className="grid grid-cols-7 items-center">
           <h1 className="col-span-7 text-[min(8vw,50px)] font-bold text-white mt-[10vh]">
-            Welcome, I'm Dawson.
+            Howdy, I'm Dawson.
           </h1>
           <p className="col-span-7 md:col-span-4 text-[min(4.5vw,20px)] text-white/55 sm:mt-5">
-            Software engineer dedicated to helping small businesses build a stronger online presence and stand out in today's digital landscape.
+            Texas based software engineer dedicated to helping small businesses build a stronger online presence and stand out in today's digital landscape.
           </p>
           <button onClick={() => handleClick('contactSection')} className="col-span-7 md:col-span-3 md:justify-self-end flex group w-fit h-fit bg-white/80 text-black px-4 py-2 mt-5 rounded-full text-[min(4vw,18px)] font-bold hover:bg-white cursor-pointer transition duration-200 ease-in-out">
             Start a Project 
@@ -44,11 +44,11 @@ export default function About() {
           {/****************** SOCIALS ********************/}
 
           <div className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/15 border text-white col-span-7 sm:col-span-3 lg:col-span-2 group flex items-stretch overflow-hidden">
-            <div className="bg-[url(/hex.png)] group-hover:bg-[url(/hex2.png)] transition duration-500 size-[100%] bg-cover bg-no-repeat bg-center">
+            <div className="bg-[url(/hex.png)] group-hover:bg-[url(/hex2.png)] transition duration-500 size-[100%] bg-[length:120%_auto] sm:bg-cover bg-no-repeat bg-[center_14%] sm:bg-center">
               <div className="flex flex-col justify-center p-5 max-sm:pt-20 h-full">
                 <div className="h-48 sm:h-36 place-items-center">
                   {/* Facebook */}
-                  <button className="-ml-[27%] sm:-ml-[63%] translate-y-5.75 sm:translate-y-10.5 hex-btn"
+                  <button className="-ml-[40%] sm:-ml-[63%] translate-y-5.75 sm:translate-y-10.5 hex-btn"
                     style={{
                       clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
                     }}
@@ -64,7 +64,7 @@ export default function About() {
                     <a href="https://github.com/Dawson-21" target="_blank"><img className="-rotate-30 w-12" src="/icon-github.svg" /></a>
                   </button> 
                   {/* Instagram */}
-                  <button className="-mt-15 sm:-mt-12 ml-[26.5%] sm:ml-[62%] translate-y-0.5 sm:translate-y-10.5 hex-btn"
+                  <button className="-mt-15 sm:-mt-12 ml-[40%] sm:ml-[62%] translate-y-0.5 sm:translate-y-10.5 hex-btn"
                     style={{
                       clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
                     }}
@@ -80,7 +80,7 @@ export default function About() {
                     <a href="https://www.linkedin.com/in/dawson-adams21/" target="_blank"><img className="-rotate-30 w-10" src="/icon-linkedin.svg" /></a>
                   </button>   
                 </div>
-                <div className="group-hover:-translate-x-2 duration-500 max-sm:pt-11">
+                <div className="group-hover:-translate-x-2 duration-500 max-sm:pt-0">
                   <h2 className="text-xl font-bold">Reach Out</h2>
                   <p className="text-[min(4.3vw,14px)] font-light tracking-wide text-white/55 group-hover:text-white transition duration-500">Connect with me through my favorite platforms.</p>
                 </div>
@@ -97,7 +97,7 @@ export default function About() {
 
           {/****************** TECH SKILLS ********************/}
 
-          <div className="bg-black hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/15 transition duration-500 rounded-md border-white/15 border text-white group col-span-7 lg:col-span-4 p-5 lg:text-[12px] text-base">
+          <div className="bg-black hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/15 transition duration-500 rounded-md border-white/15 border text-white group col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base">
             <h2 className="text-center text-xl font-bold pb-5 sm:pb-8">Tech Skills</h2>
             <div className="h-fit flex flex-wrap justify-center items-center gap-2 group-hover:translate-x-4 transition duration-500">
               <div className="tech-item">
@@ -121,7 +121,7 @@ export default function About() {
                 Tailwind CSS
               </div>
             </div>
-            <div className="h-fit flex flex-wrap justify-center items-center gap-2 mt-4 group-hover:-translate-x-4 transition duration-500">
+            <div className="h-fit flex flex-wrap justify-center items-center gap-2 mt-2 group-hover:-translate-x-4 transition duration-500">
               <div className="tech-item">
                 <img src="/icon-vite.svg" alt="Vite" className="h-7"/>
                 Vite
@@ -131,12 +131,12 @@ export default function About() {
                 Vercel
               </div>
               <div className="tech-item">
-                <img src="/icon-git.svg" alt="Git" className="h-7" />
-                Git
-              </div>
-              <div className="tech-item">
                 <img src="/icon-netlify.svg" alt="Netlify" className="h-6" />
                 Netlify
+              </div>
+              <div className="tech-item">
+                <img src="/icon-git.svg" alt="Git" className="h-7" />
+                Git
               </div>
               <div className="tech-item">
                 <img src="/icon-node.svg" alt="Node.js" className="h-7" />
@@ -147,7 +147,7 @@ export default function About() {
                 MongoDB
               </div>
             </div>
-            <div className="h-fit flex flex-wrap justify-center items-center gap-2 mt-4 group-hover:translate-x-4 transition duration-500">
+            <div className="h-fit flex flex-wrap justify-center items-center gap-2 mt-2 group-hover:translate-x-4 transition duration-500">
               <div className="tech-item">
                 <img src="/icon-appwrite.svg" alt="Appwrite" className="h-5"/>
                 Appwrite

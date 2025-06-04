@@ -85,7 +85,7 @@ export default function Nav() {
               </div>
             </li>
             <li>
-              <button onClick={() => handleClick('contactSection')} className="bg-white/80 text-black hidden sm:block ml-6 px-2 sm:px-5 py-2 rounded-full text-[12px] sm:text-sm hover:bg-white cursor-pointer transform hover:scale-[1.15] transition duration-200 ease-in-out">Free Quote</button>
+              <button onClick={() => handleClick('contactSection')} className="bg-white/80 text-black hidden sm:block ml-6 px-2 sm:px-5 py-2 rounded-full text-[12px] sm:text-sm hover:bg-white cursor-pointer transform hover:scale-[1.05] transition duration-200 ease-in-out">Free Quote</button>
             </li>
           </ul>
         </div>

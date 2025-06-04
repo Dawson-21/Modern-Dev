@@ -10,10 +10,10 @@ export default function Hero() {
 
   return (
     <>
-      <div className="fixed top-0 -z-999 w-full h-screen bg-[url(/hero-bg.jpg)] bg-center bg-no-repeat bg-cover bg-fixed">
+      <div className="fixed top-0 -z-999 w-full h-screen bg-[url(/hero-bg.jpg)] bg-[position:90%_center] sm:bg-center bg-no-repeat bg-cover bg-fixed">
         <div className="w-full h-screen bg-gradient-to-tr from-blue-950/60 via-black/60 to-yellow-900/60"></div>
       </div>
-      <div id='homeSection' className="mr-auto place-self-center items-center flex flex-col justify-center pt-44 md:pt-56">
+      <div id='homeSection' className="w-full h-screen mr-auto place-self-center items-center flex flex-col justify-center">
 
         <img src="Hero-logo2.png" alt="Modern Dev Logo" className="w-[75vw] sm:w-[55vw] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] 2xl:w-[25vw]"/>
 

@@ -16,6 +16,24 @@ const testimonials: Testimonial[] = [
       "I recently hired Dawson to build my website, and he did an outstanding job. His professionalism, creativity, and technical skills resulted in a sleek, user-friendly site that perfectly captures my brand. He communicated clearly throughout the process and delivered on time. I highly recommend Dawson for anyone needing a top-notch web developer!",
   },
   {
+    name: "Morgan S.",
+    role: "E-commerce Business Owner",
+    quote:
+      "The website Dawson built for my shop has completely transformed how I engage with customers. He understood my goals and built a solution that works perfectly.",
+  },
+  {
+    name: "Sam T.",
+    role: "Nonprofit Coordinator",
+    quote:
+      "From the initial consult to launch, Dawson was professional, attentive, and full of great ideas. Our new site is modern, easy to use, and exactly what we needed.",
+  },
+  {
+    name: "Casey L.",
+    role: "Freelance Photographer",
+    quote:
+      "Dawson delivered a sleek, responsive portfolio site that perfectly captured my style. The whole process was smooth, and I couldn’t be happier.",
+  },
+  {
     name: "Taylor R.",
     role: "Marketing Director",
     quote:
@@ -27,24 +45,6 @@ const testimonials: Testimonial[] = [
     quote:
       "Dawson understood our needs right away and delivered exactly what we wanted — on time and beyond expectations.",
   },
-  {
-    name: "Morgan S.",
-    role: "E-commerce Business Owner",
-    quote:
-      "The website Dawson built for my shop has completely transformed how I engage with customers. He understood my goals and built a solution that works perfectly.",
-  },
-  {
-    name: "Casey L.",
-    role: "Freelance Photographer",
-    quote:
-      "Dawson delivered a sleek, responsive portfolio site that perfectly captured my style. The whole process was smooth, and I couldn’t be happier.",
-  },
-  {
-    name: "Sam T.",
-    role: "Nonprofit Coordinator",
-    quote:
-      "From the initial consult to launch, Dawson was professional, attentive, and full of great ideas. Our new site is modern, easy to use, and exactly what we needed.",
-  },
 ];
 
 export default function Carousel() {
@@ -52,7 +52,21 @@ export default function Carousel() {
   const total = testimonials.length;
   const [isHovering, setIsHovering] = useState(false);
 
-
+  let quoteLength = testimonials[currentIndex].quote.length;
+  let size = "";
+  if (quoteLength < 120) {
+    size = "text-[20px]";
+  } else if (quoteLength < 140) {
+    size = "text-[19px]";
+  } else if (quoteLength < 200) {
+    size = "text-[19px]";
+  } else if (quoteLength < 240) {
+    size = "text-[17px]";
+  } else if (quoteLength < 280) {
+    size = "text-[16px]";
+  } else {
+    size = "text-[15px]";
+  }
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
   };
@@ -83,13 +97,13 @@ export default function Carousel() {
 
   return (
     <div className="w-full">
-      <div className="relative px-6 py-3 transition duration-500 h-52 justify-center items-center" 
+      <div className="relative px-6 py-3 transition duration-500 h-72 sm:h-56 justify-center items-center" 
       {...handlers}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       >
         <div className="flex flex-col">
-          <p className="text-lg text-white/55 group-hover:text-white transition duration-500 italic">
+          <p className={`${size} text-white/55 group-hover:text-white transition duration-500 italic`}>
             “{testimonials[currentIndex].quote}”
           </p>
           

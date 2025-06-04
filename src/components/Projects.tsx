@@ -12,7 +12,7 @@ function Projects() {
           <ProjectCard
             title="Texas Gutter Service"
             scope="Website Design and Development"
-            description="This project launched a credible online footprint for Texas Gutter Service, a newly established small business with previously limited digital presence. I designed a fresh, professional logo to establish their brand identity, then built a clean, mobile-responsive site that effectively showcases their gutter installation and maintenance services. The project included setting up essential pages, integrating contact forms for lead generation, and ensuring the site could be easily updated by the client. Together, the new branding and website provided a strong digital foundation, which gave the business credibility and helped attract new customers in their local service area."
+            description="This project launched an online footprint for Texas Gutter Service, a newly established small business with previously limited digital presence. I designed a fresh, professional logo to establish their brand identity, then built a clean, mobile-responsive site that effectively showcases their gutter installation and maintenance services. The project included setting up essential pages, integrating contact forms for lead generation, and ensuring the site could be easily updated by the client. Together, the new branding and website provided a strong digital foundation, which gave the business credibility and helped attract new customers in their local service area."
             problem="Texas Gutter Service was a new small business with no digital presence, making it hard for customers to find or contact them."
             solution="I built a responsive WordPress site from scratch tailored to their services, with easy navigation, modern branding, and a lead-generation contact form. I also designed a professional logo to establish their brand identity and give them a more polished look."
             results="The new branding and website gave the business credibility and visibility, leading to an increase in inquiries and a steady stream of new local customers."
@@ -20,6 +20,18 @@ function Projects() {
             imageUrl="/TGS.png"
             imageAlt="Texas Gutter Service Website Screenshot"
             siteUrl="https://texasgutterservice.com"
+          />
+
+          <ProjectCard
+            title="Project Name"
+            scope="Description of project"
+            description="Short description of the project goes here. It can be a brief overview of the project's purpose, features, and technologies used."
+            problem="Briefly describe the problem this project addresses."
+            solution="Briefly describe the solution implemented in this project."
+            results="Briefly describe the results achieved by this project."
+            technologies={["React", "Tailwind CSS", "JavaScript"]}
+            imageUrl="/project-image.jpg"
+            imageAlt="Project Screenshot"
           />
 
           <ProjectCard
@@ -33,18 +45,6 @@ function Projects() {
             imageUrl="/DCTC.png"
             imageAlt="Project Screenshot"
             siteUrl="https://detailscarpetandtilecare.com"
-          />
-
-          <ProjectCard
-            title="Project Name"
-            scope="Description of project"
-            description="Short description of the project goes here. It can be a brief overview of the project's purpose, features, and technologies used."
-            problem="Briefly describe the problem this project addresses."
-            solution="Briefly describe the solution implemented in this project."
-            results="Briefly describe the results achieved by this project."
-            technologies={["React", "Tailwind CSS", "JavaScript"]}
-            imageUrl="/project-image.jpg"
-            imageAlt="Project Screenshot"
           />
 
           <ProjectCard
