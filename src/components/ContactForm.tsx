@@ -21,8 +21,8 @@ export default function ContactForm() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: 'easeOut' }}
-      viewport={{ once: true }}
-      className="w-full max-w-2xl mx-auto p-6 bg-white/5 backdrop-blur-md rounded-2xl shadow-xl border border-white/10"
+      viewport={{ once: true, amount: 0.3 }}
+      className="w-full max-w-2xl mx-auto p-6 bg-black backdrop-blur-md rounded-lg border border-white/20"
     >
       <h2 className="text-2xl font-semibold text-white mb-4 text-center">Let's work together</h2>
       <form onSubmit={handleSubmit} className="space-y-5">

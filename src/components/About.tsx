@@ -9,6 +9,28 @@ export default function About() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }
+  
+  {/* 360px = center_14%; 
+  375px = center_18%; 
+  390px = center_23%; 
+  393px = center_24%; 
+  414px = center_29%; 
+  428px = center_31%; */}
+
+  let bgPosition = "center_14%"; // Default for mobile
+
+  let width = window.innerWidth;
+  if (width >= 428) {
+    bgPosition = "center_31%";
+  } else if (width >= 414) {
+    bgPosition = "center_29%";
+  } else if (width >= 393) {
+    bgPosition = "center_24%";
+  } else if (width >= 390) {
+    bgPosition = "center_23%";
+  } else if (width >= 375) {
+    bgPosition = "center_18%";
+  }
 
   return (
     <div id='aboutSection' className="w-full h-fit">
@@ -17,7 +39,7 @@ export default function About() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
           className="grid grid-cols-7 items-center"
         >
           <h1 className="col-span-7 text-[min(8vw,50px)] font-bold text-white mt-[10vh]">
@@ -34,7 +56,7 @@ export default function About() {
 
         <div className="flex flex-row w-full items-center justify-left mt-10">
           <p className="text-sm sm:text-base text-white/55 w-24 sm:w-24">About Me</p>
-          <hr className="w-full border-t-1 border-white/15 mt-4 mb-3"/>
+          <hr className="w-full border-t-1 border-white/20 mt-4 mb-3"/>
         </div>
 
       
@@ -45,8 +67,8 @@ export default function About() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/15 border text-white group col-span-7 lg:col-span-5"
+            viewport={{ once: true, amount: 0.3 }}
+            className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white group col-span-7 lg:col-span-5"
           >
             <div className="group-hover:bg-gradient-to-tl from-sky-950/40 from-65% to-yellow-700/20 transition duration-500 p-6">
               <img src="/dawson.png" alt="" className="float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 rounded-md bg-neutral-800 group-hover:bg-gradient-to-br from-sky-950 to-yellow-700/30 group-hover:scale-110 transition duration-500" />
@@ -60,10 +82,10 @@ export default function About() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/15 border text-white col-span-7 sm:col-span-3 lg:col-span-2 group flex items-stretch overflow-hidden"
+            viewport={{ once: true, amount: 0.3 }}
+            className="bg-gradient-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 sm:col-span-3 lg:col-span-2 group flex items-stretch overflow-hidden"
           >
-            <div className="bg-[url(/hex.png)] group-hover:bg-[url(/hex2.png)] transition duration-500 size-[100%] bg-[length:120%_auto] sm:bg-cover bg-no-repeat bg-[center_14%] sm:bg-center">
+            <div className={`bg-[url(/hex.png)] group-hover:bg-[url(/hex2.png)] transition duration-500 size-[100%] bg-[length:120%_auto] sm:bg-cover bg-no-repeat bg-[${bgPosition}] sm:bg-center`}>
               <div className="flex flex-col justify-center p-5 max-sm:pt-20 h-full">
                 <div className="h-48 sm:h-36 place-items-center">
                   {/* Facebook */}
@@ -113,8 +135,8 @@ export default function About() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className="bg-black rounded-md border-white/15 border text-white col-span-7 sm:col-span-4 lg:col-span-3 group hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/15 transition duration-500 p-4 sm:pt-5"
+            viewport={{ once: true, amount: 0.3 }}
+            className="bg-black rounded-md border-white/20 border text-white col-span-7 sm:col-span-4 lg:col-span-3 group hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/15 transition duration-500 p-4 sm:pt-5"
           >
             <h2 className="text-xl font-bold text-center">Real Feedback, Real Results</h2>
             <Carousel />
@@ -126,8 +148,8 @@ export default function About() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className="bg-black hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/15 transition duration-500 rounded-md border-white/15 border text-white group col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base"
+            viewport={{ once: true, amount: 0.3 }}
+            className="bg-black hover:bg-gradient-to-br from-sky-950/40 from-25% to-yellow-700/15 transition duration-500 rounded-md border-white/20 border text-white group col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base"
           >
             <h2 className="text-center text-xl font-bold pb-5 sm:pb-8">Tech Skills</h2>
             <div className="h-fit flex flex-wrap justify-center items-center gap-2 group-hover:translate-x-4 transition duration-500">

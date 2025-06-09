@@ -21,7 +21,7 @@ function ProjectCard({ title, scope, shortDescription, longDescription, problem,
   const [selectedProject, setSelectedProject] = useState(false);
 
   return (
-    <div className="w-full bg-black border-white/15 border p-4 rounded-lg">
+    <div className="w-full bg-black border-white/20 border p-4 rounded-lg">
 
       <div className="lg:flex justify-between items-center">
         <h3 className="text-lg font-semibold text-white">{title}</h3>

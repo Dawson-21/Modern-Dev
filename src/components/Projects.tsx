@@ -16,7 +16,7 @@ function Projects() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <ProjectCard
               title="Texas Gutter Service"
@@ -37,7 +37,7 @@ function Projects() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
           > 
             <ProjectCard
               title="Project Name"
@@ -57,7 +57,7 @@ function Projects() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <ProjectCard
               title="Details Carpet & Tile Care"
@@ -78,7 +78,7 @@ function Projects() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <ProjectCard
               title="CNC Garage Doors"
