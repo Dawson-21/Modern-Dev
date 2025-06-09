@@ -102,7 +102,7 @@ export default function Carousel() {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-center">
           <p className={`${size} text-white/55 group-hover:text-white transition duration-500 italic`}>
             “{testimonials[currentIndex].quote}”
           </p>

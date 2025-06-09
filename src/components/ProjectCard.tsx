@@ -5,7 +5,8 @@ import Modal from "./Modal";
 interface Props {
   title: string
   scope: string
-  description: string
+  shortDescription: string
+  longDescription: string
   problem: string
   solution: string
   results: string
@@ -15,7 +16,7 @@ interface Props {
   siteUrl?: string
 }
 
-function ProjectCard({ title, scope, description, problem, solution, results, technologies, imageUrl, imageAlt, siteUrl }: Props) {
+function ProjectCard({ title, scope, shortDescription, longDescription, problem, solution, results, technologies, imageUrl, imageAlt, siteUrl }: Props) {
 
   const [selectedProject, setSelectedProject] = useState(false);
 
@@ -41,9 +42,9 @@ function ProjectCard({ title, scope, description, problem, solution, results, te
           alt={imageAlt}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-neutral-900/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white p-4">
+        <div className="absolute inset-0 bg-neutral-900/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white p-4 max-sm:px-1">
           <div className="text-center">
-            <p className="text-sm mt-2">{description}</p>
+            <p className="text-[13px] sm:text-sm mt-2">{shortDescription}</p>
           </div>
         </div>
       </div>
@@ -70,15 +71,15 @@ function ProjectCard({ title, scope, description, problem, solution, results, te
         onClose={() => setSelectedProject(false)}
       >
         <h2 className="text-2xl font-semibold text-white mb-4">{title}</h2>
-        <p className="text-white/60 text-sm">{description}</p>
+        <p className="text-white/60 text-sm">{longDescription}</p>
 
-        <h3 className="font-semibold text-sky-300 py-3">Problem</h3>
+        <h3 className="font-semibold text-xl text-sky-300 py-2 sm:py-3">Problem</h3>
         <p className="text-white/60 text-sm">{problem}</p>
 
-        <h3 className="font-semibold text-sky-300 py-3">Solution</h3>
+        <h3 className="font-semibold text-xl text-sky-300 py-2 sm:py-3">Solution</h3>
         <p className="text-white/60 text-sm">{solution}</p>
 
-        <h3 className="font-semibold text-sky-300 py-3">Results</h3>
+        <h3 className="font-semibold text-xl text-sky-300 py-2 sm:py-3">Results</h3>
         <p className="text-white/60 text-sm">{results}</p>
       </Modal>
 

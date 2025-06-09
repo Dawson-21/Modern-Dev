@@ -12,17 +12,17 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-999 flex items-center justify-center bg-black/60 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
           <motion.div
-            className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white p-6 rounded-xl max-w-lg w-[90%] shadow-xl relative"
-            initial={{ scale: 0.75, opacity: 0 }}
+            className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white p-3 sm:p-6 rounded-xl max-w-lg w-[90%] shadow-xl relative"
+            initial={{ scale: 0.5, opacity: 0.2 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.75, opacity: 0 }}
+            exit={{ scale: 0.5, opacity: 0 }}
             transition={{ type: "spring", stiffness: 200, damping: 30 }}
             onClick={(e) => e.stopPropagation()}
           >

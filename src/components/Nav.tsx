@@ -17,9 +17,9 @@ export default function Nav() {
 
       if (window.innerWidth < 440) {
         startAbout = 600;
-        startProjects = 2200;
-        startServices = 3000;
-        startContact = 3700;
+        startProjects = 2600;
+        startServices = 4300;
+        startContact = 6370;
       }
 
       home?.classList.toggle("opacity-100", y < startAbout);

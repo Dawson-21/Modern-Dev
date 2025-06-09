@@ -1,8 +1,13 @@
-import { Code2, MonitorSmartphone, Paintbrush, Server, ShoppingCart, Settings2, Search, CloudUpload, Wrench, BarChart2, TrendingUp, LayoutTemplate } from "lucide-react";
+import { Code2, MonitorSmartphone, Paintbrush, Server, ShoppingCart, Settings2, Search, CloudUpload, Wrench, BarChart2, TrendingUp, LayoutTemplate, PenTool } from "lucide-react";
 import ServiceCard from "./ServiceCard";
 
 export default function ServicesSection() {
   const services = [
+    // {
+    //   title: "WordPress Development",
+    //   description: "Custom WordPress themes and full websites with client-friendly CMS for easy content management.",
+    //   icon: <Server size={24} />
+    // },
     {
       title: "Custom Website Development",
       description: "Bespoke websites built using React, Next.js, or WordPress—tailored to your brand and business goals.",
@@ -22,11 +27,6 @@ export default function ServicesSection() {
       title: "Performance Optimization",
       description: "Faster load times with image compression, lazy loading, and code-splitting for a better user experience.",
       icon: <Settings2 size={24} />
-    },
-    {
-      title: "WordPress Development",
-      description: "Custom WordPress themes and full websites with client-friendly CMS for easy content management.",
-      icon: <Server size={24} />
     },
     {
       title: "E-Commerce Integration",
@@ -62,14 +62,19 @@ export default function ServicesSection() {
       title: "Landing Page Design",
       description: "High-converting single-page websites for product launches, lead generation, or marketing campaigns.",
       icon: <LayoutTemplate size={24} />
+    },
+    {
+      title: "Custom Logo Design",
+      description: "Unique, professional logos crafted to reflect your brand's personality and vision.",
+      icon: <PenTool size={24} />
     }
 
   ];
 
   return (
-    <div id='servicesSection' className="w-full h-fit pb-10">
+    <div id='servicesSection' className="w-full h-fit">
       <div className="flex flex-col items-left justify-center max-w-[1100px] mx-auto px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px]">
-        <div className="flex flex-row w-full items-center justify-left my-10">
+        <div className="flex flex-row w-full items-center justify-left mb-10 mt-20">
           <p className="text-sm sm:text-base text-white/55 w-18">Services</p>
           <hr className="w-full border-t-1 border-white/15 mt-4 mb-3"/>
         </div>
