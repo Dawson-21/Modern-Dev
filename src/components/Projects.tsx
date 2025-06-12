@@ -23,7 +23,7 @@ function Projects() {
               scope="Frontend Web Development"
               shortDescription="This project launched an online footprint for Texas Gutter Service, a new small business with limited digital presence. I designed a professional logo to establish their brand identity and built a clean, mobile-responsive site showcasing their gutter services. The work included setting up key pages, adding lead-generation forms, and making the site easy for the client to update. The new branding and website gave the business..."
               longDescription="This project launched an online footprint for Texas Gutter Service, a new small business with limited digital presence. I designed a professional logo to establish their brand identity and built a clean, mobile-responsive site showcasing their gutter services. The work included setting up key pages, adding lead-generation forms, and making the site easy for the client to update. The new branding and website gave the business credibility and helped attract local customers."
-              problem="Texas Gutter Service was a new small business with no digital presence, making it hard for customers to find or contact them."
+              problem="Texas Gutter Service was a new small business with no website, making it hard for customers to find or contact them."
               solution="I built a responsive WordPress site from scratch tailored to their services, with easy navigation, modern branding, and a lead-generation contact form. I also designed a professional logo to establish their brand identity and give them a more polished look."
               results="The new branding and website gave the business credibility and visibility, leading to an increase in inquiries and a steady stream of new local customers."
               technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
@@ -40,16 +40,17 @@ function Projects() {
             viewport={{ once: true, amount: 0.3 }}
           > 
             <ProjectCard
-              title="Project Name"
-              scope="Description of project"
-              shortDescription="Short description of the project goes here. It can be a brief overview of the project's purpose, features, and technologies used."
-              longDescription="Short description of the project goes here. It can be a brief overview of the project's purpose, features, and technologies used."
-              problem="Briefly describe the problem this project addresses."
-              solution="Briefly describe the solution implemented in this project."
-              results="Briefly describe the results achieved by this project."
-              technologies={["React", "Tailwind CSS", "JavaScript"]}
-              imageUrl="/project-image.jpg"
+              title="Clayton Demolition"
+              scope="Frontend Web Development"
+              shortDescription="This project involved creating a modern, responsive website for Clayton Demolition, a small business specializing in demolition services. The site was designed to be user-friendly and visually appealing, with a focus on showcasing their services and past projects. I implemented a clean layout, integrated a contact form for inquiries, and optimized the site for..."
+              longDescription="This project involved creating a modern, responsive website for Clayton Demolition, a small business specializing in demolition services. The site was designed to be user-friendly and visually appealing, with a focus on showcasing their services and past projects. I implemented a clean layout, integrated a contact form for inquiries, and optimized the site for search engines to help them reach more potential clients."
+              problem="Clayton Demolition needed a professional online presence to attract new clients and showcase their services."
+              solution="I built a modern, responsive website that highlights their services and past projects, making it easy for potential clients to get in touch."
+              results="The new website helped Clayton Demolition attract more clients and establish a strong online presence."
+              technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
+              imageUrl="/CD.png"
               imageAlt="Project Screenshot"
+              siteUrl="https://claytondemolition.com"
             />
           </motion.div>
 

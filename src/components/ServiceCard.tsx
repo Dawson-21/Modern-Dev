@@ -10,7 +10,7 @@ interface ServiceCardProps {
 export default function ServiceCard({ title, description, icon }: ServiceCardProps) {
   return (
     <motion.div
-      className="relative overflow-hidden rounded-lg border border-white/20 backdrop-blur-md text-white p-6 shadow-md group"
+      className="relative overflow-hidden md:min-h-36 rounded-lg border border-white/20 backdrop-blur-md text-white p-6 shadow-md group"
       whileHover="hover"
       initial="rest"
       animate="rest"

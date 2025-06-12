@@ -24,7 +24,8 @@ export default function ContactForm() {
       viewport={{ once: true, amount: 0.3 }}
       className="w-full max-w-2xl mx-auto p-6 bg-black backdrop-blur-md rounded-lg border border-white/20"
     >
-      <h2 className="text-2xl font-semibold text-white mb-4 text-center">Let's work together</h2>
+      <h2 className="text-2xl font-semibold text-white mb-4 text-center">Let's Work Together!</h2>
+      <p className='text-white/55 mb-4 text-center px-5 md:px-30'>I would love to hear about your project and discuss how I can help bring your vision to life.</p>
       <form onSubmit={handleSubmit} className="space-y-5">
 
         {/* Name */}
