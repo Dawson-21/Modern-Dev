@@ -1,6 +1,60 @@
 import { Users, LineChart, PenTool, Code2, Bug, Rocket, Wrench } from 'lucide-react'
+import ProcessCard from './ProcessCard';
+import { motion } from 'framer-motion';
+
+// Animation variants
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  })
+};
 
 function Process() {
+  const steps = [
+    {
+      title: "Stakeholder Consultation",
+      description: "Engaging with key stakeholders to understand their vision, goals, and requirements for the project.",
+      icon: <Users size={24} />
+    },
+    {
+      title: "Market Analysis",
+      description: "Conducting thorough market research to identify trends, opportunities, and potential challenges that may impact the project.",
+      icon: <LineChart size={24} />
+    },
+    {
+      title: "Design and Prototyping",
+      description: "Creating wireframes and prototypes to visualize the user experience and gather feedback from stakeholders.",
+      icon: <PenTool size={24} />
+    },
+    {
+      title: "Development",
+      description: "Building the actual product based on the approved designs and prototypes.",
+      icon: <Code2 size={24} />
+    },
+    {
+      title: "Testing and Quality Assurance",
+      description: "Rigorously testing the product to ensure it meets quality standards and functions as intended.",
+      icon: <Bug size={24} />
+    },
+    {
+      title: "Deployment",
+      description: "Deploying the product to the production environment and ensuring it is ready for use by end-users.",
+      icon: <Rocket size={24} />
+    },
+    {
+      title: "Post-Launch Support",
+      description: "Providing ongoing support and maintenance to ensure the product continues to meet user needs and adapts to any changes in the market.",
+      icon: <Wrench size={24} />
+    }
+  ];
+
   return (
     <div id="servicesSection" className="w-full h-fit">
       <div className="flex flex-col items-left justify-center max-w-[1100px] mx-auto px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px]">
@@ -10,56 +64,20 @@ function Process() {
         </div>
 
         <div className="flex flex-col items-left justify-center text-white gap-5">
-          <div className="w-full bg-black border-white/20 border p-4 rounded-lg">
-            <div className="flex gap-3">
-              <Users className="text-sky-400" size={24} />
-              <p className="text-lg">Stakeholder Consultation</p>
-            </div>
-            <p className="text-white/55">Engaging with key stakeholders to understand their vision, goals, and requirements for the project.</p>
-          </div>
-          <div className="w-full bg-black border-white/20 border p-4 rounded-lg">
-            <div className="flex gap-3">
-              <LineChart className="text-sky-400" size={24} />
-              <p className="text-lg">Market Analysis</p>
-            </div>
-            <p className="text-white/55">Conducting thorough market research to identify trends, opportunities, and potential challenges that may impact the project.</p>
-          </div>
-          <div className="w-full bg-black border-white/20 border p-4 rounded-lg">
-            <div className="flex gap-3">
-              <PenTool className="text-sky-400" size={24} />
-              <p className="text-lg">Design and Prototyping</p>
-            </div>
-            <p className="text-white/55">Creating wireframes and prototypes to visualize the user experience and gather feedback from stakeholders.</p>
-          </div>
-          <div className="w-full bg-black border-white/20 border p-4 rounded-lg">
-            <div className="flex gap-3">
-              <Code2 className="text-sky-400" size={24} />
-            <p className="text-lg">Development</p>
-            </div>
-            <p className="text-white/55">Building the actual product based on the approved designs and prototypes.</p>
-          </div>
-          <div className="w-full bg-black border-white/20 border p-4 rounded-lg">
-            <div className="flex gap-3">
-              <Bug className="text-sky-400" size={24} />
-              <p className="text-lg">Testing and Quality Assurance</p>
-            </div>
-            <p className="text-white/55">Rigorously testing the product to ensure it meets quality standards and functions as intended.</p>
-          </div>
-          <div className="w-full bg-black border-white/20 border p-4 rounded-lg">
-            <div className="flex gap-3">
-              <Rocket className="text-sky-400" size={24} />
-              <p className="text-lg">Deployment</p>
-            </div>
-            <p className="text-white/55">Deploying the product to the production environment and ensuring it is ready for use by end-users.</p>
-          </div>
-          <div className="w-full bg-black border-white/20 border p-4 rounded-lg">
-            <div className="flex gap-3">
-              <Wrench className="text-sky-400" size={24} />
-              <p className="text-lg">Post-Launch Support</p>
-            </div>
-            <p className="text-white/55">Providing ongoing support and maintenance to ensure the product continues to meet user needs and adapts to any changes in the market.</p>
-          </div>
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.title}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={cardVariants}
+            >
+              <ProcessCard {...step} />
+            </motion.div>
+          ))}
         </div>
+        
       </div>
     </div>
   )
