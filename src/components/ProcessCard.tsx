@@ -10,7 +10,7 @@ interface ProcessCardProps {
 export default function ProcessCard({ title, description, icon }: ProcessCardProps) {
   return (
     <motion.div
-      className="relative overflow-hidden md:min-h-36 rounded-lg border border-white/20 backdrop-blur-md text-white p-9 shadow-md group"
+      className={`relative overflow-hidden rounded-lg border border-white/20 backdrop-blur-md text-white p-9 shadow-md group`}
       whileHover="hover"
       initial="rest"
       animate="rest"
