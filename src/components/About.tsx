@@ -17,8 +17,6 @@ export default function About() {
     bgPosition = "center_31%";
   } else if (width >= 414) {
     bgPosition = "center_29%";
-  } else if (width >= 393) {
-    bgPosition = "center_24%";
   } else if (width >= 390) {
     bgPosition = "center_23%";
   } else if (width >= 375) {
@@ -47,7 +45,7 @@ export default function About() {
         </div>
 
       
-        {/****************** BACKGROUND ********************/}
+        {/****************** PROFESSIONAL BACKGROUND ********************/}
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}

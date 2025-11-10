@@ -13,13 +13,13 @@ export default function Nav() {
       let startAbout = 700;
       let startProjects = 1800;
       let startServices = 2700;
-      let startContact = 3700;
+      let startContact = 4970;
 
       if (window.innerWidth < 440) {
         startAbout = 600;
         startProjects = 2600;
         startServices = 4300;
-        startContact = 6370;
+        startContact = 8000;
       }
 
       home?.classList.toggle("opacity-100", y < startAbout);

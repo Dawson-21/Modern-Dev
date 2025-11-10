@@ -16,34 +16,22 @@ const testimonials: Testimonial[] = [
       "I recently hired Dawson to build my website, and he did an outstanding job. His professionalism, creativity, and technical skills resulted in a sleek, user-friendly site that perfectly captures my brand. He communicated clearly throughout the process and delivered on time. I highly recommend Dawson for anyone needing a top-notch web developer!",
   },
   {
-    name: "Morgan S.",
-    role: "E-commerce Business Owner",
+    name: "Cameron R.",
+    role: "Small Business Owner",
     quote:
-      "The website Dawson built for my shop has completely transformed how I engage with customers. He understood my goals and built a solution that works perfectly.",
+      "Working with Dawson was a seamless experience from start to finish. He transformed our vague ideas into a fast, visually stunning website that perfectly represents our business. His attention to detail and technical skill are truly next-level.",
   },
   {
-    name: "Sam T.",
-    role: "Nonprofit Coordinator",
+    name: "Troy K.",
+    role: "Small Business Owner",
     quote:
-      "From the initial consult to launch, Dawson was professional, attentive, and full of great ideas. Our new site is modern, easy to use, and exactly what we needed.",
+      "Dawson exceeded every expectation. Our new website not only looks incredible but performs flawlessly on every device. He was responsive, knowledgeable, and clearly passionate about his craft—an absolute professional who genuinely cares about the end result.",
   },
   {
-    name: "Casey L.",
-    role: "Freelance Photographer",
+    name: "Brian A.",
+    role: "Small Business Owner",
     quote:
-      "Dawson delivered a sleek, responsive portfolio site that perfectly captured my style. The whole process was smooth, and I couldn’t be happier.",
-  },
-  {
-    name: "Taylor R.",
-    role: "Marketing Director",
-    quote:
-      "The professionalism and attention to detail were outstanding. Our site looks and performs better than ever!",
-  },
-  {
-    name: "Alex G.",
-    role: "Startup Founder",
-    quote:
-      "Dawson understood our needs right away and delivered exactly what we wanted — on time and beyond expectations.",
+      "Dawson designed our company’s logo here in Washington, and it completely elevated our brand. He captured our pool and spa aesthetic with a clean, modern look that customers instantly recognize. The result was professional, timeless, and exactly what we envisioned.",
   },
 ];
 
