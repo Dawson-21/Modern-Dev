@@ -1,6 +1,6 @@
-// import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 
-// function ScrollY() {
+function ScrollY() {
 //  const [scrollY, setScrollY] = useState(0);
 
 //   useEffect(() => {
@@ -20,6 +20,6 @@
 //       <p>Width = {width}</p> 
 //     </div>
 //   );
-// }
+}
 
-// export default ScrollY
+export default ScrollY
