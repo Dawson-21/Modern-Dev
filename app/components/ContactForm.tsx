@@ -185,7 +185,7 @@ export default function ContactForm() {
           <motion.button
             type="submit"
             whileHover={{
-              scale: 1.05,
+              scale: 1.1,
               backgroundColor: "rgba(255, 255, 255, 1)",
             }}
             transition={{ duration: 0.2, ease: "easeInOut" }}

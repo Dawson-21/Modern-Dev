@@ -41,7 +41,7 @@ export default function Hero() {
               backgroundColor: "rgba(255, 255, 255, 0.3)",
             }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="bg-sky-950 border-2 border-white text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold cursor-pointer"
+            className="bg-black/70 border-2 border-sky-500 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold cursor-pointer"
           >
             Learn More
           </motion.button>
@@ -57,7 +57,7 @@ export default function Hero() {
               backgroundColor: "rgba(255, 255, 255, 0.3)",
             }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="bg-sky-950 border-2 border-white text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold cursor-pointer"
+            className="bg-black/70 border-2 border-sky-500 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold cursor-pointer"
           >
             View Featured Projects
           </motion.button>
