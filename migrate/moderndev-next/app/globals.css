@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@source "./app/**/*.{js,jsx,ts,tsx}";
+
+@layer components {
+  .hex-btn {
+    @apply relative w-[4.5rem] h-[4rem] sm:w-[3.5rem] sm:h-[3rem] flex justify-center items-center bg-neutral-600 text-white font-semibold transition-all duration-500 rotate-[30deg];
+  }
+
+  .nav-icon {
+    @apply opacity-50 hover:opacity-100 transform group-hover:scale-[1.45] transition duration-200 ease-in-out;
+  }
+
+  .nav-label {
+    @apply hidden sm:block opacity-0 group-hover:opacity-100 hover:opacity-0 cursor-default rounded-md w-fit h-fit bg-sky-950 text-gray-200 text-sm translate-y-12 -mt-5 px-2;
+  }
+
+  .tech-item {
+    @apply bg-neutral-800 h-8 px-1 rounded-md flex flex-row items-center gap-1;
+  }
+}

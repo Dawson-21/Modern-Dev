@@ -1,14 +1,20 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,22 +33,27 @@ export default function ContactForm() {
     }
   };
 
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: 'easeOut' }}
+      transition={{ duration: 1, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
       className="w-full max-w-2xl mx-auto p-6 bg-black backdrop-blur-md rounded-lg border border-white/20"
     >
-      <h2 className="text-2xl font-semibold text-white mb-4 text-center">Let's Work Together!</h2>
-      <p className='text-white/55 mb-4 text-center px-5 md:px-30'>I would love to hear about your project and discuss how I can help bring your vision to life.</p>
+      <h2 className="text-2xl font-semibold text-white mb-4 text-center">
+        Let's Work Together!
+      </h2>
+      <p className="text-white/55 mb-4 text-center px-5 md:px-30">
+        I would love to hear about your project and discuss how I can help bring
+        your vision to life.
+      </p>
       <form onSubmit={handleSubmit} className="space-y-5">
-
         {/* Name */}
         <div>
-          <label htmlFor="name" className="block text-sm text-white mb-1">Name</label>
+          <label htmlFor="name" className="block text-sm text-white mb-1">
+            Name
+          </label>
           <input
             type="text"
             name="name"
@@ -56,7 +67,9 @@ export default function ContactForm() {
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm text-white mb-1">Email</label>
+          <label htmlFor="email" className="block text-sm text-white mb-1">
+            Email
+          </label>
           <input
             type="email"
             name="email"
@@ -70,7 +83,9 @@ export default function ContactForm() {
 
         {/* Message */}
         <div>
-          <label htmlFor="message" className="block text-sm text-white mb-1">Message</label>
+          <label htmlFor="message" className="block text-sm text-white mb-1">
+            Message
+          </label>
           <textarea
             name="message"
             rows={5}
@@ -93,5 +108,5 @@ export default function ContactForm() {
         </div>
       </form>
     </motion.div>
-  )
+  );
 }
