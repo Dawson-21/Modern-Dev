@@ -108,7 +108,7 @@ export default function Nav() {
 
   return (
     <nav className="fixed top-0 z-999 h-fit w-full" aria-label="Primary">
-      <div className="mx-auto mt-5 flex w-fit items-center justify-center rounded-full border-2 border-sky-950 bg-black/70 p-2 text-white backdrop-blur-lg max-sm:px-4 sm:p-2 lg:px-5">
+      <div className="mx-auto mt-5 flex w-fit items-center justify-center rounded-full border-2 border-sky-900 bg-black/70 p-2 text-white backdrop-blur-lg max-sm:px-4 sm:p-2 lg:px-5">
         <div className="container mx-auto flex items-center justify-center">
           <button
             type="button"

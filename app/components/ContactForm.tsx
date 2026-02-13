@@ -188,7 +188,7 @@ export default function ContactForm() {
               scale: 1.1,
               backgroundColor: "rgba(255, 255, 255, 1)",
             }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            transition={{ duration: 0.001, ease: "easeInOut" }}
             className="cursor-pointer rounded-full bg-white/90 px-6 py-2 font-semibold text-black transition duration-200 ease-in-out hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 disabled:cursor-not-allowed disabled:opacity-70"
             disabled={isSubmitting}
           >
