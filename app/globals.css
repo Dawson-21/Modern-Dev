@@ -1,8 +1,9 @@
 @import "tailwindcss";
+@source "./app/**/*.{js,jsx,ts,tsx}";
 
 @layer components {
   .hex-btn {
-    @apply relative w-18 h-16 sm:w-14 sm:h-12 flex justify-center items-center bg-neutral-600 text-white font-semibold group-hover:bg-sky-900 hover:bg-white/80 transition-all duration-500 rotate-30 group-hover:scale-115;
+    @apply relative w-[4.5rem] h-[4rem] sm:w-[3.5rem] sm:h-[3rem] flex justify-center items-center bg-neutral-600 text-white font-semibold transition-all duration-500 rotate-[30deg];
   }
 
   .nav-icon {

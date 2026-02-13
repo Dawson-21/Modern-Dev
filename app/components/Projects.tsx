@@ -1,21 +1,24 @@
-import ProjectCard from "./ProjectCard"
-import { motion } from "framer-motion"
+"use client";
+
+import ProjectCard from "./ProjectCard";
+import { motion } from "framer-motion";
 
 function Projects() {
   return (
-    <div id='projectsSection' className="w-full h-fit">
-      <div className="flex flex-col items-left justify-center max-w-[1100px] mx-auto px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px]">
+    <div id="projectsSection" className="w-full h-fit">
+      <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
         <div className="flex flex-row w-full items-center justify-left mt-20">
-          <p className="text-sm sm:text-base text-white/55 w-44 sm:w-40">Featured Projects</p>
-          <hr className="w-full border-t-1 border-white/15 mt-4 mb-3"/>
+          <p className="text-sm sm:text-base text-white/55 w-44 sm:w-40">
+            Featured Projects
+          </p>
+          <hr className="w-full border-t border-white/15 mt-4 mb-3" />
         </div>
 
         <div className="grid md:grid-cols-2 pt-10 gap-6 sm:gap-6 items-start justify-start">
-          
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
             <ProjectCard
@@ -24,7 +27,7 @@ function Projects() {
               shortDescription="This project launched an online footprint for Texas Gutter Service, a new small business with limited digital presence. I designed a professional logo to establish their brand identity and built a clean, mobile-responsive site showcasing their gutter services. The work included setting up key pages, adding lead-generation forms, and making the site easy for the client to update. The new branding and website gave the business..."
               longDescription="This project launched an online footprint for Texas Gutter Service, a new small business with limited digital presence. I designed a professional logo to establish their brand identity and built a clean, mobile-responsive site showcasing their gutter services. The work included setting up key pages, adding lead-generation forms, and making the site easy for the client to update. The new branding and website gave the business credibility and helped attract local customers."
               problem="Texas Gutter Service was a new small business with no website, making it hard for customers to find or contact them."
-              solution="I built a responsive WordPress site from scratch tailored to their services, with easy navigation, modern branding, and a lead-generation contact form. I also designed a professional logo to establish their brand identity and give them a more polished look."
+              solution="I built a responsive WordPress site tailored to their services, with easy navigation, modern branding, and a lead-generation contact form. I also designed a professional logo to establish their brand identity and give them a more polished look."
               results="The new branding and website gave the business credibility and visibility, leading to an increase in inquiries and a steady stream of new local customers."
               technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
               imageUrl="/TGS.png"
@@ -36,9 +39,9 @@ function Projects() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
-          > 
+          >
             <ProjectCard
               title="Clayton Demolition"
               scope="Frontend Web Development"
@@ -57,7 +60,7 @@ function Projects() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
             <ProjectCard
@@ -78,7 +81,7 @@ function Projects() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
             <ProjectCard
@@ -98,7 +101,7 @@ function Projects() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Projects
+export default Projects;

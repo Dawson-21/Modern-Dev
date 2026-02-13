@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
@@ -7,7 +9,11 @@ interface ProcessCardProps {
   icon?: ReactNode;
 }
 
-export default function ProcessCard({ title, description, icon }: ProcessCardProps) {
+export default function ProcessCard({
+  title,
+  description,
+  icon,
+}: ProcessCardProps) {
   return (
     <motion.div
       className={`relative overflow-hidden rounded-lg border border-white/20 backdrop-blur-md text-white p-9 shadow-md group`}
@@ -31,7 +37,9 @@ export default function ProcessCard({ title, description, icon }: ProcessCardPro
           {icon && <div className="text-sky-400">{icon}</div>}
           <h3 className="text-xl font-semibold">{title}</h3>
         </div>
-        <p className="text-white/80 group-hover:text-white">{description}</p>
+        <p className="text-white/80 group-hover:text-white group-focus-within:text-white group-active:text-white">
+          {description}
+        </p>
       </div>
     </motion.div>
   );
