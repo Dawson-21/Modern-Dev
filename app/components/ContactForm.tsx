@@ -72,7 +72,7 @@ export default function ContactForm() {
       <h2 className="mb-4 text-center text-2xl font-semibold text-white">
         Let&apos;s Build Something Great
       </h2>
-      <p className="mb-4 px-5 text-center text-white/70 md:px-30">
+      <p className="mb-4 px-5 text-center text-white/70 md:px-10">
         Tell me about your project and what you are looking to achieve. I will
         review the details and get back to you within 24 hours.
       </p>
