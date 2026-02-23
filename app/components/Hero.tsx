@@ -12,7 +12,7 @@ export default function Hero() {
 
   return (
     <>
-      <div className="fixed top-0 -z-999 w-full h-screen bg-[url(/hero-bg.jpg)] bg-bottom-right sm:bg-center bg-no-repeat bg-cover bg-fixed">
+      <div className="fixed top-0 -z-999 w-full h-screen bg-[url(/hero-bg2.jpg)] sm:bg-[url(/hero-bg.jpg)] bg-center bg-no-repeat bg-cover bg-fixed">
         <div className="w-full h-screen bg-linear-to-tr from-blue-950/60 via-black/60 to-yellow-900/60"></div>
       </div>
       <motion.div
