@@ -42,7 +42,6 @@ export default function Carousel() {
   const [isHovering, setIsHovering] = useState(false);
 
   const quoteLength = testimonials[currentIndex].quote.length;
-  console.log("Quote length:", quoteLength);
   let size = "text-[15px]";
   if (quoteLength < 120) size = "text-[20px]";
   else if (quoteLength < 200) size = "text-[19px]";

@@ -15,23 +15,47 @@ import {
   PenTool,
 } from "lucide-react";
 import ServiceCard from "./ServiceCard";
-import { motion } from "framer-motion";
-import type { Variants } from "framer-motion";
 
-// Animation variants
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: () => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function ServicesSection() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const rows = gsap.utils.toArray<HTMLElement>(".service-row");
+
+    rows.forEach((row) => {
+      gsap.fromTo(
+        row,
+        {
+          rotateX: -110,
+          filter: "brightness(0.6)",
+          transformPerspective: 1200,
+          transformOrigin: "top center",
+        },
+        {
+          rotateX: 0,
+          filter: "brightness(1)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: row,
+            start: "top bottom",
+            end: "top 50%",
+            scrub: true,
+          },
+        },
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   const services = [
     {
       title: "Custom Website Development",
@@ -107,27 +131,37 @@ export default function ServicesSection() {
     },
   ];
 
+  // Split into rows of 3
+  const rows = [];
+  for (let i = 0; i < services.length; i += 3) {
+    rows.push(services.slice(i, i + 3));
+  }
+
   return (
-    <div id="servicesSection" className="w-full h-fit">
+    <div
+      id="servicesSection"
+      ref={containerRef}
+      className="w-full h-fit"
+      style={{ perspective: 1200 }}
+    >
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
         <div className="flex flex-row w-full items-center justify-left mb-10 mt-20">
           <p className="text-sm sm:text-base text-white/55 w-18">Services</p>
           <hr className="w-full border-t border-white/15 mt-4 mb-3" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              className="h-full"
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={cardVariants}
+        <div className="flex flex-col gap-6">
+          {rows.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              className="service-row grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 will-change-transform"
             >
-              <ServiceCard {...service} />
-            </motion.div>
+              {row.map((service) => (
+                <div key={service.title} className="h-full">
+                  <ServiceCard {...service} />
+                </div>
+              ))}
+            </div>
           ))}
         </div>
       </div>
