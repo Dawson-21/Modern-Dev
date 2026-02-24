@@ -14,7 +14,7 @@ function App() {
     <main id="main-content">
       {/* Background Image */}
       <div
-        className="fixed inset-x-0 top-0 bottom-[-20px] -z-50 bg-[url('/hero-bg2.jpg')] 
+        className="fixed inset-0 -z-50 bg-[url('/hero-bg2.jpg')] 
                   sm:bg-[url('/hero-bg.jpg')] 
                   bg-center bg-no-repeat bg-cover
                   will-change-transform"
