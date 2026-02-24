@@ -14,14 +14,14 @@ function App() {
     <main id="main-content">
       {/* Background Image */}
       <div
-        className="fixed inset-x-0 max-sm:top-0 max-sm:-bottom-20 sm:inset-0 -z-50 bg-[url('/mobile-hero.png')] 
+        className="fixed inset-x-0 max-sm:top-0 max-sm:-bottom-24 sm:inset-0 -z-50 bg-[url('/mobile-hero.png')] 
                   sm:bg-[url('/hero-bg.jpg')] 
                   bg-center bg-no-repeat bg-cover
                   will-change-transform"
         style={{ transform: "translateZ(0)" }}
       />
       {/* Background Overlay */}
-      <div className="fixed inset-x-0 max-sm:top-0 max-sm:-bottom-20 sm:inset-0 -z-40 bg-linear-to-tr from-blue-950/60 via-black/60 to-yellow-900/60" />
+      <div className="fixed inset-0 max-sm:pb-24 -z-40 bg-linear-to-tr from-blue-950/60 via-black/60 to-yellow-900/60" />
 
       <Nav />
       <Hero />
