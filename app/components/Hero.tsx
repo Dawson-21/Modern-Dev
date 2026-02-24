@@ -11,17 +11,27 @@ export default function Hero() {
   };
 
   return (
-    <>
-      <div className="fixed top-0 -z-999 w-full h-dvh bg-[url(/hero-bg2.jpg)] sm:bg-[url(/hero-bg.jpg)] bg-center bg-no-repeat sm:bg-cover">
-        <div className="w-full h-dvh bg-linear-to-tr from-blue-950/60 via-black/60 to-yellow-900/60"></div>
-      </div>
+    <section
+      id="homeSection"
+      className="relative min-h-[100svh] min-h-dvh w-full flex flex-col justify-center items-center overflow-hidden"
+    >
+      {/* <div
+        className="absolute inset-0 -z-20 bg-[url('/hero-bg2.jpg')] 
+                   sm:bg-[url('/hero-bg.jpg')] 
+                   bg-center bg-no-repeat bg-cover
+                   will-change-transform"
+        style={{ transform: "translateZ(0)" }}
+      />
+
+      <div className="absolute inset-0 -z-10 bg-linear-to-tr from-blue-950/60 via-black/60 to-yellow-900/60" /> */}
+
+      {/* Content */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="w-full h-screen mr-auto place-self-center items-center flex flex-col justify-center"
-        id="homeSection"
+        className="relative z-10 text-center"
       >
         <img
           src="Hero-logo2.png"
@@ -29,40 +39,28 @@ export default function Hero() {
           className="w-[75vw] sm:w-[55vw] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] 2xl:w-[25vw]"
         />
 
-        <div className="flex flex-row pt-8 space-x-2 sm:space-x-5 md:space-x-10">
+        <div className="flex justify-center pt-8 space-x-2 sm:space-x-5 md:space-x-10">
           <motion.button
             onClick={() => handleClick("aboutSection")}
-            whileHover={{
-              scale: 1.15,
-              backgroundColor: "rgba(255, 255, 255, 0.3)",
-            }}
-            whileTap={{
-              scale: 1.15,
-              backgroundColor: "rgba(255, 255, 255, 0.3)",
-            }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="bg-black/70 border-2 border-sky-900 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold cursor-pointer"
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+            className="bg-black/70 border-2 border-sky-900 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold"
           >
             Learn More
           </motion.button>
 
           <motion.button
             onClick={() => handleClick("projectsSection")}
-            whileHover={{
-              scale: 1.15,
-              backgroundColor: "rgba(255, 255, 255, 0.3)",
-            }}
-            whileTap={{
-              scale: 1.15,
-              backgroundColor: "rgba(255, 255, 255, 0.3)",
-            }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="bg-black/70 border-2 border-sky-900 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold cursor-pointer"
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+            className="bg-black/70 border-2 border-sky-900 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold"
           >
             View Featured Projects
           </motion.button>
         </div>
       </motion.div>
-    </>
+    </section>
   );
 }
