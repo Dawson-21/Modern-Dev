@@ -213,11 +213,11 @@ export default function About() {
               className={`size-full bg-size-[120%_auto] sm:bg-cover bg-no-repeat sm:bg-center bg-center group`}
             >
               <div className="flex flex-col justify-center p-5 max-sm:pt-20">
-                <div className="relative h-38 flex items-center justify-center">
+                <div className="relative h-38 md:h-52 lg:h-38 flex items-center justify-center">
                   {/* Facebook */}
                   <motion.button
-                    className="absolute left-1/2 -translate-x-[197%] -translate-y-[0.5px]
-                              w-16 h-14 sm:w-14 sm:h-12 
+                    className="absolute left-1/2 -translate-x-[159%] sm:-translate-x-[212.5%] lg:-translate-x-[197%] translate-y-1.25 sm:-translate-y-2.25 lg:-translate-y-[0.5px]
+                              w-20 h-17 sm:w-14 sm:h-12 
                               flex items-center justify-center 
                               rotate-[30deg]"
                     style={{
@@ -231,7 +231,7 @@ export default function About() {
                   >
                     <a href="#" target="_blank">
                       <img
-                        className="-rotate-[30deg] w-12"
+                        className="-rotate-[30deg] w-16 sm:w-12"
                         src="/icon-fb.svg"
                       />
                     </a>
@@ -239,8 +239,8 @@ export default function About() {
 
                   {/* GitHub (Center Top) */}
                   <motion.button
-                    className="absolute left-1/2 -translate-x-[50%] -translate-y-[47.5px]
-                              w-16 h-14 sm:w-14 sm:h-12
+                    className="absolute left-1/2 -translate-x-[105%] sm:-translate-x-[50%] -translate-y-17.25 sm:-translate-y-[60.5px] lg:-translate-y-[47.5px]
+                              w-20 h-17 sm:w-14 sm:h-12
                               flex items-center justify-center
                               rotate-[30deg]"
                     style={{
@@ -254,7 +254,7 @@ export default function About() {
                   >
                     <a href="https://github.com/Dawson-21" target="_blank">
                       <img
-                        className="-rotate-[30deg] w-12"
+                        className="-rotate-[30deg] w-16 sm:w-12"
                         src="/icon-github.svg"
                       />
                     </a>
@@ -262,8 +262,8 @@ export default function About() {
 
                   {/* Instagram */}
                   <motion.button
-                    className="absolute left-1/2 translate-x-[98%] -translate-y-[0.5px]
-                              w-16 h-14 sm:w-14 sm:h-12
+                    className="absolute left-1/2 translate-x-[57.5%] sm:translate-x-[111%] lg:translate-x-[98%] translate-y-1.25 sm:-translate-y-[8.5px] lg:-translate-y-[0.5px]
+                              w-20 h-17 sm:w-14 sm:h-12
                               flex items-center justify-center
                               rotate-[30deg]"
                     style={{
@@ -277,7 +277,7 @@ export default function About() {
                   >
                     <a href="#" target="_blank">
                       <img
-                        className="-rotate-[30deg] w-10"
+                        className="-rotate-[30deg] w-13 sm:w-10"
                         src="/icon-insta.svg"
                       />
                     </a>
@@ -285,8 +285,8 @@ export default function About() {
 
                   {/* LinkedIn (Bottom Center) */}
                   <motion.button
-                    className="absolute left-1/2 -translate-x-[50%] translate-y-[46.5px]
-                              w-16 h-14 sm:w-14 sm:h-12
+                    className="absolute left-1/2 translate-x-[3%] sm:-translate-x-[50%] -translate-y-17.25 sm:translate-y-[43px] lg:translate-y-[46.5px]
+                              w-20 h-17 sm:w-14 sm:h-12
                               flex items-center justify-center
                               rotate-[30deg]"
                     style={{
@@ -303,7 +303,7 @@ export default function About() {
                       target="_blank"
                     >
                       <img
-                        className="-rotate-[30deg] w-10"
+                        className="-rotate-[30deg] w-13 sm:w-10"
                         src="/icon-linkedin.svg"
                       />
                     </a>

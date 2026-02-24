@@ -42,11 +42,13 @@ export default function Carousel() {
   const [isHovering, setIsHovering] = useState(false);
 
   const quoteLength = testimonials[currentIndex].quote.length;
+  console.log("Quote length:", quoteLength);
   let size = "text-[15px]";
   if (quoteLength < 120) size = "text-[20px]";
   else if (quoteLength < 200) size = "text-[19px]";
   else if (quoteLength < 240) size = "text-[17px]";
   else if (quoteLength < 280) size = "text-[16px]";
+  else if (quoteLength < 320) size = "text-[14px]";
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
@@ -81,7 +83,7 @@ export default function Carousel() {
       aria-label="Client testimonials"
     >
       <div
-        className="relative min-h-60 items-center justify-center px-6 py-3 transition duration-500 sm:min-h-60"
+        className="relative min-h-68 sm:min-h-62 lg:min-h-56 items-center justify-center px-6 py-3 transition duration-500"
         {...handlers}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
