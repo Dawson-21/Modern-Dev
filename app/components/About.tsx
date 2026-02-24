@@ -33,7 +33,7 @@ const buttonArrowVariants: Variants = {
 const socialsBgVariants: Variants = {
   rest: { backgroundImage: "url(/hex.png)" },
   hover: {
-    backgroundImage: "url(/hex2.png)",
+    backgroundImage: "url(/hex-hover.png)",
     transition: { duration: 0.1, ease: "easeInOut" },
   },
 };
@@ -51,9 +51,9 @@ const socialsTextVariants: Variants = {
 const socialButtonVariants: Variants = {
   rest: { scale: 1, backgroundColor: "rgb(82, 82, 82)" },
   hover: {
-    scale: 1.1,
-    backgroundColor: "rgb(255, 255, 255, 1)",
-    transition: { duration: 0.001, ease: "easeInOut" },
+    scale: 1.15,
+    backgroundColor: "rgb(2, 74, 112)",
+    transition: { duration: 0.1, ease: "easeInOut" },
   },
 };
 
@@ -95,19 +95,6 @@ export default function About() {
       setBgPosition("center 18%");
     }
   }, []);
-
-  // let bgPosition = "center_14%"; // Default for mobile
-
-  // let width = window.innerWidth;
-  // if (width >= 428) {
-  //   bgPosition = "center_31%";
-  // } else if (width >= 414) {
-  //   bgPosition = "center_29%";
-  // } else if (width >= 390) {
-  //   bgPosition = "center_23%";
-  // } else if (width >= 375) {
-  //   bgPosition = "center_18%";
-  // }
 
   useEffect(() => {
     const updateBg = () => {
@@ -167,8 +154,6 @@ export default function About() {
           <hr className="w-full border-t border-white/20 mt-4 mb-3" />
         </div>
 
-        {/****************** PROFESSIONAL BACKGROUND ********************/}
-
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -176,7 +161,7 @@ export default function About() {
           viewport={{ once: true }}
           className="grid grid-cols-2 sm:grid-cols-7 gap-4 mt-10"
         >
-          {" "}
+          {/****************** PROFESSIONAL BACKGROUND ********************/}{" "}
           <motion.div
             className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 lg:col-span-5"
             initial="rest"
@@ -225,13 +210,16 @@ export default function About() {
           >
             <motion.div
               variants={socialsBgVariants}
-              className={`size-full bg-size-[120%_auto] sm:bg-cover bg-no-repeat sm:bg-center bg-center`}
+              className={`size-full bg-size-[120%_auto] sm:bg-cover bg-no-repeat sm:bg-center bg-center group`}
             >
-              <div className="flex flex-col justify-center p-5 max-sm:pt-20 h-full">
-                <div className="h-36 sm:h-36 place-items-center">
+              <div className="flex flex-col justify-center p-5 max-sm:pt-20">
+                <div className="relative h-38 flex items-center justify-center">
                   {/* Facebook */}
                   <motion.button
-                    className="-ml-[40%] sm:-ml-[63%] translate-y-5.75 sm:translate-y-10.5 hex-btn"
+                    className="absolute left-1/2 -translate-x-[197%] -translate-y-[0.5px]
+                              w-16 h-14 sm:w-14 sm:h-12 
+                              flex items-center justify-center 
+                              rotate-[30deg]"
                     style={{
                       clipPath:
                         "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
@@ -242,12 +230,19 @@ export default function About() {
                     animate="rest"
                   >
                     <a href="#" target="_blank">
-                      <img className="-rotate-30 w-12" src="/icon-fb.svg" />
+                      <img
+                        className="-rotate-[30deg] w-12"
+                        src="/icon-fb.svg"
+                      />
                     </a>
                   </motion.button>
-                  {/* GitHub */}
+
+                  {/* GitHub (Center Top) */}
                   <motion.button
-                    className="-mt-12 max-sm:-translate-y-11 max-sm:-mt-16 max-sm:mb-4 hex-btn"
+                    className="absolute left-1/2 -translate-x-[50%] -translate-y-[47.5px]
+                              w-16 h-14 sm:w-14 sm:h-12
+                              flex items-center justify-center
+                              rotate-[30deg]"
                     style={{
                       clipPath:
                         "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
@@ -258,12 +253,19 @@ export default function About() {
                     animate="rest"
                   >
                     <a href="https://github.com/Dawson-21" target="_blank">
-                      <img className="-rotate-30 w-12" src="/icon-github.svg" />
+                      <img
+                        className="-rotate-[30deg] w-12"
+                        src="/icon-github.svg"
+                      />
                     </a>
                   </motion.button>
+
                   {/* Instagram */}
                   <motion.button
-                    className="-mt-15 sm:-mt-12 ml-[40%] sm:ml-[62%] translate-y-0.5 sm:translate-y-10.5 hex-btn"
+                    className="absolute left-1/2 translate-x-[98%] -translate-y-[0.5px]
+                              w-16 h-14 sm:w-14 sm:h-12
+                              flex items-center justify-center
+                              rotate-[30deg]"
                     style={{
                       clipPath:
                         "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
@@ -274,12 +276,19 @@ export default function About() {
                     animate="rest"
                   >
                     <a href="#" target="_blank">
-                      <img className="-rotate-30 w-10" src="/icon-insta.svg" />
+                      <img
+                        className="-rotate-[30deg] w-10"
+                        src="/icon-insta.svg"
+                      />
                     </a>
                   </motion.button>
-                  {/* LinkedIn */}
+
+                  {/* LinkedIn (Bottom Center) */}
                   <motion.button
-                    className="-mt-1.75 translate-y-3 sm:translate-y-10.5 hex-btn"
+                    className="absolute left-1/2 -translate-x-[50%] translate-y-[46.5px]
+                              w-16 h-14 sm:w-14 sm:h-12
+                              flex items-center justify-center
+                              rotate-[30deg]"
                     style={{
                       clipPath:
                         "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
@@ -294,16 +303,14 @@ export default function About() {
                       target="_blank"
                     >
                       <img
-                        className="-rotate-30 w-10"
+                        className="-rotate-[30deg] w-10"
                         src="/icon-linkedin.svg"
                       />
                     </a>
                   </motion.button>
                 </div>
-                <motion.div
-                  variants={socialsShiftVariants}
-                  className="max-sm:pt-0"
-                >
+
+                <motion.div variants={socialsShiftVariants}>
                   <h2 className="text-xl font-bold">Reach Out</h2>
                   <motion.p
                     variants={socialsTextVariants}

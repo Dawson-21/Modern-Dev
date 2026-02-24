@@ -15,17 +15,6 @@ export default function Hero() {
       id="homeSection"
       className="relative min-h-[100svh] min-h-dvh w-full flex flex-col justify-center items-center overflow-hidden"
     >
-      {/* <div
-        className="absolute inset-0 -z-20 bg-[url('/hero-bg2.jpg')] 
-                   sm:bg-[url('/hero-bg.jpg')] 
-                   bg-center bg-no-repeat bg-cover
-                   will-change-transform"
-        style={{ transform: "translateZ(0)" }}
-      />
-
-      <div className="absolute inset-0 -z-10 bg-linear-to-tr from-blue-950/60 via-black/60 to-yellow-900/60" /> */}
-
-      {/* Content */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

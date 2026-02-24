@@ -3,7 +3,7 @@
 
 @layer components {
   .hex-btn {
-    @apply relative w-[4.5rem] h-[4rem] sm:w-[3.5rem] sm:h-[3rem] flex justify-center items-center bg-neutral-600 text-white font-semibold transition-all duration-500 rotate-[30deg];
+    @apply relative w-[4.5rem] h-[4rem] sm:w-[3.5rem] sm:h-[3rem] flex justify-center items-center rotate-[30deg];
   }
 
   .nav-icon {
