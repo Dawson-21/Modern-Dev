@@ -16,45 +16,12 @@ import {
 } from "lucide-react";
 import ServiceCard from "./ServiceCard";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function ServicesSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const rows = gsap.utils.toArray<HTMLElement>(".service-row");
-
-    rows.forEach((row) => {
-      gsap.fromTo(
-        row,
-        {
-          rotateX: -110,
-          filter: "brightness(0.6)",
-          transformPerspective: 1200,
-          transformOrigin: "top center",
-        },
-        {
-          rotateX: 0,
-          filter: "brightness(1)",
-          ease: "none",
-          scrollTrigger: {
-            trigger: row,
-            start: "top bottom",
-            end: "top 50%",
-            scrub: true,
-          },
-        },
-      );
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
 
   const services = [
     {
@@ -131,11 +98,64 @@ export default function ServicesSection() {
     },
   ];
 
-  // Split into rows of 3
+  const [columns, setColumns] = useState(3);
+
+  useEffect(() => {
+    const updateColumns = () => {
+      if (window.innerWidth >= 1024) {
+        setColumns(3); // lg
+      } else if (window.innerWidth >= 640) {
+        setColumns(2); // sm
+      } else {
+        setColumns(1); // mobile
+      }
+
+      ScrollTrigger.refresh();
+    };
+
+    updateColumns();
+    window.addEventListener("resize", updateColumns);
+
+    return () => window.removeEventListener("resize", updateColumns);
+  }, []);
+
   const rows = [];
-  for (let i = 0; i < services.length; i += 3) {
-    rows.push(services.slice(i, i + 3));
+  for (let i = 0; i < services.length; i += columns) {
+    rows.push(services.slice(i, i + columns));
   }
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const rows = gsap.utils.toArray<HTMLElement>(".service-row");
+
+    rows.forEach((row) => {
+      gsap.fromTo(
+        row,
+        {
+          rotateX: -110,
+          filter: "brightness(0.6)",
+          transformPerspective: 1200,
+          transformOrigin: "top center",
+        },
+        {
+          rotateX: 0,
+          filter: "brightness(1)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: row,
+            start: "top bottom",
+            end: "top 50%",
+            scrub: true,
+          },
+        },
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [columns]);
 
   return (
     <div
