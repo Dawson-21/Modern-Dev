@@ -10,48 +10,23 @@ import {
   Wrench,
 } from "lucide-react";
 import ProcessCard from "./ProcessCard";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// Animation variants
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: () => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
 
 function Process() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray<HTMLElement>(".process-card");
-
-      cards.forEach((card) => {
-        gsap.fromTo(
-          card,
-          {
-            rotateX: -110,
-            filter: "brightness(0.6)",
-            transformPerspective: 1200,
-            transformOrigin: "top center",
-          },
-          {
-            rotateX: 0,
-            filter: "brightness(1)",
-            ease: "none",
-            scrollTrigger: {
-              trigger: card,
-              start: "top bottom",
-              end: "top 50%",
-              scrub: true,
-            },
-          },
-        );
-      });
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
   const steps = [
     {
       title: "Stakeholder Consultation",
@@ -100,10 +75,8 @@ function Process() {
   return (
     <section
       id="processSection"
-      ref={containerRef}
       aria-labelledby="process-heading"
       className="w-full h-fit"
-      style={{ perspective: 1200 }}
     >
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
         <div className="flex flex-row w-full items-center justify-left mb-10 mt-20">
@@ -116,14 +89,18 @@ function Process() {
           <hr className="w-full border-t border-white/15 mt-4 mb-3" />
         </div>
 
-        <div className="flex flex-col gap-6">
-          {steps.map((step) => (
-            <div
+        <div className="flex flex-col items-left justify-center text-white gap-5">
+          {steps.map((step, index) => (
+            <motion.div
               key={step.title}
-              className="process-card will-change-transform"
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={cardVariants}
             >
               <ProcessCard {...step} />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
