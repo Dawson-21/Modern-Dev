@@ -21,7 +21,7 @@ function App() {
         style={{ transform: "translateZ(0)" }}
       />
       {/* Background Overlay */}
-      <div className="fixed inset-0 max-sm:h-[120%] max-sm:translate-y-5 -z-40 bg-linear-to-tr from-blue-950/60 via-black/60 to-yellow-900/60" />
+      <div className="fixed inset-0 max-sm:h-[120%] -z-40 bg-linear-to-tr from-blue-950/60 via-black/60 to-yellow-900/60" />
 
       <Nav />
       <Hero />
