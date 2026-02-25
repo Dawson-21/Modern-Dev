@@ -212,12 +212,12 @@ export default function About() {
               variants={socialsBgVariants}
               className={`size-full bg-size-[120%_auto] sm:bg-cover bg-no-repeat sm:bg-center bg-center group`}
             >
-              <div className="flex flex-col justify-center p-5 max-sm:pt-20">
-                <div className="relative h-38 md:h-52 lg:h-38 flex items-center justify-center">
+              <div className="flex flex-col justify-center p-5 max-md:pt-20">
+                <div className="relative h-38 sm:h-54 md:h-52 lg:h-38 flex items-center justify-center">
                   {/* Facebook */}
                   <motion.button
-                    className="absolute left-1/2 -translate-x-[159%] sm:-translate-x-[212.5%] lg:-translate-x-[197%] translate-y-1.25 sm:-translate-y-2.25 lg:-translate-y-[0.5px]
-                              w-20 h-17 sm:w-14 sm:h-12 
+                    className="absolute left-1/2 -translate-x-[153%] mobileS:-translate-x-[154%] mobileM:-translate-x-[158%] mobileDroid:-translate-x-[164%] mobileXL:-translate-x-[173%] sm:-translate-x-[107%] md:-translate-x-[212.5%] lg:-translate-x-[189%] xl:-translate-x-[197%] translate-y-3.25 mobileS:translate-y-1 mobileXL:translate-y-1.5 sm:-translate-y-12 md:-translate-y-2.25 lg:translate-y-[2px] xl:-translate-y-[0.5px]
+                              w-17 h-14 mobileS:w-20 mobileS:h-17 sm:w-16 sm:h-14 md:w-14 md:h-12 md:w-14 lg:h-12 
                               flex items-center justify-center 
                               rotate-[30deg]"
                     style={{
@@ -231,7 +231,7 @@ export default function About() {
                   >
                     <a href="#" target="_blank">
                       <img
-                        className="-rotate-[30deg] w-16 sm:w-12"
+                        className="-rotate-[30deg] w-14 mobileS:w-16 sm:w-12"
                         src="/icon-fb.svg"
                       />
                     </a>
@@ -239,8 +239,8 @@ export default function About() {
 
                   {/* GitHub (Center Top) */}
                   <motion.button
-                    className="absolute left-1/2 -translate-x-[105%] sm:-translate-x-[50%] -translate-y-17.25 sm:-translate-y-[60.5px] lg:-translate-y-[47.5px]
-                              w-20 h-17 sm:w-14 sm:h-12
+                    className="absolute left-1/2 -translate-x-[101.5%] mobileS:-translate-x-[103%] mobileM:-translate-x-[104%] mobileDroid:-translate-x-[107%] mobileXL:-translate-x-[112%] sm:-translate-x-[50%] -translate-y-11.75 mobileS:-translate-y-16.75 mobileM:-translate-y-17.25 mobileDroid:-translate-y-18.25 mobileXL:-translate-y-19.5 sm:-translate-y-[111px] md:-translate-y-[60.5px] lg:-translate-y-[42px] xl:-translate-y-[47.5px]
+                              w-17 h-14 mobileS:w-20 mobileS:h-17 sm:w-16 sm:h-14 md:w-14 md:h-12
                               flex items-center justify-center
                               rotate-[30deg]"
                     style={{
@@ -254,7 +254,7 @@ export default function About() {
                   >
                     <a href="https://github.com/Dawson-21" target="_blank">
                       <img
-                        className="-rotate-[30deg] w-16 sm:w-12"
+                        className="-rotate-[30deg] w-14 mobileS:w-16 sm:w-12"
                         src="/icon-github.svg"
                       />
                     </a>
@@ -262,8 +262,8 @@ export default function About() {
 
                   {/* Instagram */}
                   <motion.button
-                    className="absolute left-1/2 translate-x-[57.5%] sm:translate-x-[111%] lg:translate-x-[98%] translate-y-1.25 sm:-translate-y-[8.5px] lg:-translate-y-[0.5px]
-                              w-20 h-17 sm:w-14 sm:h-12
+                    className="absolute left-1/2 translate-x-[52%] mobileM:translate-x-[58%] mobileDroid:translate-x-[64%] mobileXL:translate-x-[73%] sm:translate-x-[8%] md:translate-x-[111%] lg:translate-x-[88%] xl:translate-x-[98%] translate-y-3.25 mobileS:translate-y-1 mobileXL:translate-y-1.5 sm:-translate-y-[48px] md:-translate-y-[8.5px] lg:translate-y-[2px] xl:-translate-y-[0.5px]
+                              w-17 h-14 mobileS:w-20 mobileS:h-17 sm:w-16 sm:h-14 md:w-14 md:h-12
                               flex items-center justify-center
                               rotate-[30deg]"
                     style={{
@@ -277,7 +277,7 @@ export default function About() {
                   >
                     <a href="#" target="_blank">
                       <img
-                        className="-rotate-[30deg] w-13 sm:w-10"
+                        className="-rotate-[30deg] w-12 mobileS:w-14 sm:w-11 md:w-10"
                         src="/icon-insta.svg"
                       />
                     </a>
@@ -285,8 +285,8 @@ export default function About() {
 
                   {/* LinkedIn (Bottom Center) */}
                   <motion.button
-                    className="absolute left-1/2 translate-x-[3%] sm:-translate-x-[50%] -translate-y-17.25 sm:translate-y-[43px] lg:translate-y-[46.5px]
-                              w-20 h-17 sm:w-14 sm:h-12
+                    className="absolute left-1/2 translate-x-[1%] mobileM:translate-x-[3%] mobileDroid:translate-x-[7%] mobileXL:translate-x-[11%] sm:-translate-x-[50%] -translate-y-11.75 mobileS:-translate-y-16.75 mobileM:-translate-y-17.25 mobileDroid:-translate-y-18.25 mobileXL:-translate-y-19.5 sm:translate-y-[14px] md:translate-y-[43px] lg:translate-y-[46.5px]
+                              w-17 h-14 mobileS:w-20 mobileS:h-17 sm:w-16 sm:h-14 md:w-14 md:h-12
                               flex items-center justify-center
                               rotate-[30deg]"
                     style={{
@@ -303,7 +303,7 @@ export default function About() {
                       target="_blank"
                     >
                       <img
-                        className="-rotate-[30deg] w-13 sm:w-10"
+                        className="-rotate-[30deg] w-12 mobileS:w-14 sm:w-11 md:w-10"
                         src="/icon-linkedin.svg"
                       />
                     </a>

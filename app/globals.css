@@ -1,6 +1,29 @@
 @import "tailwindcss";
 @source "./app/**/*.{js,jsx,ts,tsx}";
 
+  /* Default Screen Size iPhone 12 mini 320px */
+  /*mobileS:      23.43rem;  375px Google's Mobile M*/
+  /*mobileM:      24.37rem;  390px iPhone 13*/
+  /*mobileDroid:  25.68rem;  411px Samsung S23*/
+  /*MobileL:      26.5rem;   425px Google's Mobile L*/
+  /*MobileXL:     27.5rem;   440px iPhone 17 Max*/
+  /*sm:           48rem;     640px */
+  /*md:           48rem;     768px Small Tablet*/
+  /*tab:          50rem;     800px Large Tablet*/
+  /*lg:           64rem;     1024px Small Laptop*/
+  /*xl:           80rem;     1280px Medium Laptop*/
+  /*lap:          90rem;     1440px Large Laptop*/
+
+@theme { 
+  --breakpoint-mobileS: 23.43rem; 
+  --breakpoint-mobileM: 24.37rem;
+  --breakpoint-mobileDroid: 25.68rem;
+  --breakpoint-mobileL: 26.5rem;
+  --breakpoint-mobileXL: 27.5rem;
+  --breakpoint-tab: 50rem;
+  --breakpoint-lap: 90rem;
+}
+
 @layer components {
   .hex-btn {
     @apply relative w-[4.5rem] h-[4rem] sm:w-[3.5rem] sm:h-[3rem] flex justify-center items-center rotate-[30deg];

@@ -82,7 +82,7 @@ export default function Carousel() {
       aria-label="Client testimonials"
     >
       <div
-        className="relative min-h-68 sm:min-h-62 lg:min-h-56 items-center justify-center px-6 py-3 transition duration-500"
+        className="relative min-h-68 sm:min-h-79 md:min-h-62 lg:min-h-56 items-center justify-center px-6 py-3 transition duration-500"
         {...handlers}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
