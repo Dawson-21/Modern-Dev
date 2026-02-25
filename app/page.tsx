@@ -6,8 +6,8 @@ import Services from "./components/Services";
 import Process from "./components/Process";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import PageSizer from "./components/PageSizer";
-import ScrollY from "./components/ScrollY";
+// import PageSizer from "./components/PageSizer";
+// import ScrollY from "./components/ScrollY";
 
 function App() {
   return (
@@ -33,8 +33,8 @@ function App() {
         <Contact />
         <Footer />
       </div>
-      <PageSizer />
-      <ScrollY />
+      {/* <PageSizer />
+      <ScrollY /> */}
     </main>
   );
 }
