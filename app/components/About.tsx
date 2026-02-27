@@ -3,7 +3,7 @@
 import Carousel from "./Carousel";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { useEffect, useState } from "react";
+import SocialHexGrid from "./SocialHexGrid";
 
 const aboutCardBgVariants: Variants = {
   rest: { opacity: 0 },
@@ -30,33 +30,6 @@ const buttonArrowVariants: Variants = {
   hover: { x: 8, transition: { duration: 0.2, ease: "easeInOut" } },
 };
 
-const socialsBgVariants: Variants = {
-  rest: { backgroundImage: "url(/hex.png)" },
-  hover: {
-    backgroundImage: "url(/hex-hover.png)",
-    transition: { duration: 0.1, ease: "easeInOut" },
-  },
-};
-
-const socialsShiftVariants: Variants = {
-  rest: { x: 0 },
-  hover: { x: -8, transition: { duration: 0.5, ease: "easeInOut" } },
-};
-
-const socialsTextVariants: Variants = {
-  rest: { color: "rgba(255, 255, 255, 0.55)" },
-  hover: { color: "rgba(255, 255, 255, 1)" },
-};
-
-const socialButtonVariants: Variants = {
-  rest: { scale: 1, backgroundColor: "rgb(82, 82, 82)" },
-  hover: {
-    scale: 1.15,
-    backgroundColor: "rgb(2, 74, 112)",
-    transition: { duration: 0.1, ease: "easeInOut" },
-  },
-};
-
 const cardHoverBgVariants: Variants = {
   rest: { opacity: 0 },
   hover: { opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } },
@@ -79,37 +52,6 @@ export default function About() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const [bgPosition, setBgPosition] = useState("center 14%");
-
-  useEffect(() => {
-    const width = window.innerWidth;
-
-    if (width >= 428) {
-      setBgPosition("center 31%");
-    } else if (width >= 414) {
-      setBgPosition("center 29%");
-    } else if (width >= 390) {
-      setBgPosition("center 23%");
-    } else if (width >= 375) {
-      setBgPosition("center 18%");
-    }
-  }, []);
-
-  useEffect(() => {
-    const updateBg = () => {
-      const width = window.innerWidth;
-
-      if (width >= 428) setBgPosition("center 31%");
-      else if (width >= 414) setBgPosition("center 25%");
-      else setBgPosition("center 14%");
-    };
-
-    updateBg();
-    window.addEventListener("resize", updateBg);
-
-    return () => window.removeEventListener("resize", updateBg);
-  }, []);
 
   return (
     <div id="aboutSection" className="w-full h-fit">
@@ -202,125 +144,8 @@ export default function About() {
             </div>
           </motion.div>
           {/****************** SOCIALS ********************/}
-          <motion.div
-            className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch overflow-hidden"
-            initial="rest"
-            whileHover="hover"
-            animate="rest"
-          >
-            <motion.div
-              variants={socialsBgVariants}
-              className={`size-full bg-size-[120%_auto] sm:bg-cover bg-no-repeat sm:bg-center bg-center group`}
-            >
-              <div className="flex flex-col justify-center p-5 max-md:pt-20">
-                <div className="relative h-38 sm:h-54 md:h-52 lg:h-38 flex items-center justify-center">
-                  {/* Facebook */}
-                  <motion.button
-                    className="absolute left-1/2 -translate-x-[153%] mobileS:-translate-x-[154%] mobileM:-translate-x-[158%] mobileDroid:-translate-x-[164%] mobileXL:-translate-x-[173%] sm:-translate-x-[107%] md:-translate-x-[212.5%] lg:-translate-x-[189%] xl:-translate-x-[197%] translate-y-3.25 mobileS:translate-y-1 mobileXL:translate-y-1.5 sm:-translate-y-12 md:-translate-y-2.25 lg:translate-y-[2px] xl:-translate-y-[0.5px]
-                              w-17 h-14 mobileS:w-20 mobileS:h-17 sm:w-16 sm:h-14 md:w-14 md:h-12 md:w-14 lg:h-12 
-                              flex items-center justify-center 
-                              rotate-[30deg]"
-                    style={{
-                      clipPath:
-                        "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-                    }}
-                    variants={socialButtonVariants}
-                    initial="rest"
-                    whileHover="hover"
-                    animate="rest"
-                  >
-                    <a href="#" target="_blank">
-                      <img
-                        className="-rotate-[30deg] w-14 mobileS:w-16 sm:w-12"
-                        src="/icon-fb.svg"
-                      />
-                    </a>
-                  </motion.button>
-
-                  {/* GitHub (Center Top) */}
-                  <motion.button
-                    className="absolute left-1/2 -translate-x-[101.5%] mobileS:-translate-x-[103%] mobileM:-translate-x-[104%] mobileDroid:-translate-x-[107%] mobileXL:-translate-x-[112%] sm:-translate-x-[50%] -translate-y-11.75 mobileS:-translate-y-16.75 mobileM:-translate-y-17.25 mobileDroid:-translate-y-18.25 mobileXL:-translate-y-19.5 sm:-translate-y-[111px] md:-translate-y-[60.5px] lg:-translate-y-[42px] xl:-translate-y-[47.5px]
-                              w-17 h-14 mobileS:w-20 mobileS:h-17 sm:w-16 sm:h-14 md:w-14 md:h-12
-                              flex items-center justify-center
-                              rotate-[30deg]"
-                    style={{
-                      clipPath:
-                        "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-                    }}
-                    variants={socialButtonVariants}
-                    initial="rest"
-                    whileHover="hover"
-                    animate="rest"
-                  >
-                    <a href="https://github.com/Dawson-21" target="_blank">
-                      <img
-                        className="-rotate-[30deg] w-14 mobileS:w-16 sm:w-12"
-                        src="/icon-github.svg"
-                      />
-                    </a>
-                  </motion.button>
-
-                  {/* Instagram */}
-                  <motion.button
-                    className="absolute left-1/2 translate-x-[52%] mobileM:translate-x-[58%] mobileDroid:translate-x-[64%] mobileXL:translate-x-[73%] sm:translate-x-[8%] md:translate-x-[111%] lg:translate-x-[88%] xl:translate-x-[98%] translate-y-3.25 mobileS:translate-y-1 mobileXL:translate-y-1.5 sm:-translate-y-[48px] md:-translate-y-[8.5px] lg:translate-y-[2px] xl:-translate-y-[0.5px]
-                              w-17 h-14 mobileS:w-20 mobileS:h-17 sm:w-16 sm:h-14 md:w-14 md:h-12
-                              flex items-center justify-center
-                              rotate-[30deg]"
-                    style={{
-                      clipPath:
-                        "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-                    }}
-                    variants={socialButtonVariants}
-                    initial="rest"
-                    whileHover="hover"
-                    animate="rest"
-                  >
-                    <a href="#" target="_blank">
-                      <img
-                        className="-rotate-[30deg] w-12 mobileS:w-14 sm:w-11 md:w-10"
-                        src="/icon-insta.svg"
-                      />
-                    </a>
-                  </motion.button>
-
-                  {/* LinkedIn (Bottom Center) */}
-                  <motion.button
-                    className="absolute left-1/2 translate-x-[1%] mobileM:translate-x-[3%] mobileDroid:translate-x-[7%] mobileXL:translate-x-[11%] sm:-translate-x-[50%] -translate-y-11.75 mobileS:-translate-y-16.75 mobileM:-translate-y-17.25 mobileDroid:-translate-y-18.25 mobileXL:-translate-y-19.5 sm:translate-y-[14px] md:translate-y-[43px] lg:translate-y-[46.5px]
-                              w-17 h-14 mobileS:w-20 mobileS:h-17 sm:w-16 sm:h-14 md:w-14 md:h-12
-                              flex items-center justify-center
-                              rotate-[30deg]"
-                    style={{
-                      clipPath:
-                        "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-                    }}
-                    variants={socialButtonVariants}
-                    initial="rest"
-                    whileHover="hover"
-                    animate="rest"
-                  >
-                    <a
-                      href="https://www.linkedin.com/in/dawson-adams21/"
-                      target="_blank"
-                    >
-                      <img
-                        className="-rotate-[30deg] w-12 mobileS:w-14 sm:w-11 md:w-10"
-                        src="/icon-linkedin.svg"
-                      />
-                    </a>
-                  </motion.button>
-                </div>
-
-                <motion.div variants={socialsShiftVariants}>
-                  <h2 className="text-xl font-bold">Reach Out</h2>
-                  <motion.p
-                    variants={socialsTextVariants}
-                    className="text-[min(4.3vw,14px)] font-light tracking-wide"
-                  >
-                    Connect with me through my favorite platforms.
-                  </motion.p>
-                </motion.div>
-              </div>
-            </motion.div>
+          <motion.div className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch overflow-hidden">
+            <SocialHexGrid />
           </motion.div>
           {/****************** TESTIMONIALS ********************/}
           <motion.div
