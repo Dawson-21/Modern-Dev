@@ -158,7 +158,7 @@ export default function SocialHexGrid() {
           x="-20"
           y={isMdUp ? 190 : 150}
           width={gridWidth + 20}
-          height={isMdUp ? 120 : 172}
+          height={isMdUp ? 120 : 192}
         >
           <motion.div
             variants={socialsShiftVariants}
