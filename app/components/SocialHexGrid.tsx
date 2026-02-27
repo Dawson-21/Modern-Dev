@@ -1,31 +1,25 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
 
-const HEX_W = 60;
-const HEX_H = HEX_W * 1.1;
-
-const SOCIAL_SCALE = 0.85;
-const SOCIAL_HEX_W = HEX_W * SOCIAL_SCALE;
-const SOCIAL_HEX_H = SOCIAL_HEX_W * 1.1;
-
 // Base hex shape
-const getHexPoints = () => `
-  ${HEX_W / 2},0
-  ${HEX_W},${HEX_H * 0.25}
-  ${HEX_W},${HEX_H * 0.75}
-  ${HEX_W / 2},${HEX_H}
-  0,${HEX_H * 0.75}
-  0,${HEX_H * 0.25}
+const getHexPoints = (hexW: number, hexH: number) => `
+  ${hexW / 2},0
+  ${hexW},${hexH * 0.25}
+  ${hexW},${hexH * 0.75}
+  ${hexW / 2},${hexH}
+  0,${hexH * 0.75}
+  0,${hexH * 0.25}
 `;
 
-const getSocialHexPoints = () => `
-  ${SOCIAL_HEX_W / 2},0
-  ${SOCIAL_HEX_W},${SOCIAL_HEX_H * 0.25}
-  ${SOCIAL_HEX_W},${SOCIAL_HEX_H * 0.75}
-  ${SOCIAL_HEX_W / 2},${SOCIAL_HEX_H}
-  0,${SOCIAL_HEX_H * 0.75}
-  0,${SOCIAL_HEX_H * 0.25}
+const getSocialHexPoints = (socialHexW: number, socialHexH: number) => `
+  ${socialHexW / 2},0
+  ${socialHexW},${socialHexH * 0.25}
+  ${socialHexW},${socialHexH * 0.75}
+  ${socialHexW / 2},${socialHexH}
+  0,${socialHexH * 0.75}
+  0,${socialHexH * 0.25}
 `;
 
 const socials = [
@@ -58,21 +52,41 @@ const socialsTextVariants: Variants = {
 };
 
 export default function SocialHexGrid() {
-  const rows = 10;
-  const cols = 7;
+  const [isMdUp, setIsMdUp] = useState(false);
 
-  const minX = -23;
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 668px)");
+    const updateBreakpoint = () => setIsMdUp(mediaQuery.matches);
+
+    updateBreakpoint();
+    mediaQuery.addEventListener("change", updateBreakpoint);
+
+    return () => mediaQuery.removeEventListener("change", updateBreakpoint);
+  }, []);
+
+  const HEX_W = isMdUp ? 60 : 68;
+  const HEX_H = HEX_W * 1.1;
+  const SOCIAL_SCALE = 0.85;
+  const SOCIAL_HEX_W = HEX_W * SOCIAL_SCALE;
+  const SOCIAL_HEX_H = SOCIAL_HEX_W * 1.1;
+
+  const rows = 10;
+  const cols = 9;
+
+  const minX = isMdUp ? -23 : 0;
   const minY = 0;
   const gridWidth = 320;
   const gridHeight = 312;
 
   return (
-    <div className="relative w-[clamp(260px,50vw,420px)] mx-auto">
+    <div className="relative w-full pb-[68%] sm:pb-0">
       <motion.svg
         className="absolute inset-0 w-full h-full"
         viewBox={`${minX} ${minY} ${gridWidth} ${gridHeight}`}
+        preserveAspectRatio={isMdUp ? "xMidYMid slice" : ""}
         initial="rest"
         whileHover="hover"
+        whileFocus="hover"
         animate="rest"
       >
         {/* ---- Background Grid ---- */}
@@ -84,7 +98,7 @@ export default function SocialHexGrid() {
             return (
               <motion.polygon
                 key={`bg-${row}-${col}`}
-                points={getHexPoints()}
+                points={getHexPoints(HEX_W, HEX_H)}
                 transform={`translate(${x},${y})`}
                 fill="none"
                 variants={{
@@ -116,14 +130,14 @@ export default function SocialHexGrid() {
                 className="cursor-pointer group"
               >
                 <motion.polygon
-                  points={getSocialHexPoints()}
+                  points={getSocialHexPoints(SOCIAL_HEX_W, SOCIAL_HEX_H)}
                   initial={{
                     fill: "#525252",
                     filter: "drop-shadow(0 0 0px #024A70)",
                   }}
                   whileHover={{
                     fill: color,
-                    filter: "drop-shadow(0 0 8px #fff)",
+                    filter: "drop-shadow(0 0 4px #fff)",
                   }}
                   transition={{ duration: 0.2 }}
                 />
@@ -140,15 +154,20 @@ export default function SocialHexGrid() {
             </g>
           );
         })}
-        <foreignObject x="-20" y="190" width={gridWidth + 20} height="120">
+        <foreignObject
+          x="-20"
+          y={isMdUp ? 190 : 150}
+          width={gridWidth + 20}
+          height={isMdUp ? 120 : 152}
+        >
           <motion.div
             variants={socialsShiftVariants}
-            className="absolute bottom-4 left-4 w-full text-left pointer-events-none z-10"
+            className="absolute bottom-4 sm:left-8 lg:left-4 w-full text-left pointer-events-none z-10"
           >
-            <h2 className="text-xl font-bold">Reach Out</h2>
+            <h2 className="text-lg md:text-xl font-bold">Reach Out</h2>
             <motion.p
               variants={socialsTextVariants}
-              className="text-[min(4.3vw,16px)] font-light tracking-wide pr-4"
+              className="text-[20px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide sm:pr-16 lg:pr-1"
             >
               Connect with me through my favorite platforms.
             </motion.p>
