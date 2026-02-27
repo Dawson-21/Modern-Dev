@@ -158,11 +158,11 @@ export default function SocialHexGrid() {
           x="-20"
           y={isMdUp ? 190 : 150}
           width={gridWidth + 20}
-          height={isMdUp ? 120 : 215}
+          height={isMdUp ? 120 : 208}
         >
           <motion.div
             variants={socialsShiftVariants}
-            className="absolute bottom-4 sm:left-8 lg:left-4 w-full text-left pointer-events-none z-10"
+            className="absolute bottom-4 left-4 sm:left-8 lg:left-4 w-full text-left pointer-events-none z-10"
           >
             <h2 className="text-lg md:text-xl font-bold">Reach Out</h2>
             <motion.p
