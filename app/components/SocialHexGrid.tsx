@@ -144,10 +144,10 @@ export default function SocialHexGrid() {
 
                 <image
                   href={icon}
-                  x={SOCIAL_HEX_W / 2 - 25 * SOCIAL_SCALE}
-                  y={SOCIAL_HEX_H / 2 - 25 * SOCIAL_SCALE}
-                  width={50 * SOCIAL_SCALE}
-                  height={50 * SOCIAL_SCALE}
+                  x={SOCIAL_HEX_W / 2 - 25 * SOCIAL_SCALE + 1.5}
+                  y={SOCIAL_HEX_H / 2 - 25 * SOCIAL_SCALE + 1.5}
+                  width={50 * SOCIAL_SCALE - 3}
+                  height={50 * SOCIAL_SCALE - 3}
                   style={{ pointerEvents: "none" }}
                 />
               </motion.g>

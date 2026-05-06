@@ -1,6 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <title>github</title>
-  <rect width="24" height="24" fill="none"/>
-  <path d="M12,2A10,10,0,0,0,8.84,21.5c.5.08.66-.23.66-.5V19.31C6.73,19.91,6.14,18,6.14,18A2.69,2.69,0,0,0,5,16.5c-.91-.62.07-.6.07-.6a2.1,2.1,0,0,1,1.53,1,2.15,2.15,0,0,0,2.91.83,2.16,2.16,0,0,1,.63-1.34C8,16.17,5.62,15.31,5.62,11.5a3.87,3.87,0,0,1,1-2.71,3.58,3.58,0,0,1,.1-2.64s.84-.27,2.75,1a9.63,9.63,0,0,1,5,0c1.91-1.29,2.75-1,2.75-1a3.58,3.58,0,0,1,.1,2.64,3.87,3.87,0,0,1,1,2.71c0,3.82-2.34,4.66-4.57,4.91a2.39,2.39,0,0,1,.69,1.85V21c0,.27.16.59.67.5A10,10,0,0,0,12,2Z"/>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="176.38913mm"
+   height="175.6835mm"
+   viewBox="0 0 176.38913 175.6835"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm" /><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-16.730153,-60.658245)"><g
+       style="display:none;fill:#000000"
+       id="g1"
+       transform="matrix(8.8194444,0,0,8.8194444,-56.333445,43.048996)"
+       inkscape:export-filename="icon-fb2.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><path
+         d="m 12,2.03998 c -5.5,0 -10,4.49 -10,10.02002 0,5 3.66,9.15 8.44,9.9 v -7 H 7.9 v -2.9 h 2.54 V 9.84998 c 0,-2.51 1.49,-3.89 3.78,-3.89 1.09,0 2.23,0.19 2.23,0.19 v 2.47 h -1.26 c -1.24,0 -1.63,0.77 -1.63,1.56002 v 1.88 h 2.78 l -0.45,2.9 h -2.33 v 7 c 2.3564,-0.3722 4.5022,-1.5745 6.0499,-3.39 C 21.1576,16.7546 22.0054,14.4456 22,12.06 22,6.52998 17.5,2.03998 12,2.03998 Z"
+         id="path1" /></g><g
+       id="g2"
+       transform="matrix(8.7557378,0,0,8.7557378,0.25414277,44.989215)"
+       inkscape:export-filename="icon-github2.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><rect
+         width="24"
+         height="24"
+         fill="none"
+         id="rect1"
+         x="0"
+         y="0" /><path
+         d="M 12,2 A 10,10 0 0 0 8.84,21.5 C 9.34,21.58 9.5,21.27 9.5,21 V 19.31 C 6.73,19.91 6.14,18 6.14,18 A 2.69,2.69 0 0 0 5,16.5 C 4.09,15.88 5.07,15.9 5.07,15.9 a 2.1,2.1 0 0 1 1.53,1 2.15,2.15 0 0 0 2.91,0.83 2.16,2.16 0 0 1 0.63,-1.34 C 8,16.17 5.62,15.31 5.62,11.5 a 3.87,3.87 0 0 1 1,-2.71 3.58,3.58 0 0 1 0.1,-2.64 c 0,0 0.84,-0.27 2.75,1 a 9.63,9.63 0 0 1 5,0 c 1.91,-1.29 2.75,-1 2.75,-1 a 3.58,3.58 0 0 1 0.1,2.64 3.87,3.87 0 0 1 1,2.71 c 0,3.82 -2.34,4.66 -4.57,4.91 a 2.39,2.39 0 0 1 0.69,1.85 V 21 c 0,0.27 0.16,0.59 0.67,0.5 A 10,10 0 0 0 12,2 Z"
+         id="path1-1" /></g></g></svg>

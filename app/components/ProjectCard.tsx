@@ -125,25 +125,30 @@ function ProjectCard({
         onClose={() => setSelectedProject(false)}
         titleId={modalTitleId}
       >
-        <h2 id={modalTitleId} className="text-2xl font-semibold text-white mb-4">
+        <h2
+          id={modalTitleId}
+          className="text-2xl font-semibold text-white mb-4"
+        >
           {title}
         </h2>
-        <p className="text-white/60 text-sm">{longDescription}</p>
+        <p className="text-white/60 text-[12px] sm:text-sm">
+          {longDescription}
+        </p>
 
-        <h3 className="font-semibold text-xl text-sky-300 py-2 sm:py-3">
+        <h3 className="font-semibold text-xl text-sky-300 pt-2 sm:py-3">
           Problem
         </h3>
-        <p className="text-white/60 text-sm">{problem}</p>
+        <p className="text-white/60 text-[12px] sm:text-sm">{problem}</p>
 
-        <h3 className="font-semibold text-xl text-sky-300 py-2 sm:py-3">
+        <h3 className="font-semibold text-xl text-sky-300 pt-2 sm:py-3">
           Solution
         </h3>
-        <p className="text-white/60 text-sm">{solution}</p>
+        <p className="text-white/60 text-[12px] sm:text-sm">{solution}</p>
 
-        <h3 className="font-semibold text-xl text-sky-300 py-2 sm:py-3">
+        <h3 className="font-semibold text-xl text-sky-300 pt-2 sm:py-3">
           Results
         </h3>
-        <p className="text-white/60 text-sm">{results}</p>
+        <p className="text-white/60 text-[12px] sm:text-sm">{results}</p>
       </Modal>
     </div>
   );

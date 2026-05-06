@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"/>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="176.38913mm"
+   height="175.68352mm"
+   viewBox="0 0 176.38913 175.68352"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm" /><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-16.730153,-60.658245)"><g
+       style="fill:#000000"
+       id="g1"
+       transform="matrix(8.8194444,0,0,8.8194444,-0.90873543,42.666755)"><path
+         d="m 12,2.03998 c -5.5,0 -10,4.49 -10,10.02002 0,5 3.66,9.15 8.44,9.9 v -7 H 7.9 v -2.9 h 2.54 V 9.84998 c 0,-2.51 1.49,-3.89 3.78,-3.89 1.09,0 2.23,0.19 2.23,0.19 v 2.47 h -1.26 c -1.24,0 -1.63,0.77 -1.63,1.56002 v 1.88 h 2.78 l -0.45,2.9 h -2.33 v 7 c 2.3564,-0.3722 4.5022,-1.5745 6.0499,-3.39 C 21.1576,16.7546 22.0054,14.4456 22,12.06 22,6.52998 17.5,2.03998 12,2.03998 Z"
+         id="path1" /></g></g></svg>
