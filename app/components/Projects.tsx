@@ -22,6 +22,33 @@ function Projects() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <ProjectCard
+              title="Waldrops Furniture"
+              scope="Frontend Web Development"
+              shortDescription="This project launched an online footprint for Waldrops Furniture, a new small business with limited digital presence. I designed a professional logo to establish their brand identity and built a clean, mobile-responsive site showcasing their furniture services. The work included setting up key pages, adding lead-generation forms, and making the site easy for the client to update. The new branding and website gave the business..."
+              longDescription="A fully reimagined furniture retail website built to replace an incomplete, fragmented online presence with a cohesive, high-converting experience. The site emphasizes clean visual hierarchy, intuitive navigation, and a refined modern-rustic aesthetic aligned with the brand. Custom layouts, optimized galleries, and thoughtful micro-interactions were implemented to guide users effortlessly from browsing to inquiry, while maintaining performance, responsiveness, and scalability across devices."
+              problem="An unfinished, inconsistent website created confusion, weakened brand credibility, and disrupted the customer journey."
+              solution="Redesigned the site from the ground up with a simplified UX, cohesive styling, optimized media handling, and clear conversion pathways."
+              results="A polished, user-friendly website that strengthens brand trust, improves engagement, and delivers a seamless browsing experience that supports real business growth."
+              technologies={[
+                "WordPress",
+                "Spectra",
+                "CSS3",
+                "HTML5",
+                "WPForms",
+              ]}
+              imageUrl="/readme/hero.png"
+              imageAlt="Waldrops Furniture Website Screenshot"
+              siteUrl="https://waldropsfurniture.com"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <ProjectCard
               title="Texas Gutter Service"
               scope="Frontend Web Development"
               shortDescription="This project launched an online footprint for Texas Gutter Service, a new small business with limited digital presence. I designed a professional logo to establish their brand identity and built a clean, mobile-responsive site showcasing their gutter services. The work included setting up key pages, adding lead-generation forms, and making the site easy for the client to update. The new branding and website gave the business..."
@@ -36,7 +63,7 @@ function Projects() {
             />
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -55,7 +82,7 @@ function Projects() {
               imageAlt="Project Screenshot"
               siteUrl="https://claytondemolition.com"
             />
-          </motion.div>
+          </motion.div> */}
 
           <motion.div
             initial={{ opacity: 0, y: 50 }}
