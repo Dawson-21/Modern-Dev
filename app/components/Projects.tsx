@@ -36,7 +36,7 @@ function Projects() {
                 "HTML5",
                 "WPForms",
               ]}
-              imageUrl="/WF1.png"
+              imageUrl="/WF2.png"
               imageAlt="Waldrops Furniture Website Screenshot"
               siteUrl="https://waldropsfurniture.com"
             />
