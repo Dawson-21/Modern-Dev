@@ -162,12 +162,12 @@ export default function SocialHexGrid() {
         >
           <motion.div
             variants={socialsShiftVariants}
-            className="absolute bottom-4 left-4 sm:left-8 lg:left-4 w-full text-left pointer-events-none z-10"
+            className="absolute bottom-20 sm:bottom-4 left-4 sm:left-16 lg:left-4 w-full text-left pointer-events-none z-10"
           >
             <h2 className="text-lg md:text-xl font-bold">Reach Out</h2>
             <motion.p
               variants={socialsTextVariants}
-              className="text-[14px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide pr-5 sm:pr-16 lg:pr-1"
+              className="text-[17px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide pr-5 sm:pr-32 lg:pr-5"
             >
               Connect with me through my favorite platforms.
             </motion.p>
