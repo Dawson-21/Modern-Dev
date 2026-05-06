@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern Dev
 
-## Getting Started
+A custom-built developer portfolio and business website engineered with Next.js, React, and Tailwind CSS. Designed with a focus on performance, clean UI, and a conversion-driven user experience.
 
-First, run the development server:
+**Live Site:** https://www.moderndev.pro
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Modern Dev is a personal project built to attract and convert small to mid-sized businesses looking to improve their online presence. The goal was to create a site that not only looks polished, but also demonstrates strong frontend engineering, thoughtful UX decisions, and attention to detail.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+<!-- Replace these with your actual images -->
+![Hero Section](./screenshots/hero.png)  
+![Services Section](./screenshots/services.png)  
+![Contact Form](./screenshots/contact.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- **Framework:** Next.js  
+- **Frontend:** React + TypeScript  
+- **Styling:** Tailwind CSS  
+- **Animation:** Framer Motion  
+- **Deployment:** Vercel  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Key Features
+
+- Fully responsive layout optimized across all breakpoints  
+- Custom-designed UI aligned with a modern, developer-focused aesthetic  
+- Smooth, intentional animations using Framer Motion  
+- Interactive card-based UI with hover states and transitions  
+- Conversion-focused contact form with simplified service selection  
+- SEO-friendly structure with semantic HTML  
+- Performance-conscious asset handling and layout structure  
+- Clean visual hierarchy for improved readability and usability  
+
+---
+
+## Notable Engineering Decisions
+
+### 1. Geometry-Based Icon Scaling
+
+Scaling hexagonal social icons alongside their background introduced alignment issues across breakpoints.  
+Instead of relying on manual adjustments, the solution was to **tie the icon dimensions directly to the geometry of the background container**, creating a consistent scaling relationship.
+
+This eliminated drift and ensured visual alignment remained stable at every screen size.
+
+---
+
+### 2. Custom Breakpoint Debugging Tool
+
+Debugging responsive issues across multiple breakpoints became inefficient when relying solely on browser tools.
+
+To solve this, a **custom debugging component** was built to display:
+- Current screen width  
+- Active Tailwind breakpoint (xs → 3xl)  
+
+This made it significantly faster to:
+- Identify exactly where layout issues occurred  
+- Apply precise fixes without guesswork  
+
+---
+
+### 3. Improved Form UX
+
+The service selection was redesigned from standard radio inputs into **card-style selectable options**, resulting in:
+- Lower cognitive load  
+- Clearer visual hierarchy  
+- A more engaging interaction pattern  
+
+---
+
+## Design & UX
+
+- Modern developer aesthetic with a dark UI  
+- Clean, minimal layout with a slightly premium feel  
+- Mobile-first design approach  
+- Subtle micro-interactions to enhance usability without distraction  
+
+---
+
+## Form Handling
+
+The contact form is powered by **Resend**, enabling reliable email delivery with a clean and minimal frontend experience.
+
+---
+
+## Performance
+
+**Lighthouse Scores:**
+
+- Performance: 83  
+- Accessibility: 83  
+- Best Practices: 100  
+- SEO: 91  
+
+---
+
+## Future Improvements
+
+- Add a blog to support content marketing and SEO  
+- Expand case studies to showcase real client work  
+
+---
+
+## About
+
+This project reflects my approach to frontend development: combining clean design, strong UX fundamentals, and modern tooling to create fast, effective websites that solve real business problems.
