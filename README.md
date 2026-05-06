@@ -1,5 +1,7 @@
 # Modern Dev
 
+![Modern Dev Banner](./public/readme/banner.png)
+
 A custom-built developer portfolio and business website engineered with Next.js, React, and Tailwind CSS. Designed with a focus on performance, clean UI, and a conversion-driven user experience.
 
 **Live Site:** https://www.moderndev.pro
@@ -12,12 +14,21 @@ Modern Dev is a personal project built to attract and convert small to mid-sized
 
 ---
 
+## Preview
+
+![Interactions Demo](./public/readme/animation.gif)
+
+---
+
 ## Screenshots
 
-<!-- Replace these with your actual images -->
-![Hero Section](./screenshots/hero.png)  
-![Services Section](./screenshots/services.png)  
-![Contact Form](./screenshots/contact.png)
+| Hero | Services |
+|------|----------|
+| ![Hero](./public/readme/hero1.png) | ![Services](./public/readme/services.png) |
+
+| Contact |
+|---------|
+| ![Contact](./public/readme/contact.png) |
 
 ---
 
