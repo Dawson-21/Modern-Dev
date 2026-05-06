@@ -28,7 +28,7 @@ Modern Dev is a personal project built to attract and convert small to mid-sized
 
 | Contact |
 |---------|
-| ![Contact](./public/readme/contact.png) |
+| ![Contact](./public/readme/cntct.png) |
 
 ---
 
