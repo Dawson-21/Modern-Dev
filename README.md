@@ -24,7 +24,7 @@ Modern Dev is a personal project built to attract and convert small to mid-sized
 
 | Hero | Services |
 |------|----------|
-| ![Hero](./public/readme/hero1.png) | ![Services](./public/readme/services1.png) |
+| ![Hero](./public/readme/hero1.png) | ![Services](./public/readme/services2.png) |
 
 | Contact |
 |---------|
