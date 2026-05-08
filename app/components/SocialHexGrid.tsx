@@ -176,7 +176,7 @@ export default function SocialHexGrid() {
         <foreignObject
           x="-20"
           y={isMdUp ? 190 : 150}
-          width={gridWidth + 20}
+          width={isMdUp ? gridWidth + 20 : gridWidth}
           height={isMdUp ? 120 : 208}
         >
           <div className="flex items-end h-full px-4 pb-4">
