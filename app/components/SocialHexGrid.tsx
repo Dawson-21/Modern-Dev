@@ -172,13 +172,13 @@ export default function SocialHexGrid() {
           );
         })}
         <foreignObject
-          x="-20"
+          x={isMdUp ? -20 : -40}
           y={isMdUp ? 190 : 100}
-          width={gridWidth + 20}
+          width={isMdUp ? gridWidth + 20 : gridWidth + 45}
           height={isMdUp ? 120 : 208}
         >
           <div
-            className={`flex ${isIOS ? "max-sm:-mt-15" : ""} items-end h-full px-2 sm:px-4 pb-4 ml-10 lg:ml-0`}
+            className={`flex ${isIOS ? "max-sm:-mt-15 max-sm:ml-10" : ""} items-end h-full px-4 pb-4 md:ml-10 lg:ml-2`}
           >
             <motion.div
               variants={socialsShiftVariants}
@@ -188,7 +188,7 @@ export default function SocialHexGrid() {
 
               <motion.p
                 variants={socialsTextVariants}
-                className="text-[17px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide pr-0 sm:pr-12 lg:pr-5"
+                className="text-[17px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide max-sm:-mr-20 md:pr-12 lg:pr-5"
               >
                 Connect with me through my favorite platforms.
               </motion.p>
