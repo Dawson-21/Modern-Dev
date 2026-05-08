@@ -102,7 +102,7 @@ export default function SocialHexGrid() {
                 transform={`translate(${x},${y})`}
                 fill="none"
                 variants={{
-                  rest: { stroke: "#4b5563" },
+                  rest: { stroke: "#22272d" },
                   hover: { stroke: "#024A70" },
                 }}
                 transition={{ duration: 0.3 }}
