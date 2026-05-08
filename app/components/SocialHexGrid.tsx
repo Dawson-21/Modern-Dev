@@ -51,8 +51,25 @@ const socialsTextVariants: Variants = {
   hover: { color: "rgba(255, 255, 255, 1)" },
 };
 
+function useIsIOS() {
+  const [isIOS, setIsIOS] = useState(false);
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent;
+
+    const ios =
+      /iPad|iPhone|iPod/.test(userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+    setIsIOS(ios);
+  }, []);
+
+  return isIOS;
+}
+
 export default function SocialHexGrid() {
   const [isMdUp, setIsMdUp] = useState(false);
+  const isIOS = useIsIOS();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 668px)");
@@ -154,32 +171,15 @@ export default function SocialHexGrid() {
             </g>
           );
         })}
-        {/* <foreignObject
-          x="-20"
-          y={isMdUp ? 190 : 150}
-          width={gridWidth + 20}
-          height={isMdUp ? 120 : 208}
-        >
-          <motion.div
-            variants={socialsShiftVariants}
-            className="absolute bottom-20 sm:bottom-4 left-4 sm:left-16 lg:left-4 w-full text-left pointer-events-none z-10"
-          >
-            <h2 className="text-lg md:text-xl font-bold">Reach Out</h2>
-            <motion.p
-              variants={socialsTextVariants}
-              className="text-[17px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide pr-5 sm:pr-32 lg:pr-5"
-            >
-              Connect with me through my favorite platforms.
-            </motion.p>
-          </motion.div>
-        </foreignObject> */}
         <foreignObject
           x="-20"
           y={isMdUp ? 190 : 100}
           width={gridWidth + 20}
           height={isMdUp ? 120 : 208}
         >
-          <div className="flex items-end h-full px-2 sm:px-4 pb-4 ml-10 lg:ml-0">
+          <div
+            className={`flex ${isIOS ? "max-sm:-mt-15" : ""} items-end h-full px-2 sm:px-4 pb-4 ml-10 lg:ml-0`}
+          >
             <motion.div
               variants={socialsShiftVariants}
               className="w-full text-left pointer-events-none z-10"
