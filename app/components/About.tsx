@@ -177,7 +177,7 @@ export default function About() {
               className="absolute inset-0 bg-linear-to-br from-sky-950/40 from-25% to-yellow-600/20"
             />
             <div className="relative z-10">
-              <h2 className="text-center text-xl font-bold pb-5 sm:pb-8">
+              <h2 className="text-center text-xl font-bold pb-5 sm:pb-8 pointer-events-none">
                 Tech Skills
               </h2>
               <motion.div
@@ -277,7 +277,7 @@ export default function About() {
               </motion.div>
               <motion.p
                 variants={aboutTextVariants}
-                className="text-sm text-center font-light pt-7 sm:pt-12"
+                className="text-sm text-center font-light pt-7 sm:pt-12 pointer-events-none"
               >
                 I use this collection of tools and technologies to build
                 exceptional digital experiences.

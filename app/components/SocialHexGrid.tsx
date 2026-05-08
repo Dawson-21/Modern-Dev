@@ -175,11 +175,11 @@ export default function SocialHexGrid() {
         </foreignObject> */}
         <foreignObject
           x="-20"
-          y={isMdUp ? 190 : 150}
-          width={isMdUp ? gridWidth + 20 : gridWidth}
+          y={isMdUp ? 190 : 100}
+          width={gridWidth + 20}
           height={isMdUp ? 120 : 208}
         >
-          <div className="flex items-end h-full px-4 pb-4">
+          <div className="flex items-end h-full px-2 sm:px-4 pb-4 ml-0 sm:ml-10 lg:ml-0">
             <motion.div
               variants={socialsShiftVariants}
               className="w-full text-left pointer-events-none z-10"
@@ -188,7 +188,7 @@ export default function SocialHexGrid() {
 
               <motion.p
                 variants={socialsTextVariants}
-                className="text-[17px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide pr-5 sm:pr-32 lg:pr-5"
+                className="text-[17px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide pr-5 sm:pr-12 lg:pr-5"
               >
                 Connect with me through my favorite platforms.
               </motion.p>
