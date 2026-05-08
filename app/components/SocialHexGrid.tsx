@@ -154,7 +154,7 @@ export default function SocialHexGrid() {
             </g>
           );
         })}
-        <foreignObject
+        {/* <foreignObject
           x="-20"
           y={isMdUp ? 190 : 150}
           width={gridWidth + 20}
@@ -172,6 +172,28 @@ export default function SocialHexGrid() {
               Connect with me through my favorite platforms.
             </motion.p>
           </motion.div>
+        </foreignObject> */}
+        <foreignObject
+          x="-20"
+          y={isMdUp ? 190 : 150}
+          width={gridWidth + 20}
+          height={isMdUp ? 120 : 208}
+        >
+          <div className="flex items-end h-full px-4 pb-4">
+            <motion.div
+              variants={socialsShiftVariants}
+              className="w-full text-left pointer-events-none z-10"
+            >
+              <h2 className="text-lg md:text-xl font-bold">Reach Out</h2>
+
+              <motion.p
+                variants={socialsTextVariants}
+                className="text-[17px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide pr-5 sm:pr-32 lg:pr-5"
+              >
+                Connect with me through my favorite platforms.
+              </motion.p>
+            </motion.div>
+          </div>
         </foreignObject>
       </motion.svg>
     </div>
