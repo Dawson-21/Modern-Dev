@@ -134,12 +134,12 @@ export default function About() {
                 className="relative z-10 text-[min(4.3vw,18px)] font-light leading-6 lg:leading-8 tracking-wide"
               >
                 I'm a Software Engineer passionate about building modern,
-                user-focused websites and web applications. With a B.S. in
-                Computer Science from Texas A&M University Corpus Christi and a
-                strong foundation in both business and technology, I craft
-                digital solutions that not only look great but drive results. I
-                thrive on taking on new challenges and helping businesses level
-                up their online presence.
+                user-focused, mobile-first websites and web applications. With a
+                B.S. in Computer Science from Texas A&M University Corpus
+                Christi and a strong foundation in both business and technology,
+                I craft digital solutions that not only look great but drive
+                results. I thrive on taking on new challenges and helping
+                businesses level up their online presence.
               </motion.p>
             </div>
           </motion.div>
