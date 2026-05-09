@@ -173,7 +173,7 @@ export default function SocialHexGrid() {
         })}
         <foreignObject
           x={isMdUp ? -20 : -40}
-          y={isMdUp ? 190 : isIOS ? 90 : 100}
+          y={isMdUp ? 190 : isIOS ? 70 : 100}
           width={isMdUp ? gridWidth + 20 : gridWidth + 80}
           height={isMdUp ? 120 : 208}
         >
