@@ -173,12 +173,12 @@ export default function SocialHexGrid() {
         })}
         <foreignObject
           x={isMdUp ? -20 : -40}
-          y={isMdUp ? 190 : 100}
+          y={isMdUp ? 190 : isIOS ? 120 : 100}
           width={isMdUp ? gridWidth + 20 : gridWidth + 80}
           height={isMdUp ? 120 : 208}
         >
           <div
-            className={`flex ${isIOS ? "-mt-30 max-sm:ml-13 max-sm:mr-20" : ""} items-end h-full px-4 pb-4 md:ml-10 lg:ml-2`}
+            className={`flex ${isIOS ? "max-sm:ml-13 max-sm:mr-20" : ""} items-end h-full px-4 pb-4 md:ml-10 lg:ml-2`}
           >
             <motion.div
               variants={socialsShiftVariants}
