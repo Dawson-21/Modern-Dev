@@ -1,5 +1,6 @@
 "use client";
 
+import NewProjectCard from "./NewProjectCard";
 import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
 

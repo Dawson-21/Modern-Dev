@@ -178,7 +178,7 @@ export default function SocialHexGrid() {
           height={isMdUp ? 120 : 208}
         >
           <div
-            className={`flex ${isIOS ? "max-sm:-mt-15 max-sm:ml-13 max-sm:mr-20" : ""} items-end h-full px-4 pb-4 md:ml-10 lg:ml-2`}
+            className={`flex ${isIOS ? "-mt-20 max-sm:ml-13 max-sm:mr-20" : ""} items-end h-full px-4 pb-4 md:ml-10 lg:ml-2`}
           >
             <motion.div
               variants={socialsShiftVariants}
