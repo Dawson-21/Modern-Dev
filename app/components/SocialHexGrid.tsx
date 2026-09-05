@@ -30,8 +30,8 @@ const socials = [
     color: "#024A70",
     link: "https://github.com/Dawson-21",
   },
-  { row: 3, col: 1, icon: "/icon-fb.svg", color: "#024A70", link: "#" },
-  { row: 3, col: 4, icon: "/icon-insta.svg", color: "#024A70", link: "#" },
+  { row: 3, col: 1, icon: "/icon-fb.svg", color: "#024A70", link: "https://www.facebook.com/moderndev.pro/" },
+  { row: 3, col: 4, icon: "/icon-insta.svg", color: "#024A70", link: "https://www.instagram.com/moderndev.pro/" },
   {
     row: 4,
     col: 3,
