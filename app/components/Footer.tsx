@@ -1,5 +1,6 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 
@@ -36,7 +37,16 @@ const linkedinIconVariants: Variants = {
   hover: { scale: 1.05, color: "#004182", transition: { duration: 0.2 } },
 };
 
+const subscribeNoop = () => () => {};
+const getClientYear = () => new Date().getFullYear();
+// Build-time year, used for the server render and hydration so markup matches;
+// the client then switches to the visitor's current year.
+const serverYear = new Date().getFullYear();
+const getServerYear = () => serverYear;
+
 function Footer() {
+  const year = useSyncExternalStore(subscribeNoop, getClientYear, getServerYear);
+
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -191,7 +201,7 @@ function Footer() {
         </motion.a>
       </div>
       <p className="text-sm opacity-70">
-        © 2025 Modern Dev. All rights reserved.
+        © {year} Modern Dev. All rights reserved.
       </p>
     </div>
   );

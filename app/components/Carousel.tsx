@@ -129,7 +129,7 @@ export default function Carousel() {
       </div>
 
       <div
-        className="flex justify-center gap-3"
+        className="flex justify-center"
         role="group"
         aria-label="Testimonial slides"
       >
@@ -138,12 +138,16 @@ export default function Carousel() {
             key={testimonial.name}
             type="button"
             onClick={() => setCurrentIndex(idx)}
-            className={`h-2 w-2 rounded-full transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 ${
-              idx === currentIndex ? "bg-white" : "bg-white/35"
-            }`}
+            className="group flex h-6 w-6 shrink-0 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
             aria-label={`Go to testimonial ${idx + 1}`}
             aria-current={idx === currentIndex ? "true" : undefined}
-          />
+          >
+            <span
+              className={`h-2 w-2 rounded-full transition group-hover:bg-white ${
+                idx === currentIndex ? "bg-white" : "bg-white/35"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>
