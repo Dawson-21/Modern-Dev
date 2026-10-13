@@ -27,15 +27,17 @@ const socials = [
     row: 2,
     col: 3,
     icon: "/icon-github.svg",
+    label: "GitHub",
     color: "#024A70",
     link: "https://github.com/Dawson-21",
   },
-  { row: 3, col: 1, icon: "/icon-fb.svg", color: "#024A70", link: "https://www.facebook.com/moderndev.pro/" },
-  { row: 3, col: 4, icon: "/icon-insta.svg", color: "#024A70", link: "https://www.instagram.com/moderndev.pro/" },
+  { row: 3, col: 1, icon: "/icon-fb.svg", label: "Facebook", color: "#024A70", link: "https://www.facebook.com/moderndev.pro/" },
+  { row: 3, col: 4, icon: "/icon-insta.svg", label: "Instagram", color: "#024A70", link: "https://www.instagram.com/moderndev.pro/" },
   {
     row: 4,
     col: 3,
     icon: "/icon-linkedin.svg",
+    label: "LinkedIn",
     color: "#024A70",
     link: "https://www.linkedin.com/in/dawson-adams21/",
   },
@@ -47,7 +49,7 @@ const socialsShiftVariants: Variants = {
 };
 
 const socialsTextVariants: Variants = {
-  rest: { color: "rgba(255, 255, 255, 0.55)" },
+  rest: { color: "rgba(255, 255, 255, 0.7)" },
   hover: { color: "rgba(255, 255, 255, 1)" },
 };
 
@@ -100,7 +102,7 @@ export default function SocialHexGrid() {
       <motion.svg
         className="absolute inset-0 w-full h-full"
         viewBox={`${minX} ${minY} ${gridWidth} ${gridHeight}`}
-        preserveAspectRatio={isMdUp ? "xMidYMid slice" : ""}
+        preserveAspectRatio={isMdUp ? "xMidYMid slice" : undefined}
         initial="rest"
         whileHover="hover"
         whileFocus="hover"
@@ -129,7 +131,7 @@ export default function SocialHexGrid() {
         )}
 
         {/* ---- Social Icons Layer ---- */}
-        {socials.map(({ row, col, icon, color, link }) => {
+        {socials.map(({ row, col, icon, color, link, label }) => {
           const x = col * HEX_W + (row % 2 ? HEX_W / 2 : 0) - HEX_W - 13;
           const y = row * (HEX_H * 0.75) - HEX_H - 13;
           const offsetX = (HEX_W - SOCIAL_HEX_W) / 2;
@@ -139,7 +141,16 @@ export default function SocialHexGrid() {
             <g
               key={`social-${row}-${col}`}
               transform={`translate(${x + offsetX},${y + offsetY})`}
-              onClick={() => window.open(link, "_blank")}
+              role="link"
+              tabIndex={0}
+              aria-label={`${label} (opens in a new tab)`}
+              onClick={() => window.open(link, "_blank", "noopener,noreferrer")}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  window.open(link, "_blank", "noopener,noreferrer");
+                }
+              }}
             >
               <motion.g
                 whileHover={{ scale: 1.15 }}

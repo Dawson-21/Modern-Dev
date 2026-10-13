@@ -130,7 +130,7 @@ export default function Carousel() {
 
       <div
         className="flex justify-center gap-3"
-        role="tablist"
+        role="group"
         aria-label="Testimonial slides"
       >
         {testimonials.map((testimonial, idx) => (

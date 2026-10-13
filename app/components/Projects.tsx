@@ -9,7 +9,7 @@ function Projects() {
     <div id="projectsSection" className="w-full h-fit">
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
         <div className="flex flex-row w-full items-center justify-left mt-20">
-          <p className="text-sm sm:text-base text-white/55 w-44 sm:w-40">
+          <p className="text-sm sm:text-base text-white/70 w-44 sm:w-40">
             Featured Projects
           </p>
           <hr className="w-full border-t border-white/15 mt-4 mb-3" />

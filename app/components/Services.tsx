@@ -111,7 +111,7 @@ export default function ServicesSection() {
     <div id="servicesSection" className="w-full h-fit">
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
         <div className="flex flex-row w-full items-center justify-left mb-10 mt-20">
-          <p className="text-sm sm:text-base text-white/55 w-18">Services</p>
+          <p className="text-sm sm:text-base text-white/70 w-18">Services</p>
           <hr className="w-full border-t border-white/15 mt-4 mb-3" />
         </div>
 
