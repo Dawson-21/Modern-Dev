@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { useState } from "react";
 
 type ServiceType = "newWebsite" | "redesign" | "logoBranding" | "notSure";
@@ -62,7 +62,7 @@ export default function ContactForm() {
   };
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -182,7 +182,7 @@ export default function ContactForm() {
         </p>
 
         <div className="text-center">
-          <motion.button
+          <m.button
             type="submit"
             whileHover={{
               scale: 1.1,
@@ -193,9 +193,9 @@ export default function ContactForm() {
             disabled={isSubmitting}
           >
             {isSubmitting ? "Sending..." : "Send Project Inquiry"}
-          </motion.button>
+          </m.button>
         </div>
       </form>
-    </motion.div>
+    </m.div>
   );
 }

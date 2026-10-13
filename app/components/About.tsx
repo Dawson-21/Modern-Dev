@@ -1,7 +1,7 @@
 "use client";
 
 import Carousel from "./Carousel";
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
 import SocialHexGrid from "./SocialHexGrid";
 
@@ -65,7 +65,7 @@ export default function About() {
             build a stronger online presence and stand out in today&apos;s digital
             landscape.
           </p>
-          <motion.button
+          <m.button
             onClick={() => handleClick("contactSection")}
             initial="rest"
             whileHover="hover"
@@ -81,14 +81,14 @@ export default function About() {
             className="col-span-7 md:col-span-3 md:justify-self-end flex w-fit h-fit bg-white/80 text-black px-4 py-2 mt-5 rounded-full text-[min(4vw,18px)] font-bold cursor-pointer"
           >
             Start a Project
-            <motion.img
-              src="/arrow-black.svg"
+            <m.img
+              src="/arrow-black.svg" width={24} height={24}
               alt=""
               aria-hidden="true"
               variants={buttonArrowVariants}
               className="w-6 sm:w-8 pl-1"
             />
-          </motion.button>
+          </m.button>
         </div>
 
         <div className="flex flex-row w-full items-center justify-left mt-10">
@@ -98,7 +98,7 @@ export default function About() {
           <hr className="w-full border-t border-white/20 mt-4 mb-3" />
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -106,35 +106,37 @@ export default function About() {
           className="grid grid-cols-2 sm:grid-cols-7 gap-4 mt-10"
         >
           {/****************** PROFESSIONAL BACKGROUND ********************/}{" "}
-          <motion.div
+          <m.div
             className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 lg:col-span-5"
             initial="rest"
             whileHover="hover"
             animate="rest"
           >
             <div className="relative p-6">
-              <motion.div
+              <m.div
                 variants={aboutCardBgVariants}
                 className="absolute inset-0 bg-linear-to-tl from-sky-950/40 from-65% to-yellow-700/20"
               />
-              <motion.div
+              <m.div
                 variants={aboutImageVariants}
                 className="relative float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 rounded-md bg-neutral-800 overflow-hidden"
               >
-                <motion.div
+                <m.div
                   variants={aboutImageBgVariants}
                   className="absolute inset-0 bg-linear-to-br from-sky-950 to-yellow-700/30"
                 />
                 <img
                   src="/dawson.webp"
+                  srcSet="/dawson-240.webp 240w, /dawson.webp 391w"
+                  sizes="(min-width: 640px) 160px, 96px"
                   width={391}
                   height={515}
                   loading="lazy"
                   alt=""
                   className="relative z-10 w-full h-auto"
                 />
-              </motion.div>
-              <motion.p
+              </m.div>
+              <m.p
                 variants={aboutTextVariants}
                 className="relative z-10 text-[min(4.3vw,18px)] font-light leading-6 lg:leading-8 tracking-wide"
               >
@@ -145,21 +147,21 @@ export default function About() {
                 I craft digital solutions that not only look great but drive
                 results. I thrive on taking on new challenges and helping
                 businesses level up their online presence.
-              </motion.p>
+              </m.p>
             </div>
-          </motion.div>
+          </m.div>
           {/****************** SOCIALS ********************/}
-          <motion.div className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch overflow-hidden">
+          <m.div className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch overflow-hidden">
             <SocialHexGrid />
-          </motion.div>
+          </m.div>
           {/****************** TESTIMONIALS ********************/}
-          <motion.div
+          <m.div
             className="relative bg-black rounded-md border-white/20 border text-white col-span-7 sm:col-span-4 lg:col-span-3 p-4 sm:pt-5 overflow-hidden"
             initial="rest"
             whileHover="hover"
             animate="rest"
           >
-            <motion.div
+            <m.div
               variants={cardHoverBgVariants}
               className="absolute inset-0 bg-linear-to-br from-sky-950/40 from-25% to-yellow-600/20"
             />
@@ -169,15 +171,15 @@ export default function About() {
               </h2>
               <Carousel />
             </div>
-          </motion.div>
+          </m.div>
           {/****************** TECH SKILLS ********************/}
-          <motion.div
+          <m.div
             className="relative bg-black rounded-md border-white/20 border text-white col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base overflow-hidden"
             initial="rest"
             whileHover="hover"
             animate="rest"
           >
-            <motion.div
+            <m.div
               variants={cardHoverBgVariants}
               className="absolute inset-0 bg-linear-to-br from-sky-950/40 from-25% to-yellow-600/20"
             />
@@ -185,111 +187,111 @@ export default function About() {
               <h2 className="text-center text-xl font-bold pb-5 sm:pb-8 pointer-events-none">
                 Tech Skills
               </h2>
-              <motion.div
+              <m.div
                 variants={techRowRightVariants}
                 className="h-fit flex flex-wrap justify-center items-center gap-2"
               >
                 <div className="tech-item">
                   <img
-                    src="/icon-react.svg"
+                    src="/icon-react.svg" width={64} height={64}
                     alt="React"
-                    className="h-8 -mx-1"
+                    className="h-8 -mx-1 w-auto"
                   />
                   React
                 </div>
                 <div className="tech-item">
-                  <img src="/icon-next.svg" alt="Next.js" className="h-7" />
+                  <img src="/icon-next.svg" width={36} height={36} alt="Next.js" className="h-7 w-auto" />
                   Next.js
                 </div>
                 <div className="tech-item">
                   <img
-                    src="/icon-typescript.svg"
+                    src="/icon-typescript.svg" width={512} height={512}
                     alt="TypeScript"
-                    className="h-6"
+                    className="h-6 w-auto"
                   />
                   TypeScript
                 </div>
                 <div className="tech-item">
-                  <img src="/icon-js.svg" alt="JavaScript" className="h-6" />
+                  <img src="/icon-js.svg" width={512} height={512} alt="JavaScript" className="h-6 w-auto" />
                   JavaScript
                 </div>
                 <div className="tech-item">
                   <img
-                    src="/icon-tailwind.svg"
+                    src="/icon-tailwind.svg" width={32} height={32}
                     alt="Tailwind CSS"
-                    className="h-7"
+                    className="h-7 w-auto"
                   />
                   Tailwind CSS
                 </div>
-              </motion.div>
-              <motion.div
+              </m.div>
+              <m.div
                 variants={techRowLeftVariants}
                 className="h-fit flex flex-wrap justify-center items-center gap-2 mt-2"
               >
                 <div className="tech-item">
-                  <img src="/icon-vite.svg" alt="Vite" className="h-7" />
+                  <img src="/icon-vite.svg" width={32} height={32} alt="Vite" className="h-7 w-auto" />
                   Vite
                 </div>
                 <div className="tech-item">
-                  <img src="/icon-vercel.svg" alt="Vercel" className="h-7" />
+                  <img src="/icon-vercel.svg" width={16} height={16} alt="Vercel" className="h-7 w-auto" />
                   Vercel
                 </div>
                 <div className="tech-item">
-                  <img src="/icon-netlify.svg" alt="Netlify" className="h-6" />
+                  <img src="/icon-netlify.svg" width={40} height={40} alt="Netlify" className="h-6 w-auto" />
                   Netlify
                 </div>
                 <div className="tech-item">
-                  <img src="/icon-git.svg" alt="Git" className="h-7" />
+                  <img src="/icon-git.svg" width={32} height={32} alt="Git" className="h-7 w-auto" />
                   Git
                 </div>
                 <div className="tech-item">
-                  <img src="/icon-node.svg" alt="Node.js" className="h-7" />
+                  <img src="/icon-node.svg" width={282} height={282} alt="Node.js" className="h-7 w-auto" />
                   Node.js
                 </div>
                 <div className="tech-item">
-                  <img src="/icon-mongodb.svg" alt="MongoDB" className="h-6" />
+                  <img src="/icon-mongodb.svg" width={1024} height={1024} alt="MongoDB" className="h-6 w-auto" />
                   MongoDB
                 </div>
-              </motion.div>
-              <motion.div
+              </m.div>
+              <m.div
                 variants={techRowRightVariants}
                 className="h-fit flex flex-wrap justify-center items-center gap-2 mt-2"
               >
                 <div className="tech-item">
                   <img
-                    src="/icon-appwrite.svg"
+                    src="/icon-appwrite.svg" width={24} height={22}
                     alt="Appwrite"
-                    className="h-5"
+                    className="h-5 w-auto"
                   />
                   Appwrite
                 </div>
                 <div className="tech-item">
-                  <img src="/icon-deep.svg" alt="DeepSource" className="h-6" />
+                  <img src="/icon-deep.svg" width={26} height={30} alt="DeepSource" className="h-6 w-auto" />
                   DeepSource
                 </div>
                 <div className="tech-item">
                   <img
-                    src="/icon-wordpress.svg"
+                    src="/icon-wordpress.svg" width={32} height={32}
                     alt="WordPress"
-                    className="h-7"
+                    className="h-7 w-auto"
                   />
                   WordPress
                 </div>
                 <div className="tech-item">
-                  <img src="/framer.webp" alt="Framer Motion" className="h-6" />
+                  <img src="/framer.webp" width={96} height={96} alt="Framer Motion" className="h-6 w-auto" />
                   Framer Motion
                 </div>
-              </motion.div>
-              <motion.p
+              </m.div>
+              <m.p
                 variants={aboutTextVariants}
                 className="text-sm text-center font-light pt-7 sm:pt-12 pointer-events-none"
               >
                 I use this collection of tools and technologies to build
                 exceptional digital experiences.
-              </motion.p>
+              </m.p>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </div>
   );

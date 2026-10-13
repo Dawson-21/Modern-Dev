@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import Modal from "./Modal";
@@ -15,6 +15,7 @@ interface Props {
   results: string;
   technologies: string[];
   imageUrl: string;
+  imageSrcSet?: string;
   imageAlt: string;
   siteUrl?: string;
 }
@@ -29,6 +30,7 @@ function ProjectCard({
   results,
   technologies,
   imageUrl,
+  imageSrcSet,
   imageAlt,
   siteUrl,
 }: Props) {
@@ -55,7 +57,7 @@ function ProjectCard({
         ))}
       </div>
 
-      <motion.div
+      <m.div
         className="relative overflow-hidden rounded-xl shadow-lg mt-4"
         initial="rest"
         whileHover="hover"
@@ -63,11 +65,13 @@ function ProjectCard({
       >
         <img
           src={imageUrl}
+          srcSet={imageSrcSet}
+          sizes="(min-width: 1100px) 456px, (min-width: 768px) 40vw, 100vw"
           alt={imageAlt}
           loading="lazy"
           className="w-full h-full object-cover"
         />
-        <motion.div
+        <m.div
           variants={{
             rest: { opacity: 0 },
             hover: { opacity: 1, transition: { duration: 0.3 } },
@@ -77,11 +81,11 @@ function ProjectCard({
           <div className="text-center">
             <p className="text-[13px] sm:text-sm mt-2">{shortDescription}</p>
           </div>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
 
       <div className="flex justify-between items-center mt-3">
-        <motion.a
+        <m.a
           href={siteUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -96,9 +100,9 @@ function ProjectCard({
           aria-label={`Visit live site for ${title}`}
         >
           Visit Live Site <ExternalLink className="w-4 h-4 mb-1 inline" />
-        </motion.a>
+        </m.a>
 
-        <motion.button
+        <m.button
           className="col-span-7 md:col-span-3 md:justify-self-end flex text-white text-[min(4vw,14px)] font-light cursor-pointer"
           onClick={() => setSelectedProject(true)}
           type="button"
@@ -108,8 +112,8 @@ function ProjectCard({
           aria-label={`Read more details about ${title}`}
         >
           Read More
-          <motion.img
-            src="/arrow-white.svg"
+          <m.img
+            src="/arrow-white.svg" width={24} height={24}
             alt=""
             aria-hidden="true"
             className="w-6 sm:w-7 pl-1"
@@ -118,7 +122,7 @@ function ProjectCard({
               hover: { x: 8, transition: { duration: 0.2, ease: "easeInOut" } },
             }}
           />
-        </motion.button>
+        </m.button>
       </div>
 
       <Modal

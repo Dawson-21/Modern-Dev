@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { ReactNode } from "react";
 
 interface ProcessCardProps {
@@ -15,14 +15,14 @@ export default function ProcessCard({
   icon,
 }: ProcessCardProps) {
   return (
-    <motion.div
+    <m.div
       className={`relative overflow-hidden rounded-lg border border-white/20 backdrop-blur-md text-white p-9 shadow-md group`}
       whileHover="hover"
       initial="rest"
       animate="rest"
     >
       {/* Background Slide-Up Effect */}
-      <motion.div
+      <m.div
         variants={{
           rest: { top: "100%" },
           hover: { top: "0%" },
@@ -41,6 +41,6 @@ export default function ProcessCard({
           {description}
         </p>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

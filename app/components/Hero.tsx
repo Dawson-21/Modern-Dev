@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 
 export default function Hero() {
   const handleClick = (id: string) => {
@@ -15,15 +15,11 @@ export default function Hero() {
       id="homeSection"
       className="relative min-h-[100svh] min-h-dvh w-full flex flex-col justify-center items-center overflow-hidden"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="relative z-10 text-center"
-      >
+      <div className="relative z-10 text-center motion-safe:animate-hero-in">
         <img
           src="/Hero-logo2.webp"
+          srcSet="/Hero-logo2-640.webp 640w, /Hero-logo2.webp 1238w"
+          sizes="(min-width: 1536px) 25vw, (min-width: 1280px) 30vw, (min-width: 1024px) 35vw, (min-width: 768px) 45vw, (min-width: 640px) 55vw, 75vw"
           width={1238}
           height={875}
           fetchPriority="high"
@@ -32,7 +28,7 @@ export default function Hero() {
         />
 
         <div className="flex justify-center pt-8 space-x-2 sm:space-x-5 md:space-x-10">
-          <motion.button
+          <m.button
             onClick={() => handleClick("aboutSection")}
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 1.05 }}
@@ -40,9 +36,9 @@ export default function Hero() {
             className="bg-black/70 border-2 border-sky-900 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold"
           >
             Learn More
-          </motion.button>
+          </m.button>
 
-          <motion.button
+          <m.button
             onClick={() => handleClick("projectsSection")}
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 1.05 }}
@@ -50,9 +46,9 @@ export default function Hero() {
             className="bg-black/70 border-2 border-sky-900 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold"
           >
             View Featured Projects
-          </motion.button>
+          </m.button>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
