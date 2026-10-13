@@ -58,11 +58,11 @@ export default function About() {
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
         <div className="grid grid-cols-7 items-center">
           <h1 className="col-span-7 text-[min(8vw,50px)] font-bold text-white mt-[10vh]">
-            Hey There! I'm Dawson.
+            Hey There! I&apos;m Dawson.
           </h1>
-          <p className="col-span-7 md:col-span-4 text-[min(4.5vw,20px)] text-white/55 sm:mt-5">
+          <p className="col-span-7 md:col-span-4 text-[min(4.5vw,20px)] text-white/70 sm:mt-5">
             Texas based software engineer dedicated to helping small businesses
-            build a stronger online presence and stand out in today's digital
+            build a stronger online presence and stand out in today&apos;s digital
             landscape.
           </p>
           <motion.button
@@ -83,6 +83,8 @@ export default function About() {
             Start a Project
             <motion.img
               src="/arrow-black.svg"
+              alt=""
+              aria-hidden="true"
               variants={buttonArrowVariants}
               className="w-6 sm:w-8 pl-1"
             />
@@ -90,7 +92,7 @@ export default function About() {
         </div>
 
         <div className="flex flex-row w-full items-center justify-left mt-10">
-          <p className="text-sm sm:text-base text-white/55 w-24 sm:w-24">
+          <p className="text-sm sm:text-base text-white/70 w-24 sm:w-24">
             About Me
           </p>
           <hr className="w-full border-t border-white/20 mt-4 mb-3" />
@@ -124,7 +126,10 @@ export default function About() {
                   className="absolute inset-0 bg-linear-to-br from-sky-950 to-yellow-700/30"
                 />
                 <img
-                  src="/dawson.png"
+                  src="/dawson.webp"
+                  width={391}
+                  height={515}
+                  loading="lazy"
                   alt=""
                   className="relative z-10 w-full h-auto"
                 />
@@ -133,7 +138,7 @@ export default function About() {
                 variants={aboutTextVariants}
                 className="relative z-10 text-[min(4.3vw,18px)] font-light leading-6 lg:leading-8 tracking-wide"
               >
-                I'm a Software Engineer passionate about building modern,
+                I&apos;m a Software Engineer passionate about building modern,
                 user-focused, mobile-first websites and web applications. With a
                 B.S. in Computer Science from Texas A&M University Corpus
                 Christi and a strong foundation in both business and technology,
@@ -271,7 +276,7 @@ export default function About() {
                   WordPress
                 </div>
                 <div className="tech-item">
-                  <img src="/framer.png" alt="Framer Motion" className="h-6" />
+                  <img src="/framer.webp" alt="Framer Motion" className="h-6" />
                   Framer Motion
                 </div>
               </motion.div>

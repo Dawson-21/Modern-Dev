@@ -163,6 +163,7 @@ function ProjectCard({
             layoutId={`image-${title}`}
             src={imageUrl}
             alt={imageAlt}
+            loading="lazy"
             className="w-full h-full object-cover"
           />
 

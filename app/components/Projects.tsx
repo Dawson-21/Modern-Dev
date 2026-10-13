@@ -1,6 +1,5 @@
 "use client";
 
-import NewProjectCard from "./NewProjectCard";
 import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
 
@@ -9,7 +8,7 @@ function Projects() {
     <div id="projectsSection" className="w-full h-fit">
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
         <div className="flex flex-row w-full items-center justify-left mt-20">
-          <p className="text-sm sm:text-base text-white/55 w-44 sm:w-40">
+          <p className="text-sm sm:text-base text-white/70 w-44 sm:w-40">
             Featured Projects
           </p>
           <hr className="w-full border-t border-white/15 mt-4 mb-3" />
@@ -37,7 +36,7 @@ function Projects() {
                 "HTML5",
                 "WPForms",
               ]}
-              imageUrl="/WF.png"
+              imageUrl="/WF.webp"
               imageAlt="Waldrops Furniture Website Screenshot"
               siteUrl="https://waldropsfurniture.com"
             />
@@ -58,7 +57,7 @@ function Projects() {
               solution="I built a responsive WordPress site tailored to their services, with easy navigation, modern branding, and a lead-generation contact form. I also designed a professional logo to establish their brand identity and give them a more polished look."
               results="The new branding and website gave the business credibility and visibility, leading to an increase in inquiries and a steady stream of new local customers."
               technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
-              imageUrl="/TGS.png"
+              imageUrl="/TGS.webp"
               imageAlt="Texas Gutter Service Website Screenshot"
               siteUrl="https://texasgutterservice.com"
             />
@@ -79,7 +78,7 @@ function Projects() {
               solution="I built a modern, responsive website that highlights their services and past projects, making it easy for potential clients to get in touch."
               results="The new website helped Clayton Demolition attract more clients and establish a strong online presence."
               technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
-              imageUrl="/CD.png"
+              imageUrl="/CD.webp"
               imageAlt="Project Screenshot"
               siteUrl="https://claytondemolition.com"
             />
@@ -100,7 +99,7 @@ function Projects() {
               solution="I created a simple, user-friendly website that showcased their services and included a calendar for scheduling appointments."
               results="The website helped increase customer inquiries and made it easier for clients to book services."
               technologies={["WordPress", "Elementor", "CSS3"]}
-              imageUrl="/DCTC.png"
+              imageUrl="/DCTC.webp"
               imageAlt="Project Screenshot"
               siteUrl="https://detailscarpetandtilecare.com"
             />
@@ -121,7 +120,7 @@ function Projects() {
               solution="I created a visually appealing and user-friendly website that effectively showcased their services and included a contact form for inquiries."
               results="The website helped CNC Garage Doors gain visibility and attract new clients in their local area."
               technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
-              imageUrl="/CNC1.png"
+              imageUrl="/CNC1.webp"
               imageAlt="Project Screenshot"
               siteUrl="https://cncgaragedoors.com"
             />

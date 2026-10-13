@@ -116,7 +116,7 @@ export default function Nav() {
             className="hidden cursor-pointer rounded-md pr-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 sm:block sm:pr-7"
             aria-label="Go to home section"
           >
-            <img src="/Header-Logo.png" alt="Modern Dev" className="sm:h-10" />
+            <img src="/Header-Logo.webp" width={360} height={80} alt="Modern Dev" className="sm:h-10 sm:w-auto" />
           </button>
 
           <ul className="flex items-center space-x-2 text-lg font-[Helvetica] font-semibold sm:space-x-4">

@@ -1,10 +1,11 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 
 const pageVariants: Variants = {
-  rest: { opacity: 0.5, scale: 1 },
+  rest: { opacity: 0.7, scale: 1 },
   hover: {
     opacity: 1,
     scale: 1.05,
@@ -13,7 +14,7 @@ const pageVariants: Variants = {
 };
 
 const githubIconVariants: Variants = {
-  rest: { color: "rgb(115, 115, 115)" },
+  rest: { color: "rgb(163, 163, 163)" },
   hover: {
     scale: 1.05,
     color: "rgb(255, 255, 255)",
@@ -22,21 +23,30 @@ const githubIconVariants: Variants = {
 };
 
 const facebookIconVariants: Variants = {
-  rest: { color: "rgb(115, 115, 115)" },
+  rest: { color: "rgb(163, 163, 163)" },
   hover: { scale: 1.05, color: "#165ECB", transition: { duration: 0.2 } },
 };
 
 const instagramIconVariants: Variants = {
-  rest: { color: "rgb(115, 115, 115)" },
+  rest: { color: "rgb(163, 163, 163)" },
   hover: { scale: 1.05, color: "#C1355A", transition: { duration: 0.2 } },
 };
 
 const linkedinIconVariants: Variants = {
-  rest: { color: "rgb(115, 115, 115)" },
+  rest: { color: "rgb(163, 163, 163)" },
   hover: { scale: 1.05, color: "#004182", transition: { duration: 0.2 } },
 };
 
+const subscribeNoop = () => () => {};
+const getClientYear = () => new Date().getFullYear();
+// Build-time year, used for the server render and hydration so markup matches;
+// the client then switches to the visitor's current year.
+const serverYear = new Date().getFullYear();
+const getServerYear = () => serverYear;
+
 function Footer() {
+  const year = useSyncExternalStore(subscribeNoop, getClientYear, getServerYear);
+
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -103,12 +113,15 @@ function Footer() {
         <motion.a
           href="https://github.com/Dawson-21"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub (opens in a new tab)"
           initial="rest"
           whileHover="hover"
           animate="rest"
           variants={githubIconVariants}
         >
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 24 24"
@@ -123,14 +136,17 @@ function Footer() {
         </motion.a>
         {/* FACEBOOK */}
         <motion.a
-          href="#"
+          href="https://www.facebook.com/moderndev.pro/"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook (opens in a new tab)"
           initial="rest"
           whileHover="hover"
           animate="rest"
           variants={facebookIconVariants}
         >
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 24 24"
@@ -141,14 +157,17 @@ function Footer() {
         </motion.a>
         {/* INSTAGRAM */}
         <motion.a
-          href="#"
+          href="https://www.instagram.com/moderndev.pro/"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram (opens in a new tab)"
           initial="rest"
           whileHover="hover"
           animate="rest"
           variants={instagramIconVariants}
         >
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 24 24"
@@ -163,12 +182,15 @@ function Footer() {
         <motion.a
           href="https://www.linkedin.com/in/dawson-adams21/"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn (opens in a new tab)"
           initial="rest"
           whileHover="hover"
           animate="rest"
           variants={linkedinIconVariants}
         >
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 24 24"
@@ -178,8 +200,8 @@ function Footer() {
           </svg>
         </motion.a>
       </div>
-      <p className="text-sm opacity-55">
-        © 2025 Modern Dev. All rights reserved.
+      <p className="text-sm opacity-70">
+        © {year} Modern Dev. All rights reserved.
       </p>
     </div>
   );
