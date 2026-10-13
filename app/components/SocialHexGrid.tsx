@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { motion, Variants } from "framer-motion";
 
 // Base hex shape
@@ -53,20 +53,17 @@ const socialsTextVariants: Variants = {
   hover: { color: "rgba(255, 255, 255, 1)" },
 };
 
+const subscribeNoop = () => () => {};
+
+const getClientIsIOS = () =>
+  /iPad|iPhone|iPod/.test(window.navigator.userAgent) ||
+  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+// Server render and hydration assume non-iOS; the client then reports the real value.
+const getServerIsIOS = () => false;
+
 function useIsIOS() {
-  const [isIOS, setIsIOS] = useState(false);
-
-  useEffect(() => {
-    const userAgent = window.navigator.userAgent;
-
-    const ios =
-      /iPad|iPhone|iPod/.test(userAgent) ||
-      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-
-    setIsIOS(ios);
-  }, []);
-
-  return isIOS;
+  return useSyncExternalStore(subscribeNoop, getClientIsIOS, getServerIsIOS);
 }
 
 export default function SocialHexGrid() {

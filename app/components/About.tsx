@@ -58,11 +58,11 @@ export default function About() {
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
         <div className="grid grid-cols-7 items-center">
           <h1 className="col-span-7 text-[min(8vw,50px)] font-bold text-white mt-[10vh]">
-            Hey There! I'm Dawson.
+            Hey There! I&apos;m Dawson.
           </h1>
           <p className="col-span-7 md:col-span-4 text-[min(4.5vw,20px)] text-white/70 sm:mt-5">
             Texas based software engineer dedicated to helping small businesses
-            build a stronger online presence and stand out in today's digital
+            build a stronger online presence and stand out in today&apos;s digital
             landscape.
           </p>
           <motion.button
@@ -138,7 +138,7 @@ export default function About() {
                 variants={aboutTextVariants}
                 className="relative z-10 text-[min(4.3vw,18px)] font-light leading-6 lg:leading-8 tracking-wide"
               >
-                I'm a Software Engineer passionate about building modern,
+                I&apos;m a Software Engineer passionate about building modern,
                 user-focused, mobile-first websites and web applications. With a
                 B.S. in Computer Science from Texas A&M University Corpus
                 Christi and a strong foundation in both business and technology,
