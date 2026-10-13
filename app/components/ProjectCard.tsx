@@ -64,6 +64,7 @@ function ProjectCard({
         <img
           src={imageUrl}
           alt={imageAlt}
+          loading="lazy"
           className="w-full h-full object-cover"
         />
         <motion.div

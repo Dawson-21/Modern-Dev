@@ -23,7 +23,10 @@ export default function Hero() {
         className="relative z-10 text-center"
       >
         <img
-          src="Hero-logo2.png"
+          src="/Hero-logo2.webp"
+          width={1238}
+          height={875}
+          fetchPriority="high"
           alt="Modern Dev Logo"
           className="w-[75vw] sm:w-[55vw] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] 2xl:w-[25vw]"
         />

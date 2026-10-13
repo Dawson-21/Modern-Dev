@@ -124,7 +124,10 @@ export default function About() {
                   className="absolute inset-0 bg-linear-to-br from-sky-950 to-yellow-700/30"
                 />
                 <img
-                  src="/dawson.png"
+                  src="/dawson.webp"
+                  width={391}
+                  height={515}
+                  loading="lazy"
                   alt=""
                   className="relative z-10 w-full h-auto"
                 />
@@ -271,7 +274,7 @@ export default function About() {
                   WordPress
                 </div>
                 <div className="tech-item">
-                  <img src="/framer.png" alt="Framer Motion" className="h-6" />
+                  <img src="/framer.webp" alt="Framer Motion" className="h-6" />
                   Framer Motion
                 </div>
               </motion.div>
