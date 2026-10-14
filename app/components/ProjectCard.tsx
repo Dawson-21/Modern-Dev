@@ -44,33 +44,17 @@ function ProjectCard({
   const modalTitleId = `project-modal-title-${title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")}`;
-  const address = siteUrl?.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
   return (
     <div
       {...spotlightHandlers}
       className={`group grid w-full gap-3.5 p-4 ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}
     >
-      {/* The screenshot in a small browser window, cut at two corners. The
-          outer wrapper carries the glow, since a filter on the clipped frame
-          itself would be cut off. */}
+      {/* The screenshot in a frame cut at two corners. The outer wrapper
+          carries the glow, since a filter on the clipped frame itself would be
+          cut off. */}
       <div className="transition-[filter] duration-300 group-hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.35)]">
         <div className="cut-frame bg-[#04060a]">
-          <div className="flex items-center gap-1.5 border-b border-white/10 bg-white/[0.03] px-2.5 py-2">
-            {[0, 1, 2].map((dot) => (
-              <i
-                key={dot}
-                aria-hidden="true"
-                className="size-2 rounded-full bg-[#2a3038]"
-              />
-            ))}
-            <span
-              aria-hidden="true"
-              className="ml-2 min-w-0 flex-1 truncate rounded-full bg-white/5 px-2.5 py-0.5 text-[0.68rem] text-white/70"
-            >
-              {address}
-            </span>
-          </div>
           <div className="relative aspect-[3/2] overflow-hidden">
             <img
               src={imageUrl}
