@@ -15,7 +15,7 @@ import {
   PenTool,
 } from "lucide-react";
 import ServiceCard from "./ServiceCard";
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
 
 // Animation variants
@@ -117,7 +117,7 @@ export default function ServicesSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <motion.div
+            <m.div
               key={service.title}
               className="h-full"
               custom={index}
@@ -127,7 +127,7 @@ export default function ServicesSection() {
               variants={cardVariants}
             >
               <ServiceCard {...service} />
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

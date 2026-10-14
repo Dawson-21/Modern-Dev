@@ -1,7 +1,7 @@
 "use client";
 
 import ProjectCard from "./ProjectCard";
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 
 function Projects() {
   return (
@@ -15,7 +15,7 @@ function Projects() {
         </div>
 
         <div className="grid md:grid-cols-2 pt-10 gap-6 sm:gap-6 items-start justify-start">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -37,12 +37,13 @@ function Projects() {
                 "WPForms",
               ]}
               imageUrl="/WF.webp"
+              imageSrcSet="/WF-480.webp 480w, /WF.webp 960w"
               imageAlt="Waldrops Furniture Website Screenshot"
               siteUrl="https://waldropsfurniture.com"
             />
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -58,12 +59,13 @@ function Projects() {
               results="The new branding and website gave the business credibility and visibility, leading to an increase in inquiries and a steady stream of new local customers."
               technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
               imageUrl="/TGS.webp"
+              imageSrcSet="/TGS-480.webp 480w, /TGS.webp 890w"
               imageAlt="Texas Gutter Service Website Screenshot"
               siteUrl="https://texasgutterservice.com"
             />
-          </motion.div>
+          </m.div>
 
-          {/* <motion.div
+          {/* <m.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -79,12 +81,13 @@ function Projects() {
               results="The new website helped Clayton Demolition attract more clients and establish a strong online presence."
               technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
               imageUrl="/CD.webp"
+              imageSrcSet="/CD-480.webp 480w, /CD.webp 960w"
               imageAlt="Project Screenshot"
               siteUrl="https://claytondemolition.com"
             />
-          </motion.div> */}
+          </m.div> */}
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -100,12 +103,13 @@ function Projects() {
               results="The website helped increase customer inquiries and made it easier for clients to book services."
               technologies={["WordPress", "Elementor", "CSS3"]}
               imageUrl="/DCTC.webp"
+              imageSrcSet="/DCTC-480.webp 480w, /DCTC.webp 960w"
               imageAlt="Project Screenshot"
               siteUrl="https://detailscarpetandtilecare.com"
             />
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -121,10 +125,11 @@ function Projects() {
               results="The website helped CNC Garage Doors gain visibility and attract new clients in their local area."
               technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
               imageUrl="/CNC1.webp"
+              imageSrcSet="/CNC1-480.webp 480w, /CNC1.webp 847w"
               imageAlt="Project Screenshot"
               siteUrl="https://cncgaragedoors.com"
             />
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </div>

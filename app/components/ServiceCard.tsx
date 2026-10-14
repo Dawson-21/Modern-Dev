@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { ReactNode } from "react";
 
 interface ServiceCardProps {
@@ -15,14 +15,14 @@ export default function ServiceCard({
   icon,
 }: ServiceCardProps) {
   return (
-    <motion.div
+    <m.div
       className="group relative h-full overflow-hidden rounded-lg border border-white/20 p-6 text-white shadow-md backdrop-blur-md"
       whileHover="hover"
       initial="rest"
       animate="rest"
     >
       {/* Background Slide-Up Effect */}
-      <motion.div
+      <m.div
         variants={{
           rest: { top: "100%" },
           hover: { top: "0%" },
@@ -41,6 +41,6 @@ export default function ServiceCard({
           {description}
         </p>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

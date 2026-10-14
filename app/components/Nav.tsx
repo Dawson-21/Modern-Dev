@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { useEffect, useState } from "react";
 import type { Variants } from "framer-motion";
 
@@ -125,14 +125,14 @@ export default function Nav() {
 
               return (
                 <li key={item.key}>
-                  <motion.div
+                  <m.div
                     className={`flex flex-col items-center ${item.itemClass}`}
                     initial="rest"
                     whileHover="hover"
                     whileFocus="hover"
                     animate="rest"
                   >
-                    <motion.button
+                    <m.button
                       type="button"
                       onClick={() => handleClick(item.id)}
                       variants={iconVariants}
@@ -142,24 +142,26 @@ export default function Nav() {
                     >
                       <img
                         src={item.icon}
+                        width={800}
+                        height={800}
                         alt=""
                         aria-hidden="true"
                         className={`${item.iconClass}`}
                       />
-                    </motion.button>
-                    <motion.div
+                    </m.button>
+                    <m.div
                       variants={labelVariants}
                       className={`pointer-events-none block w-fit rounded-md bg-black px-2 text-sm text-gray-200 ${item.labelClass}`}
                     >
                       {item.label}
-                    </motion.div>
-                  </motion.div>
+                    </m.div>
+                  </m.div>
                 </li>
               );
             })}
 
             <li>
-              <motion.button
+              <m.button
                 type="button"
                 onClick={() => handleClick("contactSection")}
                 whileHover={{
@@ -170,7 +172,7 @@ export default function Nav() {
                 className="ml-6 hidden cursor-pointer rounded-full bg-white/80 px-2 py-2 text-[12px] text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 sm:block sm:px-5 sm:text-sm"
               >
                 Free Quote
-              </motion.button>
+              </m.button>
             </li>
           </ul>
         </div>

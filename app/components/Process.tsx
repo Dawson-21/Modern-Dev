@@ -10,7 +10,7 @@ import {
   Wrench,
 } from "lucide-react";
 import ProcessCard from "./ProcessCard";
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
 
 // Animation variants
@@ -91,7 +91,7 @@ function Process() {
 
         <div className="flex flex-col items-left justify-center text-white gap-5">
           {steps.map((step, index) => (
-            <motion.div
+            <m.div
               key={step.title}
               custom={index}
               initial="hidden"
@@ -100,7 +100,7 @@ function Process() {
               variants={cardVariants}
             >
               <ProcessCard {...step} />
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

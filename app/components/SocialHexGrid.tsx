@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { motion, Variants } from "framer-motion";
+import type { Variants } from "framer-motion";
+import * as m from "framer-motion/m";
 
 // Base hex shape
 const getHexPoints = (hexW: number, hexH: number) => `
@@ -96,7 +97,7 @@ export default function SocialHexGrid() {
 
   return (
     <div className="relative w-full pb-[68%] sm:pb-0">
-      <motion.svg
+      <m.svg
         className="absolute inset-0 w-full h-full"
         viewBox={`${minX} ${minY} ${gridWidth} ${gridHeight}`}
         preserveAspectRatio={isMdUp ? "xMidYMid slice" : undefined}
@@ -112,7 +113,7 @@ export default function SocialHexGrid() {
             const y = row * (HEX_H * 0.75) - HEX_H - 13;
 
             return (
-              <motion.polygon
+              <m.polygon
                 key={`bg-${row}-${col}`}
                 points={getHexPoints(HEX_W, HEX_H)}
                 transform={`translate(${x},${y})`}
@@ -149,12 +150,12 @@ export default function SocialHexGrid() {
                 }
               }}
             >
-              <motion.g
+              <m.g
                 whileHover={{ scale: 1.15 }}
                 transition={{ type: "spring", stiffness: 500, damping: 20 }}
                 className="cursor-pointer group"
               >
-                <motion.polygon
+                <m.polygon
                   points={getSocialHexPoints(SOCIAL_HEX_W, SOCIAL_HEX_H)}
                   initial={{
                     fill: "#525252",
@@ -175,7 +176,7 @@ export default function SocialHexGrid() {
                   height={50 * SOCIAL_SCALE - 3}
                   style={{ pointerEvents: "none" }}
                 />
-              </motion.g>
+              </m.g>
             </g>
           );
         })}
@@ -188,22 +189,22 @@ export default function SocialHexGrid() {
           <div
             className={`flex ${isIOS ? "max-sm:ml-13 max-sm:mr-20" : ""} items-end h-full px-4 pb-4 md:ml-10 lg:ml-2`}
           >
-            <motion.div
+            <m.div
               variants={socialsShiftVariants}
               className="w-full text-left pointer-events-none z-10"
             >
               <h2 className="text-lg md:text-xl font-bold">Reach Out</h2>
 
-              <motion.p
+              <m.p
                 variants={socialsTextVariants}
                 className="text-[17px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide max-sm:-mr-20 md:pr-12 lg:pr-5"
               >
                 Connect with me through my favorite platforms.
-              </motion.p>
-            </motion.div>
+              </m.p>
+            </m.div>
           </div>
         </foreignObject>
-      </motion.svg>
+      </m.svg>
     </div>
   );
 }
