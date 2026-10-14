@@ -29,7 +29,7 @@ export function WebsiteVisual() {
           ))}
         </div>
         <div className="grid gap-3.5 p-5">
-          <div className="h-28 rounded-md bg-linear-to-br from-sky-800 via-sky-950 to-black sm:h-30" />
+          <div className="h-28 rounded-md bg-linear-to-br from-sky-800 via-sky-950 to-[#011728] sm:h-30" />
           <div className="grid grid-cols-3 gap-3.5">
             {[0, 1, 2].map((block) => (
               <b
