@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import type { Variants } from "framer-motion";
 
 const iconVariants: Variants = {
-  rest: { opacity: 0.6, scale: 1 },
+  // `custom` is whether this item's section is currently in view
+  rest: (isActive: boolean) => ({ opacity: isActive ? 1 : 0.6, scale: 1 }),
   hover: {
     opacity: 1,
     scale: 1.1,
@@ -70,33 +71,35 @@ export default function Nav() {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const updateActiveNav = () => {
-      const y = window.scrollY;
-      let startAbout = 645;
-      let startProjects = 1640;
-      let startServices = 2700;
-      let startContact = 4760;
+    const sections = navItems
+      .map((item) => ({ key: item.key, element: document.getElementById(item.id) }))
+      .filter(
+        (section): section is { key: string; element: HTMLElement } =>
+          section.element !== null,
+      );
 
-      if (window.innerWidth < 440) {
-        startAbout = 600;
-        startProjects = 2600;
-        startServices = 4300;
-        startContact = 8000;
-      }
+    // The active section is the lowest one touching a thin line 40% down the
+    // viewport. Sections that aren't in the nav (like Process) never match,
+    // so the previous item stays active while scrolling through them.
+    const inView = new Set<string>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const key = sections.find((s) => s.element === entry.target)?.key;
+          if (!key) continue;
+          if (entry.isIntersecting) inView.add(key);
+          else inView.delete(key);
+        }
 
-      if (y < startAbout) setActiveSection("home");
-      else if (y < startProjects) setActiveSection("about");
-      else if (y < startServices) setActiveSection("projects");
-      else if (y < startContact) setActiveSection("services");
-      else setActiveSection("contact");
-    };
+        const current = sections.filter((s) => inView.has(s.key)).at(-1);
+        if (current) setActiveSection(current.key);
+      },
+      { rootMargin: "-40% 0px -59% 0px" },
+    );
 
-    updateActiveNav();
-    window.addEventListener("scroll", updateActiveNav, { passive: true });
+    sections.forEach((section) => observer.observe(section.element));
 
-    return () => {
-      window.removeEventListener("scroll", updateActiveNav);
-    };
+    return () => observer.disconnect();
   }, []);
 
   const handleClick = (id: string) => {
@@ -127,6 +130,7 @@ export default function Nav() {
                 <li key={item.key}>
                   <m.div
                     className={`flex flex-col items-center ${item.itemClass}`}
+                    custom={isActive}
                     initial="rest"
                     whileHover="hover"
                     whileFocus="hover"
@@ -136,9 +140,10 @@ export default function Nav() {
                       type="button"
                       onClick={() => handleClick(item.id)}
                       variants={iconVariants}
-                      className={`cursor-pointer rounded-md p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 ${isActive ? "opacity-100" : "opacity-55"}`}
+                      custom={isActive}
+                      className="cursor-pointer rounded-md p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                       aria-label={`Go to ${item.label} section`}
-                      aria-current={isActive ? "page" : undefined}
+                      aria-current={isActive ? "location" : undefined}
                     >
                       <img
                         src={item.icon}

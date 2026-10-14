@@ -41,13 +41,15 @@ export default function Carousel() {
   const total = testimonials.length;
   const [isHovering, setIsHovering] = useState(false);
 
-  const quoteLength = testimonials[currentIndex].quote.length;
-  let size = "text-[15px]";
-  if (quoteLength < 120) size = "text-[20px]";
-  else if (quoteLength < 200) size = "text-[19px]";
-  else if (quoteLength < 240) size = "text-[17px]";
-  else if (quoteLength < 280) size = "text-[16px]";
-  else if (quoteLength < 320) size = "text-[14px]";
+  const quoteSize = (quote: string) => {
+    const length = quote.length;
+    if (length < 120) return "text-[20px]";
+    if (length < 200) return "text-[19px]";
+    if (length < 240) return "text-[17px]";
+    if (length < 280) return "text-[16px]";
+    if (length < 320) return "text-[14px]";
+    return "text-[15px]";
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
@@ -82,28 +84,37 @@ export default function Carousel() {
       aria-label="Client testimonials"
     >
       <div
-        className="relative sm:min-h-74 md:min-h-68 lg:min-h-56 items-center justify-center px-6 py-3 transition duration-500"
+        className="relative items-center justify-center px-6 py-3"
         {...handlers}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        <div className="flex flex-col justify-center" aria-live="polite">
-          <p
-            className={`${size} italic text-white/70 transition duration-500 group-hover:text-white`}
-          >
-            {`"${testimonials[currentIndex].quote}"`}
-          </p>
+        {/* Every slide shares one grid cell, so the container is always as tall
+            as the longest testimonial and swapping slides never shifts the page. */}
+        <div className="grid" aria-live="polite">
+          {testimonials.map((testimonial, idx) => {
+            const isActive = idx === currentIndex;
 
-          <div className="text-right">
-            <p className="font-semibold text-white">
-              - {testimonials[currentIndex].name}
-            </p>
-            {testimonials[currentIndex].role && (
-              <p className="text-sm text-white/70">
-                {testimonials[currentIndex].role}
-              </p>
-            )}
-          </div>
+            return (
+              <div
+                key={testimonial.name}
+                className={`col-start-1 row-start-1 flex flex-col justify-center transition-opacity duration-500 ${
+                  isActive ? "opacity-100" : "invisible opacity-0"
+                }`}
+              >
+                <p className={`${quoteSize(testimonial.quote)} italic text-white/70`}>
+                  {`"${testimonial.quote}"`}
+                </p>
+
+                <div className="text-right">
+                  <p className="font-semibold text-white">- {testimonial.name}</p>
+                  {testimonial.role && (
+                    <p className="text-sm text-white/70">{testimonial.role}</p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="absolute inset-y-0 left-0 flex items-center">

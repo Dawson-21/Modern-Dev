@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 import type { Variants } from "framer-motion";
 import * as m from "framer-motion/m";
 
@@ -54,22 +54,8 @@ const socialsTextVariants: Variants = {
   hover: { color: "rgba(255, 255, 255, 1)" },
 };
 
-const subscribeNoop = () => () => {};
-
-const getClientIsIOS = () =>
-  /iPad|iPhone|iPod/.test(window.navigator.userAgent) ||
-  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-
-// Server render and hydration assume non-iOS; the client then reports the real value.
-const getServerIsIOS = () => false;
-
-function useIsIOS() {
-  return useSyncExternalStore(subscribeNoop, getClientIsIOS, getServerIsIOS);
-}
-
 export default function SocialHexGrid() {
   const [isMdUp, setIsMdUp] = useState(false);
-  const isIOS = useIsIOS();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 668px)");
@@ -96,7 +82,7 @@ export default function SocialHexGrid() {
   const gridHeight = 312;
 
   return (
-    <div className="relative w-full pb-[68%] sm:pb-0">
+    <div className="relative w-full pb-[68%] sm:pb-0 [container-type:inline-size]">
       <m.svg
         className="absolute inset-0 w-full h-full"
         viewBox={`${minX} ${minY} ${gridWidth} ${gridHeight}`}
@@ -180,31 +166,39 @@ export default function SocialHexGrid() {
             </g>
           );
         })}
-        <foreignObject
-          x={isMdUp ? -20 : -40}
-          y={isMdUp ? 190 : isIOS ? 50 : 100}
-          width={isMdUp ? gridWidth + 20 : gridWidth + 80}
-          height={isMdUp ? 120 : 208}
-        >
-          <div
-            className={`flex ${isIOS ? "max-sm:ml-13 max-sm:mr-20" : ""} items-end h-full px-4 pb-4 md:ml-10 lg:ml-2`}
-          >
-            <m.div
-              variants={socialsShiftVariants}
-              className="w-full text-left pointer-events-none z-10"
-            >
-              <h2 className="text-lg md:text-xl font-bold">Reach Out</h2>
-
-              <m.p
-                variants={socialsTextVariants}
-                className="text-[17px] sm:text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide max-sm:-mr-20 md:pr-12 lg:pr-5"
+        {isMdUp && (
+          <foreignObject x={-20} y={190} width={gridWidth + 20} height={120}>
+            <div className="flex items-end h-full px-4 pb-4 md:ml-10 lg:ml-2">
+              <m.div
+                variants={socialsShiftVariants}
+                className="w-full text-left pointer-events-none z-10"
               >
-                Connect with me through my favorite platforms.
-              </m.p>
-            </m.div>
-          </div>
-        </foreignObject>
+                <h2 className="text-lg md:text-xl font-bold">Reach Out</h2>
+
+                <m.p
+                  variants={socialsTextVariants}
+                  className="text-[14px] lg:text-[min(4.3vw,16px)] font-light tracking-wide md:pr-12 lg:pr-5"
+                >
+                  Connect with me through my favorite platforms.
+                </m.p>
+              </m.div>
+            </div>
+          </foreignObject>
+        )}
       </m.svg>
+
+      {/* Below md the text is a plain HTML overlay instead of a <foreignObject>:
+          Safari positions foreignObject content wrongly inside a scaled SVG
+          (the text ended up below the visible area on iPhones). Sizes use
+          container-width units so it matches the SVG's scale. */}
+      {!isMdUp && (
+        <div className="pointer-events-none absolute bottom-[4.4cqw] left-[9.8cqw] right-[3cqw]">
+          <h2 className="text-[3.92cqw] leading-[1.556] font-bold">Reach Out</h2>
+          <p className="text-[3.71cqw] leading-normal font-light tracking-wide text-white/70">
+            Connect with me through my favorite platforms.
+          </p>
+        </div>
+      )}
     </div>
   );
 }
