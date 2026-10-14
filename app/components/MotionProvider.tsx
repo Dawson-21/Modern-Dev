@@ -1,13 +1,11 @@
 "use client";
 
-import { LazyMotion } from "framer-motion";
+import { LazyMotion, domAnimation } from "framer-motion";
 import type { ReactNode } from "react";
 
-// Loads framer-motion's animation features after the page renders instead of
-// bundling them into the initial JavaScript. Components use `m.*` elements.
-const loadFeatures = () =>
-  import("./motionFeatures").then((mod) => mod.default);
-
+// Components use the lightweight `m.*` elements; the animation features come
+// from here. They are loaded synchronously on purpose: deferring them with a
+// dynamic import cost ~3x the total blocking time (one long task after load).
 export default function MotionProvider({ children }: { children: ReactNode }) {
-  return <LazyMotion features={loadFeatures}>{children}</LazyMotion>;
+  return <LazyMotion features={domAnimation}>{children}</LazyMotion>;
 }
