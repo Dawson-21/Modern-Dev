@@ -44,48 +44,46 @@ Modern Dev is a personal project built to attract and convert small to mid-sized
 
 ## Key Features
 
-- Fully responsive layout optimized across all breakpoints  
-- Custom-designed UI aligned with a modern, developer-focused aesthetic  
-- Smooth, intentional animations using Framer Motion  
-- Interactive card-based UI with hover states and transitions  
-- Conversion-focused contact form with simplified service selection  
-- SEO-friendly structure with semantic HTML  
-- Performance-conscious asset handling and layout structure  
-- Clean visual hierarchy for improved readability and usability  
+- Fully responsive layout, checked from 320px phones up to wide desktops
+- Hexagon design language taken from the logo: a faint lattice page background, hexagon-cut buttons, nav and project frames
+- Bento-style services grid and a scroll-lit process timeline
+- Spotlight hover: a soft glow follows the cursor across every card
+- Touch screens get the same effect from scrolling: a card lights up while it sits at the middle of the screen
+- Glass-style contact form with card-style service selection and a restyled modal
+- Entrance animations with Framer Motion (switched off on phones)
+- SEO-friendly structure with semantic HTML
 
 ---
 
 ## Notable Engineering Decisions
 
-### 1. Geometry-Based Icon Scaling
+### 1. Geometry-Based Social Card
 
-Scaling hexagonal social icons alongside their background introduced alignment issues across breakpoints.  
-Instead of relying on manual adjustments, the solution was to **tie the icon dimensions directly to the geometry of the background container**, creating a consistent scaling relationship.
-
-This eliminated drift and ensured visual alignment remained stable at every screen size.
+The social card is a hexagon lattice banner with the icons sitting inside cells. Sizing icons separately from the lattice caused drift across breakpoints, so everything is **derived from one unit**: the card is split into five cell widths using container-query units, and both the lattice and the icon positions are calculated from that unit. The icons stay centered and fill their hexagons at every screen size, and the hover text lives in a fixed-height box so it never moves the icons.
 
 ---
 
-### 2. Custom Breakpoint Debugging Tool
+### 2. Hover That Works on Touch
 
-Debugging responsive issues across multiple breakpoints became inefficient when relying solely on browser tools.
-
-To solve this, a **custom debugging component** was built to display:
-- Current screen width  
-- Active Tailwind breakpoint (xs → 3xl)  
-
-This made it significantly faster to:
-- Identify exactly where layout issues occurred  
-- Apply precise fixes without guesswork  
+Touch screens have no hover, so a `useScrollLit` hook watches each card with an `IntersectionObserver` and sets `data-lit` while it crosses the middle of the screen. Cards style both `hover:` and `data-[lit=true]:`, so the About cards, services, projects, social card and contact form all light up the same way on any device.
 
 ---
 
 ### 3. Improved Form UX
 
 The service selection was redesigned from standard radio inputs into **card-style selectable options**, resulting in:
-- Lower cognitive load  
-- Clearer visual hierarchy  
-- A more engaging interaction pattern  
+- Lower cognitive load
+- Clearer visual hierarchy
+- A more engaging interaction pattern
+
+---
+
+### 4. Performance Work
+
+- WebP images with `srcSet` and `sizes`, so phones download small versions
+- Long-lived immutable caching headers for static assets
+- Motion loaded through `LazyMotion` to keep the JavaScript small
+- Explicit image dimensions to avoid layout shift
 
 ---
 
@@ -108,10 +106,12 @@ The contact form is powered by **Resend**, enabling reliable email delivery with
 
 **Lighthouse Scores:**
 
-- Performance: 83  
-- Accessibility: 83  
+- Performance: 95  
+- Accessibility: 100  
 - Best Practices: 100  
-- SEO: 91  
+- SEO: 100  
+
+_Measured on the live site, mobile profile._
 
 ---
 
