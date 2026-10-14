@@ -3,6 +3,7 @@
 import * as m from "framer-motion/m";
 import { useEffect, useState } from "react";
 import type { Variants } from "framer-motion";
+import HexButton from "./HexButton";
 
 const iconVariants: Variants = {
   // `custom` is whether this item's section is currently in view
@@ -166,18 +167,14 @@ export default function Nav() {
             })}
 
             <li>
-              <m.button
-                type="button"
+              <HexButton
+                size="sm"
                 onClick={() => handleClick("contactSection")}
-                whileHover={{
-                  scale: 1.15,
-                  backgroundColor: "rgba(255, 255, 255, 1)",
-                }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="ml-6 hidden cursor-pointer rounded-full bg-white/80 px-2 py-2 text-[12px] text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 sm:block sm:px-5 sm:text-sm"
+                wrapperClassName="ml-6 hidden sm:inline-flex"
+                className="sm:text-sm"
               >
                 Free Quote
-              </m.button>
+              </HexButton>
             </li>
           </ul>
         </div>

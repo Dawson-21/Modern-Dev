@@ -4,6 +4,7 @@ import * as m from "framer-motion/m";
 import { noMobileEntrance } from "./entrance";
 import { cardHoverOutline, cardSpotlight, cardSurface } from "./cardStyles";
 import { spotlightHandlers } from "./spotlight";
+import HexButton from "./HexButton";
 import { useState } from "react";
 
 type ServiceType = "newWebsite" | "redesign" | "logoBranding" | "notSure";
@@ -186,18 +187,9 @@ export default function ContactForm() {
         </p>
 
         <div className="text-center">
-          <m.button
-            type="submit"
-            whileHover={{
-              scale: 1.1,
-              backgroundColor: "rgba(255, 255, 255, 1)",
-            }}
-            transition={{ duration: 0.001, ease: "easeInOut" }}
-            className="cursor-pointer rounded-full bg-white/90 px-6 py-2 font-semibold text-black transition duration-200 ease-in-out hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 disabled:cursor-not-allowed disabled:opacity-70"
-            disabled={isSubmitting}
-          >
+          <HexButton type="submit" disabled={isSubmitting}>
             {isSubmitting ? "Sending..." : "Send Project Inquiry"}
-          </m.button>
+          </HexButton>
         </div>
       </form>
     </m.div>

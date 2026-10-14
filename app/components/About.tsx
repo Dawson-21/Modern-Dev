@@ -7,6 +7,7 @@ import SocialCard from "./SocialCard";
 import { noMobileEntrance } from "./entrance";
 import { cardHoverOutline, cardSpotlight, cardSurface, spotlightGlow } from "./cardStyles";
 import { spotlightHandlers } from "./spotlight";
+import HexButton from "./HexButton";
 import { useScrollHover } from "./useScrollHover";
 
 // Outline highlight shared with hover, and with the scroll-driven hover on touch.
@@ -33,11 +34,6 @@ const aboutImageBgVariants: Variants = {
 const aboutTextVariants: Variants = {
   rest: { color: "rgba(255, 255, 255, 0.55)" },
   hover: { color: "rgba(255, 255, 255, 1)" },
-};
-
-const buttonArrowVariants: Variants = {
-  rest: { x: 0 },
-  hover: { x: 8, transition: { duration: 0.2, ease: "easeInOut" } },
 };
 
 const cardHoverBgVariants: Variants = {
@@ -79,30 +75,19 @@ export default function About() {
             build a stronger online presence and stand out in today&apos;s digital
             landscape.
           </p>
-          <m.button
+          <HexButton
             onClick={() => handleClick("contactSection")}
-            initial="rest"
-            whileHover="hover"
-            animate="rest"
-            variants={{
-              rest: { scale: 1, backgroundColor: "rgba(255, 255, 255, 0.8)" },
-              hover: {
-                scale: 1.15,
-                backgroundColor: "rgba(255, 255, 255, 1)",
-                transition: { duration: 0.2, ease: "easeInOut" },
-              },
-            }}
-            className="col-span-7 md:col-span-3 md:justify-self-end flex w-fit h-fit bg-white/80 text-black px-4 py-2 mt-5 rounded-full text-[min(4vw,18px)] font-bold cursor-pointer"
+            wrapperClassName="col-span-7 mt-5 h-fit w-fit md:col-span-3 md:justify-self-end"
+            className="text-[min(4vw,18px)]"
           >
             Start a Project
-            <m.img
-              src="/arrow-black.svg" width={24} height={24}
+            <img
+              src="/arrow-white.svg"
               alt=""
               aria-hidden="true"
-              variants={buttonArrowVariants}
-              className="w-6 sm:w-8 pl-1"
+              className="btn-arrow w-5 sm:w-6"
             />
-          </m.button>
+          </HexButton>
         </div>
 
         <div className="flex flex-row w-full items-center justify-left mt-10">
