@@ -17,7 +17,7 @@ import type { LucideIcon } from "lucide-react";
 import * as m from "framer-motion/m";
 import HexIcon from "./HexIcon";
 import { noMobileEntrance } from "./entrance";
-import { cardSpotlight } from "./cardStyles";
+import { cardSpotlight, cardSurface } from "./cardStyles";
 import { spotlightHandlers } from "./spotlight";
 import {
   DevicesVisual,
@@ -152,7 +152,7 @@ export default function ServicesSection() {
             <article
               key={service.title}
               {...spotlightHandlers}
-              className={`group flex flex-col gap-2.5 rounded-lg border border-white/20 bg-white/[0.035] p-5.5 text-white transition-colors duration-300 hover:border-sky-400/45 ${cardSpotlight} ${service.className}`}
+              className={`group flex flex-col gap-2.5 rounded-lg p-5.5 text-white transition-colors duration-300 hover:border-sky-400/45 ${cardSurface} ${cardSpotlight} ${service.className}`}
             >
               <div className="relative mb-1.5 flex items-center justify-between gap-3">
                 <HexIcon

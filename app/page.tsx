@@ -17,7 +17,7 @@ function App() {
 
       <Nav />
       <Hero />
-      <div className="bg-black/30">
+      <div className="bg-black/55">
         <About />
         <Projects />
         <Services />
