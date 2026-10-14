@@ -73,7 +73,7 @@ export function PageWeightVisual() {
             <span>4,737 KiB</span>
           </div>
           <div className="h-2.5 overflow-hidden rounded-full bg-white/7">
-            <span className="block h-full w-full rounded-full bg-[#3a424c]" />
+            <span className="block h-full w-full rounded-full bg-sky-600/60" />
           </div>
         </div>
         <div className="grid gap-1.25">
