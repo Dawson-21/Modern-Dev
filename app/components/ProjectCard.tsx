@@ -59,7 +59,7 @@ function ProjectCard({
             <img
               src={imageUrl}
               srcSet={imageSrcSet}
-              sizes="(min-width: 1100px) 456px, (min-width: 768px) 40vw, 100vw"
+              sizes="(min-width: 1100px) 456px, (min-width: 768px) calc(50vw - 90px), (min-width: 640px) calc(100vw - 92px), calc(100vw - 62px)"
               alt={imageAlt}
               loading="lazy"
               className="size-full object-cover object-top transition-transform duration-[600ms] group-hover:scale-[1.04]"

@@ -87,6 +87,8 @@ export default function About() {
             Start a Project
             <img
               src="/arrow-white.svg"
+              width={24}
+              height={24}
               alt=""
               aria-hidden="true"
               className="btn-arrow w-5 sm:w-6"
