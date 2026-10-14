@@ -178,6 +178,51 @@
   }
 }
 
+/* A frame cut at two opposite corners (top right, bottom left) with a thin sky edge,
+   the same angled cut as the hexagon buttons and nav. The edge is a ring overlay
+   so it stays crisp over images. Set --c (cut size) and optionally --edge. */
+@layer components {
+  .cut-frame {
+    --c: 22px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--c)) 0,
+      100% var(--c),
+      100% 100%,
+      var(--c) 100%,
+      0 calc(100% - var(--c))
+    );
+  }
+  .cut-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: var(--edge, rgba(56, 189, 248, 0.5));
+    clip-path: polygon(
+      evenodd,
+      0 0,
+      calc(100% - var(--c)) 0,
+      100% var(--c),
+      100% 100%,
+      var(--c) 100%,
+      0 calc(100% - var(--c)),
+      0 0,
+      1px 1px,
+      calc(100% - var(--c) - 0.4px) 1px,
+      calc(100% - 1px) calc(var(--c) + 0.4px),
+      calc(100% - 1px) calc(100% - 1px),
+      calc(var(--c) + 0.4px) calc(100% - 1px),
+      1px calc(100% - var(--c) - 0.4px),
+      1px 1px
+    );
+  }
+}
+
 /* Browser autofill would otherwise paint form fields white or yellow. */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
