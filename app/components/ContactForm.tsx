@@ -22,6 +22,8 @@ const serviceOptions: Array<{ label: string; value: ServiceType }> = [
   { label: "Not Sure, Let's Chat!", value: "notSure" },
 ];
 
+const SENT_MESSAGE = "Message sent successfully.";
+
 export default function ContactForm() {
   const [cardRef, lit] = useScrollLit<HTMLDivElement>();
   const [formData, setFormData] = useState({
@@ -33,6 +35,7 @@ export default function ContactForm() {
 
   const [statusMessage, setStatusMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const isSent = statusMessage === SENT_MESSAGE;
 
   const getServiceLabel = (value: ServiceType | "") => {
     return serviceOptions.find((option) => option.value === value)?.label || "";
@@ -60,7 +63,7 @@ export default function ContactForm() {
       });
 
       if (res.ok) {
-        setStatusMessage("Message sent successfully.");
+        setStatusMessage(SENT_MESSAGE);
         setFormData({ name: "", email: "", serviceType: "", message: "" });
       } else {
         setStatusMessage("Failed to send message. Please try again later.");
@@ -189,7 +192,7 @@ export default function ContactForm() {
         </div>
 
         <p
-          className="min-h-6 -mt-4 mb-1 text-sm text-white/80 text-center"
+          className={`min-h-6 -mt-4 mb-1 text-center text-sm ${isSent ? "font-medium text-green-300" : "text-white/80"}`}
           aria-live="polite"
         >
           {statusMessage}
