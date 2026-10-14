@@ -17,6 +17,8 @@ import type { LucideIcon } from "lucide-react";
 import * as m from "framer-motion/m";
 import HexIcon from "./HexIcon";
 import { noMobileEntrance } from "./entrance";
+import { cardSpotlight } from "./cardStyles";
+import { spotlightHandlers } from "./spotlight";
 import {
   DevicesVisual,
   HostingVisual,
@@ -149,7 +151,8 @@ export default function ServicesSection() {
           {services.map((service) => (
             <article
               key={service.title}
-              className={`group relative flex flex-col gap-2.5 overflow-hidden rounded-lg border border-white/20 bg-white/[0.035] p-5.5 text-white transition-colors duration-300 before:pointer-events-none before:absolute before:inset-0 before:bg-linear-to-br before:from-sky-950/55 before:from-20% before:to-yellow-700/20 before:opacity-0 before:transition-opacity before:duration-400 hover:border-sky-400/45 hover:before:opacity-100 ${service.className}`}
+              {...spotlightHandlers}
+              className={`group flex flex-col gap-2.5 rounded-lg border border-white/20 bg-white/[0.035] p-5.5 text-white transition-colors duration-300 hover:border-sky-400/45 ${cardSpotlight} ${service.className}`}
             >
               <div className="relative mb-1.5 flex items-center justify-between gap-3">
                 <HexIcon

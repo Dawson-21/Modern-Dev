@@ -4,7 +4,13 @@ import * as m from "framer-motion/m";
 import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import Modal from "./Modal";
-import { cardAccentLabel, cardHoverOutline, cardSurface } from "./cardStyles";
+import {
+  cardAccentLabel,
+  cardHoverOutline,
+  cardSpotlight,
+  cardSurface,
+} from "./cardStyles";
+import { spotlightHandlers } from "./spotlight";
 
 interface Props {
   title: string;
@@ -41,7 +47,10 @@ function ProjectCard({
     .replace(/[^a-z0-9]+/g, "-")}`;
 
   return (
-    <div className={`w-full p-4 rounded-lg ${cardSurface} ${cardHoverOutline}`}>
+    <div
+      {...spotlightHandlers}
+      className={`w-full p-4 rounded-lg ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}
+    >
       <div className="grid gap-1">
         <p className={cardAccentLabel}>{scope}</p>
         <h3 className="text-lg font-semibold text-white">{title}</h3>
@@ -77,7 +86,7 @@ function ProjectCard({
             rest: { opacity: 0 },
             hover: { opacity: 1, transition: { duration: 0.3 } },
           }}
-          className="absolute inset-0 bg-neutral-900/95 flex items-center justify-center text-white p-4 max-sm:px-1"
+          className="absolute inset-0 bg-[#040a16]/95 flex items-center justify-center text-white p-4 max-sm:px-1"
         >
           <div className="text-center">
             <p className="text-[13px] sm:text-sm mt-2">{shortDescription}</p>

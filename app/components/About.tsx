@@ -5,7 +5,8 @@ import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
 import SocialHexGrid from "./SocialHexGrid";
 import { noMobileEntrance } from "./entrance";
-import { cardHoverOutline, cardSurface } from "./cardStyles";
+import { cardHoverOutline, cardSpotlight, cardSurface, spotlightGlow } from "./cardStyles";
+import { spotlightHandlers } from "./spotlight";
 import { useScrollHover } from "./useScrollHover";
 
 // Outline highlight shared with hover, and with the scroll-driven hover on touch.
@@ -121,6 +122,7 @@ export default function About() {
           {/****************** PROFESSIONAL BACKGROUND ********************/}{" "}
           <m.div
             ref={profileRef}
+            {...spotlightHandlers}
             className={`rounded-lg text-white col-span-7 lg:col-span-5 ${cardSurface}`}
             variants={cardOutlineVariants}
             initial="rest"
@@ -130,7 +132,7 @@ export default function About() {
             <div className="relative p-6">
               <m.div
                 variants={aboutCardBgVariants}
-                className="absolute inset-0 bg-linear-to-tl from-sky-950/40 from-65% to-yellow-700/20"
+                className={spotlightGlow}
               />
               <m.div
                 variants={aboutImageVariants}
@@ -138,7 +140,7 @@ export default function About() {
               >
                 <m.div
                   variants={aboutImageBgVariants}
-                  className="absolute inset-0 bg-linear-to-br from-sky-950 to-yellow-700/30"
+                  className="absolute inset-0 bg-linear-to-br from-sky-950 to-sky-900/50"
                 />
                 <img
                   src="/dawson.webp"
@@ -166,12 +168,14 @@ export default function About() {
             </div>
           </m.div>
           {/****************** SOCIALS ********************/}
-          <m.div className={`rounded-lg text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch overflow-hidden ${cardSurface} ${cardHoverOutline}`}>
+          <m.div {...spotlightHandlers}
+            className={`rounded-lg text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}>
             <SocialHexGrid />
           </m.div>
           {/****************** TESTIMONIALS ********************/}
           <m.div
             ref={testimonialsRef}
+            {...spotlightHandlers}
             className={`relative rounded-lg text-white col-span-7 sm:col-span-4 lg:col-span-3 p-4 sm:pt-5 overflow-hidden ${cardSurface}`}
             variants={cardOutlineVariants}
             initial="rest"
@@ -180,7 +184,7 @@ export default function About() {
           >
             <m.div
               variants={cardHoverBgVariants}
-              className="absolute inset-0 bg-linear-to-br from-sky-950/40 from-25% to-yellow-600/20"
+              className={spotlightGlow}
             />
             <div className="relative z-10">
               <h2 className="text-xl font-bold text-center">
@@ -192,6 +196,7 @@ export default function About() {
           {/****************** TECH SKILLS ********************/}
           <m.div
             ref={techRef}
+            {...spotlightHandlers}
             className={`relative rounded-lg text-white col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base overflow-hidden ${cardSurface}`}
             variants={cardOutlineVariants}
             initial="rest"
@@ -200,7 +205,7 @@ export default function About() {
           >
             <m.div
               variants={cardHoverBgVariants}
-              className="absolute inset-0 bg-linear-to-br from-sky-950/40 from-25% to-yellow-600/20"
+              className={spotlightGlow}
             />
             <div className="relative z-10">
               <h2 className="text-center text-xl font-bold pb-5 sm:pb-8 pointer-events-none">
