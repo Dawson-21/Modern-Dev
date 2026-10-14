@@ -1,6 +1,7 @@
 "use client";
 
 import ProjectCard from "./ProjectCard";
+import { noMobileEntrance } from "./entrance";
 import * as m from "framer-motion/m";
 
 function Projects() {
@@ -20,6 +21,7 @@ function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
+            className={noMobileEntrance}
           >
             <ProjectCard
               title="Waldrops Furniture"
@@ -48,6 +50,7 @@ function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
+            className={noMobileEntrance}
           >
             <ProjectCard
               title="Texas Gutter Service"
@@ -70,6 +73,7 @@ function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
+            className={noMobileEntrance}
           >
             <ProjectCard
               title="Clayton Demolition"
@@ -92,6 +96,7 @@ function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
+            className={noMobileEntrance}
           >
             <ProjectCard
               title="Details Carpet & Tile Care"
@@ -114,6 +119,7 @@ function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
+            className={noMobileEntrance}
           >
             <ProjectCard
               title="CNC Garage Doors"

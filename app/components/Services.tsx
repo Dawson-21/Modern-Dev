@@ -15,6 +15,7 @@ import {
   PenTool,
 } from "lucide-react";
 import ServiceCard from "./ServiceCard";
+import { noMobileEntrance } from "./entrance";
 import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
 
@@ -119,7 +120,7 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <m.div
               key={service.title}
-              className="h-full"
+              className={`h-full ${noMobileEntrance}`}
               custom={index}
               initial="hidden"
               whileInView="visible"

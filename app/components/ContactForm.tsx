@@ -1,6 +1,7 @@
 "use client";
 
 import * as m from "framer-motion/m";
+import { noMobileEntrance } from "./entrance";
 import { useState } from "react";
 
 type ServiceType = "newWebsite" | "redesign" | "logoBranding" | "notSure";
@@ -67,7 +68,7 @@ export default function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
-      className="mx-auto w-full max-w-2xl rounded-lg border border-white/20 bg-black p-6 backdrop-blur-md"
+      className={`mx-auto w-full max-w-2xl rounded-lg border border-white/20 bg-black p-6 backdrop-blur-md ${noMobileEntrance}`}
     >
       <h2 className="mb-4 text-center text-2xl font-semibold text-white">
         Let&apos;s Build Something Great

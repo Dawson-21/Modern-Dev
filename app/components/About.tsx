@@ -4,6 +4,8 @@ import Carousel from "./Carousel";
 import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
 import SocialHexGrid from "./SocialHexGrid";
+import { noMobileEntrance } from "./entrance";
+import { useScrollHover } from "./useScrollHover";
 
 const aboutCardBgVariants: Variants = {
   rest: { opacity: 0 },
@@ -46,6 +48,10 @@ const techRowLeftVariants: Variants = {
 };
 
 export default function About() {
+  const [profileRef, profileAnimate] = useScrollHover<HTMLDivElement>();
+  const [testimonialsRef, testimonialsAnimate] = useScrollHover<HTMLDivElement>();
+  const [techRef, techAnimate] = useScrollHover<HTMLDivElement>();
+
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -103,14 +109,15 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-7 gap-4 mt-10"
+          className={`grid grid-cols-2 sm:grid-cols-7 gap-4 mt-10 ${noMobileEntrance}`}
         >
           {/****************** PROFESSIONAL BACKGROUND ********************/}{" "}
           <m.div
+            ref={profileRef}
             className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 lg:col-span-5"
             initial="rest"
             whileHover="hover"
-            animate="rest"
+            animate={profileAnimate}
           >
             <div className="relative p-6">
               <m.div
@@ -156,10 +163,11 @@ export default function About() {
           </m.div>
           {/****************** TESTIMONIALS ********************/}
           <m.div
+            ref={testimonialsRef}
             className="relative bg-black rounded-md border-white/20 border text-white col-span-7 sm:col-span-4 lg:col-span-3 p-4 sm:pt-5 overflow-hidden"
             initial="rest"
             whileHover="hover"
-            animate="rest"
+            animate={testimonialsAnimate}
           >
             <m.div
               variants={cardHoverBgVariants}
@@ -174,10 +182,11 @@ export default function About() {
           </m.div>
           {/****************** TECH SKILLS ********************/}
           <m.div
+            ref={techRef}
             className="relative bg-black rounded-md border-white/20 border text-white col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base overflow-hidden"
             initial="rest"
             whileHover="hover"
-            animate="rest"
+            animate={techAnimate}
           >
             <m.div
               variants={cardHoverBgVariants}
