@@ -22,8 +22,12 @@ const aboutCardBgVariants: Variants = {
 };
 
 const aboutImageVariants: Variants = {
-  rest: { scale: 1 },
-  hover: { scale: 1.1, transition: { duration: 0.5, ease: "easeInOut" } },
+  rest: { scale: 1, borderColor: "rgba(255, 255, 255, 0.2)" },
+  hover: {
+    scale: 1.1,
+    borderColor: "rgba(56, 189, 248, 0.45)",
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
 };
 
 const aboutImageBgVariants: Variants = {
@@ -121,7 +125,7 @@ export default function About() {
               />
               <m.div
                 variants={aboutImageVariants}
-                className="relative float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 overflow-hidden"
+                className="relative float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 overflow-hidden border border-white/20"
               >
                 <m.div
                   variants={aboutImageBgVariants}
