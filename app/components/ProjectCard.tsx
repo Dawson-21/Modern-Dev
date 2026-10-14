@@ -142,7 +142,7 @@ function ProjectCard({
       >
         <h2
           id={modalTitleId}
-          className="text-xl sm:text-2xl font-semibold text-white mb-4"
+          className="mb-4 pr-8 text-xl font-semibold text-white sm:text-2xl"
         >
           {title}
         </h2>
