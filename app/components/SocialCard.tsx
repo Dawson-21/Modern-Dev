@@ -19,16 +19,10 @@ interface Social {
 
 const socials: Social[] = [
   {
-    name: "GitHub",
-    handle: "Dawson-21",
-    url: "https://github.com/Dawson-21",
-    Icon: GitHubIcon,
-  },
-  {
-    name: "LinkedIn",
-    handle: "in/dawson-adams21",
-    url: "https://www.linkedin.com/in/dawson-adams21/",
-    Icon: LinkedInIcon,
+    name: "Facebook",
+    handle: "moderndev.pro",
+    url: "https://www.facebook.com/moderndev.pro/",
+    Icon: FacebookIcon,
   },
   {
     name: "Instagram",
@@ -37,26 +31,35 @@ const socials: Social[] = [
     Icon: InstagramIcon,
   },
   {
-    name: "Facebook",
-    handle: "moderndev.pro",
-    url: "https://www.facebook.com/moderndev.pro/",
-    Icon: FacebookIcon,
+    name: "LinkedIn",
+    handle: "in/dawson-adams21",
+    url: "https://www.linkedin.com/in/dawson-adams21/",
+    Icon: LinkedInIcon,
+  },
+  {
+    name: "GitHub",
+    handle: "Dawson-21",
+    url: "https://github.com/Dawson-21",
+    Icon: GitHubIcon,
   },
 ];
 
-// The card is 4.5 hexagons wide (--cw below is 1/4.5 of its width), so the
-// lattice fits it edge to edge and each social hexagon is exactly one lattice
-// cell. Everything is positioned in cell units from the top-left corner.
+// The card is 5 hexagons wide (--cw below is 1/5 of its width), so the lattice
+// fits it edge to edge and each social hexagon is exactly one lattice cell.
+// Everything is positioned in cell units from the top-left corner.
 const ICON_ROW = 2;
-// A row of four cells is 4 wide in a card 4.5 wide, so everything shifts right
-// by a quarter cell to centre the icons.
-const SHIFT = 0.25;
+// A row of four cells is 4 wide in a card 5 wide, so everything shifts right by
+// half a cell to centre the icons.
+const SHIFT = 0.5;
+// The lattice also shifts down a little so the first row of icons clears the
+// text above it, even in the narrowest card.
+const SHIFT_Y = 0.35;
 const ROW_STEP = 0.75 * 1.1547; // vertical distance between rows, in cell widths
 const CELL_HEIGHT = 1.1547; // cell height, in cell widths
 
 const cellStyle = (row: number, column: number): CSSProperties => ({
   left: `calc(var(--cw) * ${column + SHIFT + (row % 2 ? 0.5 : 0)})`,
-  top: `calc(var(--cw) * ${(row * ROW_STEP).toFixed(4)})`,
+  top: `calc(var(--cw) * ${(row * ROW_STEP + SHIFT_Y).toFixed(4)})`,
   width: "var(--cw)",
   height: `calc(var(--cw) * ${CELL_HEIGHT})`,
 });
@@ -69,7 +72,7 @@ const litCells: [number, number][] = [
 
 // Just below the icon row. The label sits in a box of fixed height, so
 // changing its text never moves anything else.
-const labelTop = `calc(var(--cw) * ${(ICON_ROW * ROW_STEP + CELL_HEIGHT).toFixed(4)} + 12px)`;
+const labelTop = `calc(var(--cw) * ${(ICON_ROW * ROW_STEP + CELL_HEIGHT + SHIFT_Y).toFixed(4)} + 12px)`;
 
 export default function SocialCard() {
   const [active, setActive] = useState<number | null>(null);
@@ -77,14 +80,14 @@ export default function SocialCard() {
 
   return (
     <div className="min-w-0 flex-1 [container-type:inline-size]">
-      <div className="relative h-full min-h-[calc(100cqw*0.642+64px)] [--cw:calc(100cqw/4.5)]">
+      <div className="relative h-full min-h-[calc(100cqw*0.647+64px)] [--cw:calc(100cqw/5)]">
         {/* Lattice across the whole card */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage: latticeTileUrl(56, "rgba(255,255,255,0.12)"),
-            backgroundPosition: `calc(var(--cw) * ${SHIFT}) 0`,
+            backgroundPosition: `calc(var(--cw) * ${SHIFT}) calc(var(--cw) * ${SHIFT_Y})`,
             backgroundSize: "var(--cw) calc(var(--cw) * 1.7320508)",
           }}
         />
@@ -130,7 +133,7 @@ export default function SocialCard() {
             <span className="hex-shape absolute inset-0 bg-[#2a3038] transition-colors duration-300 group-hover:bg-sky-400 group-focus-visible:bg-white">
               <span className="hex-shape absolute inset-[1.5px] bg-[#0b0e13] transition-colors duration-300 group-hover:bg-[#06202f]" />
               <span className="absolute inset-0 grid place-items-center">
-                <Icon className="size-[36%] text-white/70 transition-colors duration-300 group-hover:text-sky-400" />
+                <Icon className="size-[48%] text-white/70 transition-colors duration-300 group-hover:text-sky-400" />
               </span>
             </span>
           </a>
@@ -147,7 +150,7 @@ export default function SocialCard() {
               {selected.handle}
             </>
           ) : (
-            "Find me on GitHub, LinkedIn, Instagram and Facebook."
+            "Find me on Facebook, Instagram, LinkedIn and GitHub."
           )}
         </p>
       </div>

@@ -9,6 +9,7 @@ import {
   fieldSurface,
 } from "./cardStyles";
 import { spotlightHandlers } from "./spotlight";
+import { useScrollLit } from "./useScrollHover";
 import HexButton from "./HexButton";
 import { useState } from "react";
 
@@ -22,6 +23,7 @@ const serviceOptions: Array<{ label: string; value: ServiceType }> = [
 ];
 
 export default function ContactForm() {
+  const [cardRef, lit] = useScrollLit<HTMLDivElement>();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -72,6 +74,8 @@ export default function ContactForm() {
 
   return (
     <m.div
+      ref={cardRef}
+      data-lit={lit}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}

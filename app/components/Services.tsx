@@ -17,8 +17,9 @@ import type { LucideIcon } from "lucide-react";
 import * as m from "framer-motion/m";
 import HexIcon from "./HexIcon";
 import { noMobileEntrance } from "./entrance";
-import { cardSpotlight, cardSurface } from "./cardStyles";
+import { cardHoverOutline, cardSpotlight, cardSurface } from "./cardStyles";
 import { spotlightHandlers } from "./spotlight";
+import { useScrollLit } from "./useScrollHover";
 import {
   DevicesVisual,
   HostingVisual,
@@ -132,6 +133,47 @@ const services: Service[] = [
   },
 ];
 
+function ServiceTile({ service }: { service: Service }) {
+  const [ref, lit] = useScrollLit<HTMLElement>();
+
+  return (
+    <article
+      ref={ref}
+      data-lit={lit}
+      {...spotlightHandlers}
+      className={`group flex flex-col gap-2.5 p-5.5 text-white transition-colors duration-300 ${cardHoverOutline} ${cardSurface} ${cardSpotlight} ${service.className}`}
+    >
+      <div className="relative mb-1.5 flex items-center justify-between gap-3">
+        <HexIcon
+          icon={service.icon}
+          className="w-11.5"
+          iconClassName="size-[44%]"
+        />
+        <span className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-400">
+          {service.group}
+        </span>
+      </div>
+      <h3
+        className={`relative font-semibold leading-tight ${
+          service.large ? "text-2xl" : "text-[1.15rem]"
+        }`}
+      >
+        {service.title}
+      </h3>
+      <p
+        className={`relative text-white/70 ${
+          service.large ? "max-w-[44ch]" : "text-[0.92rem]"
+        }`}
+      >
+        {service.description}
+      </p>
+      {service.visual && (
+        <div className="relative mt-auto pt-3.5">{service.visual}</div>
+      )}
+    </article>
+  );
+}
+
 export default function ServicesSection() {
   return (
     <div id="servicesSection" className="w-full h-fit">
@@ -149,39 +191,7 @@ export default function ServicesSection() {
           className={`grid auto-rows-[minmax(210px,auto)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 ${noMobileEntrance}`}
         >
           {services.map((service) => (
-            <article
-              key={service.title}
-              {...spotlightHandlers}
-              className={`group flex flex-col gap-2.5 p-5.5 text-white transition-colors duration-300 hover:border-sky-400/45 ${cardSurface} ${cardSpotlight} ${service.className}`}
-            >
-              <div className="relative mb-1.5 flex items-center justify-between gap-3">
-                <HexIcon
-                  icon={service.icon}
-                  className="w-11.5"
-                  iconClassName="size-[44%]"
-                />
-                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-400">
-                  {service.group}
-                </span>
-              </div>
-              <h3
-                className={`relative font-semibold leading-tight ${
-                  service.large ? "text-2xl" : "text-[1.15rem]"
-                }`}
-              >
-                {service.title}
-              </h3>
-              <p
-                className={`relative text-white/70 ${
-                  service.large ? "max-w-[44ch]" : "text-[0.92rem]"
-                }`}
-              >
-                {service.description}
-              </p>
-              {service.visual && (
-                <div className="relative mt-auto pt-3.5">{service.visual}</div>
-              )}
-            </article>
+            <ServiceTile key={service.title} service={service} />
           ))}
         </m.div>
       </div>

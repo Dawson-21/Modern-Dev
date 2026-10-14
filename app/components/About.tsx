@@ -8,7 +8,7 @@ import { noMobileEntrance } from "./entrance";
 import { cardHoverOutline, cardSpotlight, cardSurface, spotlightGlow } from "./cardStyles";
 import { spotlightHandlers } from "./spotlight";
 import HexButton from "./HexButton";
-import { useScrollHover } from "./useScrollHover";
+import { useScrollHover, useScrollLit } from "./useScrollHover";
 
 // Outline highlight shared with hover, and with the scroll-driven hover on touch.
 const cardOutlineVariants: Variants = {
@@ -59,6 +59,7 @@ export default function About() {
   const [profileRef, profileAnimate] = useScrollHover<HTMLDivElement>();
   const [testimonialsRef, testimonialsAnimate] = useScrollHover<HTMLDivElement>();
   const [techRef, techAnimate] = useScrollHover<HTMLDivElement>();
+  const [socialRef, socialLit] = useScrollLit<HTMLDivElement>();
 
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
@@ -159,7 +160,10 @@ export default function About() {
             </div>
           </m.div>
           {/****************** SOCIALS ********************/}
-          <m.div {...spotlightHandlers}
+          <m.div
+            ref={socialRef}
+            data-lit={socialLit}
+            {...spotlightHandlers}
             className={`text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}>
             <SocialCard />
           </m.div>

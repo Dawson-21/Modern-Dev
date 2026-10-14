@@ -10,6 +10,7 @@ import {
   cardSurface,
 } from "./cardStyles";
 import { spotlightHandlers } from "./spotlight";
+import { useScrollLit } from "./useScrollHover";
 
 interface Props {
   title: string;
@@ -41,19 +42,22 @@ function ProjectCard({
   siteUrl,
 }: Props) {
   const [selectedProject, setSelectedProject] = useState(false);
+  const [cardRef, lit] = useScrollLit<HTMLDivElement>();
   const modalTitleId = `project-modal-title-${title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")}`;
 
   return (
     <div
+      ref={cardRef}
+      data-lit={lit}
       {...spotlightHandlers}
       className={`group grid w-full gap-3.5 p-4 ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}
     >
       {/* The screenshot in a frame cut at two corners. The outer wrapper
           carries the glow, since a filter on the clipped frame itself would be
           cut off. */}
-      <div className="transition-[filter] duration-300 group-hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.35)]">
+      <div className="transition-[filter] duration-300 group-hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.35)] group-data-[lit=true]:drop-shadow-[0_0_12px_rgba(56,189,248,0.35)]">
         <div className="cut-frame bg-[#04060a]">
           <div className="relative aspect-[3/2] overflow-hidden">
             <img
@@ -62,7 +66,7 @@ function ProjectCard({
               sizes="(min-width: 1100px) 456px, (min-width: 768px) calc(50vw - 90px), (min-width: 640px) calc(100vw - 92px), calc(100vw - 62px)"
               alt={imageAlt}
               loading="lazy"
-              className="size-full object-cover object-top transition-transform duration-[600ms] group-hover:scale-[1.04]"
+              className="size-full object-cover object-top transition-transform duration-[600ms] group-hover:scale-[1.04] group-data-[lit=true]:scale-[1.04]"
             />
             <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#04060a]/55 to-transparent to-35%" />
           </div>
