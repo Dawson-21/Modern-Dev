@@ -38,7 +38,7 @@ function Projects() {
                 "WPForms",
               ]}
               imageUrl="/WF.webp"
-              imageSrcSet="/WF-480.webp 480w, /WF.webp 960w"
+              imageSrcSet="/WF-480.webp 480w, /WF-720.webp 720w, /WF.webp 960w"
               imageAlt="Waldrops Furniture Website Screenshot"
               siteUrl="https://waldropsfurniture.com"
             />
@@ -61,7 +61,7 @@ function Projects() {
               results="The new branding and website gave the business credibility and visibility, leading to an increase in inquiries and a steady stream of new local customers."
               technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
               imageUrl="/TGS.webp"
-              imageSrcSet="/TGS-480.webp 480w, /TGS.webp 890w"
+              imageSrcSet="/TGS-480.webp 480w, /TGS-720.webp 720w, /TGS.webp 890w"
               imageAlt="Texas Gutter Service Website Screenshot"
               siteUrl="https://texasgutterservice.com"
             />
@@ -107,7 +107,7 @@ function Projects() {
               results="The website helped increase customer inquiries and made it easier for clients to book services."
               technologies={["WordPress", "Elementor", "CSS3"]}
               imageUrl="/DCTC.webp"
-              imageSrcSet="/DCTC-480.webp 480w, /DCTC.webp 960w"
+              imageSrcSet="/DCTC-480.webp 480w, /DCTC-720.webp 720w, /DCTC.webp 960w"
               imageAlt="Project Screenshot"
               siteUrl="https://detailscarpetandtilecare.com"
             />
@@ -130,7 +130,7 @@ function Projects() {
               results="The website helped CNC Garage Doors gain visibility and attract new clients in their local area."
               technologies={["WordPress", "CSS3", "HTML5", "WPForms"]}
               imageUrl="/CNC1.webp"
-              imageSrcSet="/CNC1-480.webp 480w, /CNC1.webp 847w"
+              imageSrcSet="/CNC1-480.webp 480w, /CNC1-720.webp 720w, /CNC1.webp 847w"
               imageAlt="Project Screenshot"
               siteUrl="https://cncgaragedoors.com"
             />
