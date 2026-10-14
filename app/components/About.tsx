@@ -5,7 +5,14 @@ import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
 import SocialHexGrid from "./SocialHexGrid";
 import { noMobileEntrance } from "./entrance";
+import { cardHoverOutline, cardSurface } from "./cardStyles";
 import { useScrollHover } from "./useScrollHover";
+
+// Outline highlight shared with hover, and with the scroll-driven hover on touch.
+const cardOutlineVariants: Variants = {
+  rest: { borderColor: "rgba(255, 255, 255, 0.2)", transition: { duration: 0.3 } },
+  hover: { borderColor: "rgba(56, 189, 248, 0.45)", transition: { duration: 0.3 } },
+};
 
 const aboutCardBgVariants: Variants = {
   rest: { opacity: 0 },
@@ -114,7 +121,8 @@ export default function About() {
           {/****************** PROFESSIONAL BACKGROUND ********************/}{" "}
           <m.div
             ref={profileRef}
-            className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 lg:col-span-5"
+            className={`rounded-lg text-white col-span-7 lg:col-span-5 ${cardSurface}`}
+            variants={cardOutlineVariants}
             initial="rest"
             whileHover="hover"
             animate={profileAnimate}
@@ -158,13 +166,14 @@ export default function About() {
             </div>
           </m.div>
           {/****************** SOCIALS ********************/}
-          <m.div className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch overflow-hidden">
+          <m.div className={`rounded-lg text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch overflow-hidden ${cardSurface} ${cardHoverOutline}`}>
             <SocialHexGrid />
           </m.div>
           {/****************** TESTIMONIALS ********************/}
           <m.div
             ref={testimonialsRef}
-            className="relative bg-black rounded-md border-white/20 border text-white col-span-7 sm:col-span-4 lg:col-span-3 p-4 sm:pt-5 overflow-hidden"
+            className={`relative rounded-lg text-white col-span-7 sm:col-span-4 lg:col-span-3 p-4 sm:pt-5 overflow-hidden ${cardSurface}`}
+            variants={cardOutlineVariants}
             initial="rest"
             whileHover="hover"
             animate={testimonialsAnimate}
@@ -183,7 +192,8 @@ export default function About() {
           {/****************** TECH SKILLS ********************/}
           <m.div
             ref={techRef}
-            className="relative bg-black rounded-md border-white/20 border text-white col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base overflow-hidden"
+            className={`relative rounded-lg text-white col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base overflow-hidden ${cardSurface}`}
+            variants={cardOutlineVariants}
             initial="rest"
             whileHover="hover"
             animate={techAnimate}

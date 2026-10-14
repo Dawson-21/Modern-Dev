@@ -4,6 +4,7 @@ import * as m from "framer-motion/m";
 import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import Modal from "./Modal";
+import { cardAccentLabel, cardHoverOutline, cardSurface } from "./cardStyles";
 
 interface Props {
   title: string;
@@ -40,10 +41,10 @@ function ProjectCard({
     .replace(/[^a-z0-9]+/g, "-")}`;
 
   return (
-    <div className="w-full bg-black border-white/20 border p-4 rounded-lg">
+    <div className={`w-full p-4 rounded-lg ${cardSurface} ${cardHoverOutline}`}>
       <div className="lg:flex justify-between items-center">
         <h3 className="text-lg font-semibold text-white">{title}</h3>
-        <p className="text-sm text-white/70">{scope}</p>
+        <p className={cardAccentLabel}>{scope}</p>
       </div>
 
       <div className="flex flex-wrap gap-2 mt-2">
@@ -140,17 +141,17 @@ function ProjectCard({
           {longDescription}
         </p>
 
-        <h3 className="font-semibold text-xl text-sky-300 pt-2 sm:py-3">
+        <h3 className="font-semibold text-xl text-sky-400 pt-2 sm:py-3">
           Problem
         </h3>
         <p className="text-white/60 text-[12px] sm:text-sm">{problem}</p>
 
-        <h3 className="font-semibold text-xl text-sky-300 pt-2 sm:py-3">
+        <h3 className="font-semibold text-xl text-sky-400 pt-2 sm:py-3">
           Solution
         </h3>
         <p className="text-white/60 text-[12px] sm:text-sm">{solution}</p>
 
-        <h3 className="font-semibold text-xl text-sky-300 pt-2 sm:py-3">
+        <h3 className="font-semibold text-xl text-sky-400 pt-2 sm:py-3">
           Results
         </h3>
         <p className="text-white/60 text-[12px] sm:text-sm">{results}</p>
