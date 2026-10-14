@@ -10,6 +10,7 @@ import {
   Wrench,
 } from "lucide-react";
 import ProcessCard from "./ProcessCard";
+import { noMobileEntrance } from "./entrance";
 import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
 
@@ -98,6 +99,7 @@ function Process() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={cardVariants}
+              className={noMobileEntrance}
             >
               <ProcessCard {...step} />
             </m.div>

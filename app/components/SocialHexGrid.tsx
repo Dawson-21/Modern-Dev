@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useScrollHover } from "./useScrollHover";
 import type { Variants } from "framer-motion";
 import * as m from "framer-motion/m";
 
@@ -56,6 +57,7 @@ const socialsTextVariants: Variants = {
 
 export default function SocialHexGrid() {
   const [isMdUp, setIsMdUp] = useState(false);
+  const [hoverRef, hoverAnimate] = useScrollHover<SVGSVGElement>();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 668px)");
@@ -84,13 +86,14 @@ export default function SocialHexGrid() {
   return (
     <div className="relative w-full pb-[68%] sm:pb-0 [container-type:inline-size]">
       <m.svg
+        ref={hoverRef}
         className="absolute inset-0 w-full h-full"
         viewBox={`${minX} ${minY} ${gridWidth} ${gridHeight}`}
         preserveAspectRatio={isMdUp ? "xMidYMid slice" : undefined}
         initial="rest"
         whileHover="hover"
         whileFocus="hover"
-        animate="rest"
+        animate={hoverAnimate}
       >
         {/* ---- Background Grid ---- */}
         {[...Array(rows)].map((_, row) =>
