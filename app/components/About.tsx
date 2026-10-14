@@ -3,7 +3,7 @@
 import Carousel from "./Carousel";
 import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
-import SocialHexGrid from "./SocialHexGrid";
+import SocialCard from "./SocialCard";
 import { noMobileEntrance } from "./entrance";
 import { cardHoverOutline, cardSpotlight, cardSurface, spotlightGlow } from "./cardStyles";
 import { spotlightHandlers } from "./spotlight";
@@ -170,7 +170,7 @@ export default function About() {
           {/****************** SOCIALS ********************/}
           <m.div {...spotlightHandlers}
             className={`rounded-lg text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}>
-            <SocialHexGrid />
+            <SocialCard />
           </m.div>
           {/****************** TESTIMONIALS ********************/}
           <m.div
