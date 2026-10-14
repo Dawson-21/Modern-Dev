@@ -136,7 +136,7 @@ function Process() {
 
         <div
           ref={timelineRef}
-          className="relative max-w-190 text-white [--fill-height:0px] [--fill-top:0px] [--node:3.625rem]"
+          className="relative mx-auto w-full max-w-190 text-white [--fill-height:0px] [--fill-top:0px] [--node:3.625rem]"
         >
           {/* Track and the sky-blue fill that follows the reading line */}
           <div

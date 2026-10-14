@@ -33,7 +33,6 @@ function Projects() {
               results="A polished, user-friendly website that strengthens brand trust, improves engagement, and delivers a seamless browsing experience that supports real business growth."
               technologies={[
                 "WordPress",
-                "Spectra",
                 "CSS3",
                 "HTML5",
                 "WPForms",

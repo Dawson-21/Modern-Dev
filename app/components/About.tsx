@@ -134,7 +134,7 @@ export default function About() {
               />
               <m.div
                 variants={aboutImageVariants}
-                className="relative float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 rounded-md bg-neutral-800 overflow-hidden"
+                className="relative float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 rounded-md bg-neutral-950 overflow-hidden"
               >
                 <m.div
                   variants={aboutImageBgVariants}

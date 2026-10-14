@@ -42,9 +42,9 @@ function ProjectCard({
 
   return (
     <div className={`w-full p-4 rounded-lg ${cardSurface} ${cardHoverOutline}`}>
-      <div className="lg:flex justify-between items-center">
-        <h3 className="text-lg font-semibold text-white">{title}</h3>
+      <div className="grid gap-1">
         <p className={cardAccentLabel}>{scope}</p>
+        <h3 className="text-lg font-semibold text-white">{title}</h3>
       </div>
 
       <div className="flex flex-wrap gap-2 mt-2">

@@ -1,6 +1,7 @@
 "use client";
 
 import * as m from "framer-motion/m";
+import { cardHoverOutline } from "./cardStyles";
 
 export default function Hero() {
   const handleClick = (id: string) => {
@@ -33,7 +34,7 @@ export default function Hero() {
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
-            className="bg-black/70 border-2 border-sky-900 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold"
+            className={`border border-white/20 bg-white/[0.07] text-white backdrop-blur-md px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold ${cardHoverOutline}`}
           >
             Learn More
           </m.button>
@@ -43,7 +44,7 @@ export default function Hero() {
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
-            className="bg-black/70 border-2 border-sky-900 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold"
+            className={`border border-white/20 bg-white/[0.07] text-white backdrop-blur-md px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold ${cardHoverOutline}`}
           >
             View Featured Projects
           </m.button>
