@@ -1,3 +1,4 @@
+import HexBackground from "./components/HexBackground";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -12,20 +13,11 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <main id="main-content">
-      {/* Background Image */}
-      <div
-        className="fixed inset-x-0 max-sm:top-0 max-sm:-bottom-24 sm:inset-0 -z-50 bg-[url('/mobile-hero.webp')] 
-                  sm:bg-[url('/hero-bg.webp')] 
-                  bg-center bg-no-repeat bg-cover
-                  will-change-transform"
-        style={{ transform: "translateZ(0)" }}
-      />
-      {/* Background Overlay */}
-      <div className="fixed inset-0 max-sm:h-[120%] max-sm:-translate-y-px -z-40 bg-linear-to-tr from-blue-950/60 via-black/60 to-yellow-900/60" />
+      <HexBackground />
 
       <Nav />
       <Hero />
-      <div className="bg-black/70 backdrop-blur-lg">
+      <div className="bg-black/35 backdrop-blur-[3px]">
         <About />
         <Projects />
         <Services />

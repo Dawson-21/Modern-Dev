@@ -1,113 +1,138 @@
 "use client";
 
+import type { ReactNode } from "react";
 import {
+  BarChart2,
+  CloudUpload,
   Code2,
+  LayoutTemplate,
   MonitorSmartphone,
   Paintbrush,
-  ShoppingCart,
-  Settings2,
-  Search,
-  CloudUpload,
-  Wrench,
-  BarChart2,
-  TrendingUp,
-  LayoutTemplate,
   PenTool,
+  Search,
+  Settings2,
+  ShoppingCart,
 } from "lucide-react";
-import ServiceCard from "./ServiceCard";
-import { noMobileEntrance } from "./entrance";
+import type { LucideIcon } from "lucide-react";
 import * as m from "framer-motion/m";
-import type { Variants } from "framer-motion";
+import HexIcon from "./HexIcon";
+import { noMobileEntrance } from "./entrance";
+import { cardSpotlight, cardSurface } from "./cardStyles";
+import { spotlightHandlers } from "./spotlight";
+import {
+  DevicesVisual,
+  HostingVisual,
+  PageWeightVisual,
+  SeoScoreVisual,
+  TrendVisual,
+  WebsiteVisual,
+} from "./ServiceVisuals";
 
-// Animation variants
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: () => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
+interface Service {
+  group: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  /** Grid placement for larger tiles, plus where it sits on tablet. */
+  className: string;
+  visual?: ReactNode;
+  large?: boolean;
+}
+
+// Listed in desktop reading order (4 columns). On tablet (2 columns) the
+// `sm:max-lg:order-*` classes move Custom Logo Design next to SEO, so neither
+// is left alone on a row beside a two-column tile.
+const services: Service[] = [
+  {
+    group: "Build",
+    title: "Custom Website Development",
+    description:
+      "Bespoke websites built using React, Next.js, or WordPress, tailored to your brand and business goals.",
+    icon: Code2,
+    className: "sm:max-lg:order-1 sm:col-span-2 lg:row-span-2",
+    visual: <WebsiteVisual />,
+    large: true,
+  },
+  {
+    group: "Build",
+    title: "Responsive Design",
+    description:
+      "Ensure your website looks and performs great on all devices: mobile, tablet, and desktop.",
+    icon: MonitorSmartphone,
+    className: "sm:max-lg:order-2",
+    visual: <DevicesVisual />,
+  },
+  {
+    group: "Build",
+    title: "UI/UX Design Implementation",
+    description:
+      "Pixel-perfect implementation of your Figma or Adobe XD designs using modern web technologies.",
+    icon: Paintbrush,
+    className: "sm:max-lg:order-3",
+  },
+  {
+    group: "Launch and run",
+    title: "Performance Optimization",
+    description:
+      "Faster load times with image compression, lazy loading, and code-splitting for a better user experience.",
+    icon: Settings2,
+    className: "sm:max-lg:order-4 sm:col-span-2",
+    visual: <PageWeightVisual />,
+  },
+  {
+    group: "Grow",
+    title: "SEO & Search Visibility",
+    description:
+      "Improve your site's visibility with clean semantic code, metadata, and performance-focused architecture.",
+    icon: Search,
+    className: "sm:max-lg:order-5",
+    visual: <SeoScoreVisual />,
+  },
+  {
+    group: "Grow",
+    title: "Analytics & Conversion Optimization",
+    description:
+      "Track user behavior with Google Analytics, Hotjar, and other performance tools, then refine layouts, CTAs, and page flows to turn visitors into customers.",
+    icon: BarChart2,
+    className: "sm:max-lg:order-7 sm:col-span-2",
+    visual: <TrendVisual />,
+  },
+  {
+    group: "Grow",
+    title: "Landing Page Design",
+    description:
+      "High-converting single-page websites for product launches, lead generation, or marketing campaigns.",
+    icon: LayoutTemplate,
+    className: "sm:max-lg:order-8",
+  },
+  {
+    group: "Launch and run",
+    title: "E-Commerce Integration",
+    description:
+      "Setup simple stores or product showcases with Shopify, WooCommerce, or custom solutions.",
+    icon: ShoppingCart,
+    className: "sm:max-lg:order-9",
+  },
+  {
+    group: "Build",
+    title: "Custom Logo Design",
+    description:
+      "Unique, professional logos crafted to reflect your brand's personality, vision, and values.",
+    icon: PenTool,
+    className: "sm:max-lg:order-6",
+  },
+  {
+    group: "Launch and run",
+    title: "Hosting & Maintenance",
+    description:
+      "Launch on modern platforms like Vercel, Netlify, or traditional hosting, then keep your website secure, fast, and functional with ongoing updates, fixes, and enhancements.",
+    icon: CloudUpload,
+    className: "sm:max-lg:order-10 sm:col-span-2",
+    visual: <HostingVisual />,
+  },
+];
 
 export default function ServicesSection() {
-  const services = [
-    {
-      title: "Custom Website Development",
-      description:
-        "Bespoke websites built using React, Next.js, or WordPress—tailored to your brand and business goals.",
-      icon: <Code2 size={24} />,
-    },
-    {
-      title: "Responsive Design",
-      description:
-        "Ensure your website looks and performs great on all devices—mobile, tablet, and desktop.",
-      icon: <MonitorSmartphone size={24} />,
-    },
-    {
-      title: "UI/UX Design Implementation",
-      description:
-        "Pixel-perfect implementation of your Figma or Adobe XD designs using modern web technologies.",
-      icon: <Paintbrush size={24} />,
-    },
-    {
-      title: "Performance Optimization",
-      description:
-        "Faster load times with image compression, lazy loading, and code-splitting for a better user experience.",
-      icon: <Settings2 size={24} />,
-    },
-    {
-      title: "E-Commerce Integration",
-      description:
-        "Setup simple stores or product showcases with Shopify, WooCommerce, or custom solutions.",
-      icon: <ShoppingCart size={24} />,
-    },
-    {
-      title: "SEO Best Practices",
-      description:
-        "Improve your site's visibility with clean semantic code, metadata, and performance-focused architecture.",
-      icon: <Search size={24} />,
-    },
-    {
-      title: "Hosting & Deployment",
-      description:
-        "Launch your site with modern platforms like Vercel, Netlify, or traditional hosting—secure and scalable.",
-      icon: <CloudUpload size={24} />,
-    },
-    {
-      title: "Website Maintenance",
-      description:
-        "Ongoing updates, fixes, and enhancements to keep your website secure, fast, and functional.",
-      icon: <Wrench size={24} />,
-    },
-    {
-      title: "Analytics Integration",
-      description:
-        "Track user behavior and conversions with Google Analytics, Hotjar, and other performance tools.",
-      icon: <BarChart2 size={24} />,
-    },
-    {
-      title: "Conversion Optimization",
-      description:
-        "Refine layouts, CTAs, and page flows to turn visitors into customers using proven UX techniques.",
-      icon: <TrendingUp size={24} />,
-    },
-    {
-      title: "Landing Page Design",
-      description:
-        "High-converting single-page websites for product launches, lead generation, or marketing campaigns.",
-      icon: <LayoutTemplate size={24} />,
-    },
-    {
-      title: "Custom Logo Design",
-      description:
-        "Unique, professional logos crafted to reflect your brand's personality, vision, and values.",
-      icon: <PenTool size={24} />,
-    },
-  ];
-
   return (
     <div id="servicesSection" className="w-full h-fit">
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
@@ -116,21 +141,49 @@ export default function ServicesSection() {
           <hr className="w-full border-t border-white/15 mt-4 mb-3" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <m.div
+        <m.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.1 }}
+          className={`grid auto-rows-[minmax(210px,auto)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 ${noMobileEntrance}`}
+        >
+          {services.map((service) => (
+            <article
               key={service.title}
-              className={`h-full ${noMobileEntrance}`}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={cardVariants}
+              {...spotlightHandlers}
+              className={`group flex flex-col gap-2.5 p-5.5 text-white transition-colors duration-300 hover:border-sky-400/45 ${cardSurface} ${cardSpotlight} ${service.className}`}
             >
-              <ServiceCard {...service} />
-            </m.div>
+              <div className="relative mb-1.5 flex items-center justify-between gap-3">
+                <HexIcon
+                  icon={service.icon}
+                  className="w-11.5"
+                  iconClassName="size-[44%]"
+                />
+                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-400">
+                  {service.group}
+                </span>
+              </div>
+              <h3
+                className={`relative font-semibold leading-tight ${
+                  service.large ? "text-2xl" : "text-[1.15rem]"
+                }`}
+              >
+                {service.title}
+              </h3>
+              <p
+                className={`relative text-white/70 ${
+                  service.large ? "max-w-[44ch]" : "text-[0.92rem]"
+                }`}
+              >
+                {service.description}
+              </p>
+              {service.visual && (
+                <div className="relative mt-auto pt-3.5">{service.visual}</div>
+              )}
+            </article>
           ))}
-        </div>
+        </m.div>
       </div>
     </div>
   );

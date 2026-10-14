@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
+import { cardAccentLabel } from "./cardStyles";
 
 type Testimonial = {
   name: string;
@@ -109,7 +110,7 @@ export default function Carousel() {
                 <div className="text-right">
                   <p className="font-semibold text-white">- {testimonial.name}</p>
                   {testimonial.role && (
-                    <p className="text-sm text-white/70">{testimonial.role}</p>
+                    <p className={`mt-0.5 ${cardAccentLabel}`}>{testimonial.role}</p>
                   )}
                 </div>
               </div>

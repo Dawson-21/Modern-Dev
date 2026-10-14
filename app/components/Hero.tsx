@@ -1,6 +1,6 @@
 "use client";
 
-import * as m from "framer-motion/m";
+import HexButton from "./HexButton";
 
 export default function Hero() {
   const handleClick = (id: string) => {
@@ -28,25 +28,21 @@ export default function Hero() {
         />
 
         <div className="flex justify-center pt-8 space-x-2 sm:space-x-5 md:space-x-10">
-          <m.button
+          <HexButton
+            variant="secondary"
             onClick={() => handleClick("aboutSection")}
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-            className="bg-black/70 border-2 border-sky-900 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold"
+            className="px-5 text-[min(3.4vw,18px)] sm:px-7"
           >
             Learn More
-          </m.button>
+          </HexButton>
 
-          <m.button
+          <HexButton
+            variant="secondary"
             onClick={() => handleClick("projectsSection")}
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-            className="bg-black/70 border-2 border-sky-900 text-white px-3 sm:px-5 py-2 rounded-full text-[min(3vw,16px)] font-bold"
+            className="px-5 text-[min(3.4vw,18px)] sm:px-7"
           >
             View Featured Projects
-          </m.button>
+          </HexButton>
         </div>
       </div>
     </section>

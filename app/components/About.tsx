@@ -3,9 +3,18 @@
 import Carousel from "./Carousel";
 import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
-import SocialHexGrid from "./SocialHexGrid";
+import SocialCard from "./SocialCard";
 import { noMobileEntrance } from "./entrance";
+import { cardHoverOutline, cardSpotlight, cardSurface, spotlightGlow } from "./cardStyles";
+import { spotlightHandlers } from "./spotlight";
+import HexButton from "./HexButton";
 import { useScrollHover } from "./useScrollHover";
+
+// Outline highlight shared with hover, and with the scroll-driven hover on touch.
+const cardOutlineVariants: Variants = {
+  rest: { borderColor: "rgba(255, 255, 255, 0.2)", transition: { duration: 0.3 } },
+  hover: { borderColor: "rgba(56, 189, 248, 0.45)", transition: { duration: 0.3 } },
+};
 
 const aboutCardBgVariants: Variants = {
   rest: { opacity: 0 },
@@ -13,8 +22,12 @@ const aboutCardBgVariants: Variants = {
 };
 
 const aboutImageVariants: Variants = {
-  rest: { scale: 1 },
-  hover: { scale: 1.1, transition: { duration: 0.5, ease: "easeInOut" } },
+  rest: { scale: 1, borderColor: "rgba(255, 255, 255, 0.2)" },
+  hover: {
+    scale: 1.1,
+    borderColor: "rgba(56, 189, 248, 0.45)",
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
 };
 
 const aboutImageBgVariants: Variants = {
@@ -25,11 +38,6 @@ const aboutImageBgVariants: Variants = {
 const aboutTextVariants: Variants = {
   rest: { color: "rgba(255, 255, 255, 0.55)" },
   hover: { color: "rgba(255, 255, 255, 1)" },
-};
-
-const buttonArrowVariants: Variants = {
-  rest: { x: 0 },
-  hover: { x: 8, transition: { duration: 0.2, ease: "easeInOut" } },
 };
 
 const cardHoverBgVariants: Variants = {
@@ -71,30 +79,19 @@ export default function About() {
             build a stronger online presence and stand out in today&apos;s digital
             landscape.
           </p>
-          <m.button
+          <HexButton
             onClick={() => handleClick("contactSection")}
-            initial="rest"
-            whileHover="hover"
-            animate="rest"
-            variants={{
-              rest: { scale: 1, backgroundColor: "rgba(255, 255, 255, 0.8)" },
-              hover: {
-                scale: 1.15,
-                backgroundColor: "rgba(255, 255, 255, 1)",
-                transition: { duration: 0.2, ease: "easeInOut" },
-              },
-            }}
-            className="col-span-7 md:col-span-3 md:justify-self-end flex w-fit h-fit bg-white/80 text-black px-4 py-2 mt-5 rounded-full text-[min(4vw,18px)] font-bold cursor-pointer"
+            wrapperClassName="col-span-7 mt-5 h-fit w-fit md:col-span-3 md:justify-self-end"
+            className="text-[min(4vw,18px)]"
           >
             Start a Project
-            <m.img
-              src="/arrow-black.svg" width={24} height={24}
+            <img
+              src="/arrow-white.svg"
               alt=""
               aria-hidden="true"
-              variants={buttonArrowVariants}
-              className="w-6 sm:w-8 pl-1"
+              className="btn-arrow w-5 sm:w-6"
             />
-          </m.button>
+          </HexButton>
         </div>
 
         <div className="flex flex-row w-full items-center justify-left mt-10">
@@ -114,7 +111,9 @@ export default function About() {
           {/****************** PROFESSIONAL BACKGROUND ********************/}{" "}
           <m.div
             ref={profileRef}
-            className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 lg:col-span-5"
+            {...spotlightHandlers}
+            className={`text-white col-span-7 lg:col-span-5 ${cardSurface}`}
+            variants={cardOutlineVariants}
             initial="rest"
             whileHover="hover"
             animate={profileAnimate}
@@ -122,15 +121,15 @@ export default function About() {
             <div className="relative p-6">
               <m.div
                 variants={aboutCardBgVariants}
-                className="absolute inset-0 bg-linear-to-tl from-sky-950/40 from-65% to-yellow-700/20"
+                className={spotlightGlow}
               />
               <m.div
                 variants={aboutImageVariants}
-                className="relative float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 rounded-md bg-neutral-800 overflow-hidden"
+                className="relative float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 overflow-hidden border border-white/20"
               >
                 <m.div
                   variants={aboutImageBgVariants}
-                  className="absolute inset-0 bg-linear-to-br from-sky-950 to-yellow-700/30"
+                  className="absolute inset-0 bg-linear-to-br from-sky-950 to-sky-900/50"
                 />
                 <img
                   src="/dawson.webp"
@@ -158,20 +157,23 @@ export default function About() {
             </div>
           </m.div>
           {/****************** SOCIALS ********************/}
-          <m.div className="bg-linear-to-b from-neutral-900 to-black/90 rounded-md border-white/20 border text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch overflow-hidden">
-            <SocialHexGrid />
+          <m.div {...spotlightHandlers}
+            className={`text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}>
+            <SocialCard />
           </m.div>
           {/****************** TESTIMONIALS ********************/}
           <m.div
             ref={testimonialsRef}
-            className="relative bg-black rounded-md border-white/20 border text-white col-span-7 sm:col-span-4 lg:col-span-3 p-4 sm:pt-5 overflow-hidden"
+            {...spotlightHandlers}
+            className={`relative text-white col-span-7 sm:col-span-4 lg:col-span-3 p-4 sm:pt-5 overflow-hidden ${cardSurface}`}
+            variants={cardOutlineVariants}
             initial="rest"
             whileHover="hover"
             animate={testimonialsAnimate}
           >
             <m.div
               variants={cardHoverBgVariants}
-              className="absolute inset-0 bg-linear-to-br from-sky-950/40 from-25% to-yellow-600/20"
+              className={spotlightGlow}
             />
             <div className="relative z-10">
               <h2 className="text-xl font-bold text-center">
@@ -183,14 +185,16 @@ export default function About() {
           {/****************** TECH SKILLS ********************/}
           <m.div
             ref={techRef}
-            className="relative bg-black rounded-md border-white/20 border text-white col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base overflow-hidden"
+            {...spotlightHandlers}
+            className={`relative text-white col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base overflow-hidden ${cardSurface}`}
+            variants={cardOutlineVariants}
             initial="rest"
             whileHover="hover"
             animate={techAnimate}
           >
             <m.div
               variants={cardHoverBgVariants}
-              className="absolute inset-0 bg-linear-to-br from-sky-950/40 from-25% to-yellow-600/20"
+              className={spotlightGlow}
             />
             <div className="relative z-10">
               <h2 className="text-center text-xl font-bold pb-5 sm:pb-8 pointer-events-none">

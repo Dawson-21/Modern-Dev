@@ -1,9 +1,15 @@
 "use client";
 
-import * as m from "framer-motion/m";
 import { useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Modal from "./Modal";
+import {
+  cardAccentLabel,
+  cardHoverOutline,
+  cardSpotlight,
+  cardSurface,
+} from "./cardStyles";
+import { spotlightHandlers } from "./spotlight";
 
 interface Props {
   title: string;
@@ -40,89 +46,76 @@ function ProjectCard({
     .replace(/[^a-z0-9]+/g, "-")}`;
 
   return (
-    <div className="w-full bg-black border-white/20 border p-4 rounded-lg">
-      <div className="lg:flex justify-between items-center">
-        <h3 className="text-lg font-semibold text-white">{title}</h3>
-        <p className="text-sm text-white/70">{scope}</p>
+    <div
+      {...spotlightHandlers}
+      className={`group grid w-full gap-3.5 p-4 ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}
+    >
+      {/* The screenshot in a frame cut at two corners. The outer wrapper
+          carries the glow, since a filter on the clipped frame itself would be
+          cut off. */}
+      <div className="transition-[filter] duration-300 group-hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.35)]">
+        <div className="cut-frame bg-[#04060a]">
+          <div className="relative aspect-[3/2] overflow-hidden">
+            <img
+              src={imageUrl}
+              srcSet={imageSrcSet}
+              sizes="(min-width: 1100px) 456px, (min-width: 768px) 40vw, 100vw"
+              alt={imageAlt}
+              loading="lazy"
+              className="size-full object-cover object-top transition-transform duration-[600ms] group-hover:scale-[1.04]"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#04060a]/55 to-transparent to-35%" />
+          </div>
+        </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 mt-2">
-        {technologies.map((tech) => (
-          <div
-            key={tech}
-            className="bg-neutral-600/40 text-white text-[min(3vw,14px)] px-2 rounded-sm"
+      <div className="grid gap-2">
+        <p className={cardAccentLabel}>{scope}</p>
+        <h3 className="text-xl font-semibold leading-tight text-white">
+          {title}
+        </h3>
+        <p className="line-clamp-3 min-h-[4.5em] text-sm leading-normal text-white/70">
+          {shortDescription}
+        </p>
+        <div className="flex flex-wrap gap-1.5">
+          {technologies.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-sm bg-neutral-600/40 px-2 py-0.5 text-xs text-white"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between gap-3 text-sm">
+        {siteUrl ? (
+          <a
+            href={siteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-white transition-colors hover:text-sky-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
+            aria-label={`Visit site for ${title} (opens in a new tab)`}
           >
-            {tech}
-          </div>
-        ))}
-      </div>
+            Visit site <ArrowUpRight className="size-4" aria-hidden="true" />
+          </a>
+        ) : (
+          <span />
+        )}
 
-      <m.div
-        className="relative overflow-hidden rounded-xl shadow-lg mt-4"
-        initial="rest"
-        whileHover="hover"
-        animate="rest"
-      >
-        <img
-          src={imageUrl}
-          srcSet={imageSrcSet}
-          sizes="(min-width: 1100px) 456px, (min-width: 768px) 40vw, 100vw"
-          alt={imageAlt}
-          loading="lazy"
-          className="w-full h-full object-cover"
-        />
-        <m.div
-          variants={{
-            rest: { opacity: 0 },
-            hover: { opacity: 1, transition: { duration: 0.3 } },
-          }}
-          className="absolute inset-0 bg-neutral-900/95 flex items-center justify-center text-white p-4 max-sm:px-1"
-        >
-          <div className="text-center">
-            <p className="text-[13px] sm:text-sm mt-2">{shortDescription}</p>
-          </div>
-        </m.div>
-      </m.div>
-
-      <div className="flex justify-between items-center mt-3">
-        <m.a
-          href={siteUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white text-[min(4vw,14px)]"
-          initial="rest"
-          whileHover="hover"
-          animate="rest"
-          variants={{
-            rest: { textDecoration: "none" },
-            hover: { textDecoration: "underline" },
-          }}
-          aria-label={`Visit live site for ${title}`}
-        >
-          Visit Live Site <ExternalLink className="w-4 h-4 mb-1 inline" />
-        </m.a>
-
-        <m.button
-          className="col-span-7 md:col-span-3 md:justify-self-end flex text-white text-[min(4vw,14px)] font-light cursor-pointer"
-          onClick={() => setSelectedProject(true)}
+        <button
           type="button"
-          initial="rest"
-          whileHover="hover"
-          animate="rest"
-          aria-label={`Read more details about ${title}`}
+          onClick={() => setSelectedProject(true)}
+          className="group/case inline-flex cursor-pointer items-center gap-1.5 text-white transition-colors hover:text-sky-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
+          aria-label={`Case study: ${title}`}
         >
-          Read More
-          <m.img
-            src="/arrow-white.svg" width={24} height={24}
-            alt=""
+          Case study{" "}
+          <ArrowRight
+            className="size-4 transition-transform duration-200 group-hover/case:translate-x-1"
             aria-hidden="true"
-            className="w-6 sm:w-7 pl-1"
-            variants={{
-              rest: { x: 0 },
-              hover: { x: 8, transition: { duration: 0.2, ease: "easeInOut" } },
-            }}
           />
-        </m.button>
+        </button>
       </div>
 
       <Modal
@@ -132,7 +125,7 @@ function ProjectCard({
       >
         <h2
           id={modalTitleId}
-          className="text-xl sm:text-2xl font-semibold text-white mb-4"
+          className="mb-4 pr-8 text-xl font-semibold text-white sm:text-2xl"
         >
           {title}
         </h2>
@@ -140,17 +133,17 @@ function ProjectCard({
           {longDescription}
         </p>
 
-        <h3 className="font-semibold text-xl text-sky-300 pt-2 sm:py-3">
+        <h3 className="font-semibold text-xl text-sky-400 pt-2 sm:py-3">
           Problem
         </h3>
         <p className="text-white/60 text-[12px] sm:text-sm">{problem}</p>
 
-        <h3 className="font-semibold text-xl text-sky-300 pt-2 sm:py-3">
+        <h3 className="font-semibold text-xl text-sky-400 pt-2 sm:py-3">
           Solution
         </h3>
         <p className="text-white/60 text-[12px] sm:text-sm">{solution}</p>
 
-        <h3 className="font-semibold text-xl text-sky-300 pt-2 sm:py-3">
+        <h3 className="font-semibold text-xl text-sky-400 pt-2 sm:py-3">
           Results
         </h3>
         <p className="text-white/60 text-[12px] sm:text-sm">{results}</p>

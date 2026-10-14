@@ -37,10 +37,6 @@
 }
 
 @layer components {
-  .hex-btn {
-    @apply relative w-[4.5rem] h-[4rem] sm:w-[3.5rem] sm:h-[3rem] flex justify-center items-center rotate-[30deg];
-  }
-
   .nav-icon {
     @apply opacity-50 hover:opacity-100 transform group-hover:scale-[1.45] transition duration-200 ease-in-out;
   }
@@ -52,4 +48,187 @@
   .tech-item {
     @apply bg-neutral-800 h-8 px-1 rounded-md flex flex-row items-center gap-1 pointer-events-none;
   }
+}
+
+/* Pointy-top hexagon used by the services map and process timeline */
+.hex-shape {
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+/* Hexagon-cut buttons: an elongated hexagon with a thin edge. The edge is a
+   ring-shaped overlay, so the fill can stay translucent. The wrapper carries the
+   glow, because a filter on the clipped button itself would be cut off. */
+@layer components {
+  /* A non-interactive hexagon-cut frame (the nav). Set --cut, --edge and --fill. */
+  .hex-frame {
+    position: relative;
+    isolation: isolate;
+    background: var(--fill);
+    clip-path: polygon(
+      var(--cut) 0,
+      calc(100% - var(--cut)) 0,
+      100% 50%,
+      calc(100% - var(--cut)) 100%,
+      var(--cut) 100%,
+      0 50%
+    );
+  }
+
+  .hex-btn-wrap {
+    display: inline-flex;
+    transition: filter 0.3s;
+  }
+  .hex-btn-wrap-primary:not(:has(:disabled)):hover {
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
+  }
+  .hex-btn-wrap-secondary:not(:has(:disabled)):hover {
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.22));
+  }
+  .hex-btn-wrap:has(.hex-btn:focus-visible) {
+    filter: drop-shadow(0 0 6px #fff);
+  }
+
+  .hex-btn {
+    --cut: 16px;
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 12px 30px;
+    border: 0;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: var(--fill);
+    clip-path: polygon(
+      var(--cut) 0,
+      calc(100% - var(--cut)) 0,
+      100% 50%,
+      calc(100% - var(--cut)) 100%,
+      var(--cut) 100%,
+      0 50%
+    );
+    transition: background-color 0.25s;
+  }
+  .hex-btn:focus-visible {
+    outline: none;
+  }
+  .hex-btn::after,
+  .hex-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--edge);
+    clip-path: polygon(
+      evenodd,
+      var(--cut) 0,
+      calc(100% - var(--cut)) 0,
+      100% 50%,
+      calc(100% - var(--cut)) 100%,
+      var(--cut) 100%,
+      0 50%,
+      var(--cut) 0,
+      calc(var(--cut) + 0.5px) 1px,
+      calc(100% - var(--cut) - 0.5px) 1px,
+      calc(100% - 1.25px) 50%,
+      calc(100% - var(--cut) - 0.5px) calc(100% - 1px),
+      calc(var(--cut) + 0.5px) calc(100% - 1px),
+      1.25px 50%,
+      calc(var(--cut) + 0.5px) 1px
+    );
+    transition: background-color 0.25s;
+  }
+  .hex-btn-sm {
+    --cut: 12px;
+    padding: 9px 22px;
+  }
+  .hex-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .hex-btn-primary {
+    --edge: rgba(56, 189, 248, 0.6);
+    --fill: #08121b;
+  }
+  .hex-btn-wrap:hover .hex-btn-primary:not(:disabled) {
+    --edge: #38bdf8;
+    --fill: #06202f;
+  }
+  .hex-btn-secondary {
+    --edge: rgba(255, 255, 255, 0.25);
+    --fill: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
+  }
+  .hex-btn-wrap:hover .hex-btn-secondary:not(:disabled) {
+    --edge: rgba(56, 189, 248, 0.55);
+  }
+
+  .hex-btn .btn-arrow {
+    transition: transform 0.25s;
+  }
+  .hex-btn-wrap:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+}
+
+/* A frame cut at two opposite corners (top right, bottom left) with a thin sky edge,
+   the same angled cut as the hexagon buttons and nav. The edge is a ring overlay
+   so it stays crisp over images. Set --c (cut size) and optionally --edge. */
+@layer components {
+  .cut-frame {
+    --c: 22px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--c)) 0,
+      100% var(--c),
+      100% 100%,
+      var(--c) 100%,
+      0 calc(100% - var(--c))
+    );
+  }
+  .cut-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: var(--edge, rgba(56, 189, 248, 0.5));
+    clip-path: polygon(
+      evenodd,
+      0 0,
+      calc(100% - var(--c)) 0,
+      100% var(--c),
+      100% 100%,
+      var(--c) 100%,
+      0 calc(100% - var(--c)),
+      0 0,
+      1px 1px,
+      calc(100% - var(--c) - 0.4px) 1px,
+      calc(100% - 1px) calc(var(--c) + 0.4px),
+      calc(100% - 1px) calc(100% - 1px),
+      calc(var(--c) + 0.4px) calc(100% - 1px),
+      1px calc(100% - var(--c) - 0.4px),
+      1px 1px
+    );
+  }
+}
+
+/* Browser autofill would otherwise paint form fields white or yellow. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
+  box-shadow: 0 0 0 1000px #0c1118 inset;
+  transition: background-color 9999s ease-out;
 }
