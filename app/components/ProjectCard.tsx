@@ -46,7 +46,7 @@ function ProjectCard({
         <p className="text-sm text-white/70">{scope}</p>
       </div>
 
-      <div className="flex gap-2 mt-2">
+      <div className="flex flex-wrap gap-2 mt-2">
         {technologies.map((tech) => (
           <div
             key={tech}
