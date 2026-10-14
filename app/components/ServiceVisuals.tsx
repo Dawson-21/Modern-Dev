@@ -1,3 +1,11 @@
+import {
+  hexHeight,
+  hexPoints,
+  hexRow,
+  latticeTileUrl,
+  tileHeight,
+} from "./hexLattice";
+
 // Small illustrations used inside the larger Services tiles. All are
 // decorative except the SEO ring, which carries its score as an image label.
 
@@ -16,6 +24,67 @@ function Chips({ items }: { items: string[] }) {
   );
 }
 
+// The "hero" of the wireframe: the page's hexagon lattice in miniature, with a
+// soft sky glow and two lit cells.
+const PANEL_HEX = 32;
+const PANEL_ROW = hexRow(PANEL_HEX);
+const PANEL_CELLS: [number, number][] = [
+  [-1, 3],
+  [1, -4],
+];
+const panelFade =
+  "radial-gradient(90% 100% at 50% 50%, #000 35%, transparent 100%)";
+
+function LatticePanel() {
+  const height = hexHeight(PANEL_HEX);
+
+  return (
+    <div
+      className="relative h-28 overflow-hidden rounded-md bg-[#080b10] sm:h-30"
+      style={{
+        backgroundImage:
+          "radial-gradient(70% 130% at 15% 0%, rgba(8,47,73,0.7), transparent 70%)",
+      }}
+    >
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: latticeTileUrl(PANEL_HEX, "rgba(255,255,255,0.12)"),
+          backgroundPosition: "center",
+          backgroundSize: `${PANEL_HEX}px ${tileHeight(PANEL_HEX).toFixed(2)}px`,
+          maskImage: panelFade,
+          WebkitMaskImage: panelFade,
+        }}
+      />
+      {PANEL_CELLS.map(([row, column]) => {
+        const x = column * PANEL_HEX + (Math.abs(row) % 2 ? PANEL_HEX / 2 : 0);
+        const y = -PANEL_ROW / 3 + row * PANEL_ROW;
+
+        return (
+          <svg
+            key={`${row}:${column}`}
+            width={PANEL_HEX}
+            height={height}
+            viewBox={`0 0 ${PANEL_HEX} ${height}`}
+            className="absolute"
+            style={{
+              left: `calc(50% + ${(x - PANEL_HEX / 2).toFixed(2)}px)`,
+              top: `calc(50% + ${(y - height / 2).toFixed(2)}px)`,
+            }}
+          >
+            <polygon
+              points={hexPoints(PANEL_HEX, PANEL_HEX / 2, height / 2)}
+              fill="rgba(56,189,248,0.08)"
+              stroke="rgba(56,189,248,0.4)"
+              strokeWidth="1"
+            />
+          </svg>
+        );
+      })}
+    </div>
+  );
+}
+
 export function WebsiteVisual() {
   return (
     <div className="grid gap-3.5">
@@ -29,7 +98,7 @@ export function WebsiteVisual() {
           ))}
         </div>
         <div className="grid gap-3.5 p-5">
-          <div className="h-28 rounded-md bg-linear-to-br from-sky-950 to-yellow-700/35 sm:h-30" />
+          <LatticePanel />
           <div className="grid grid-cols-3 gap-3.5">
             {[0, 1, 2].map((block) => (
               <b

@@ -136,7 +136,7 @@ function Process() {
 
         <div
           ref={timelineRef}
-          className="relative mx-auto w-full max-w-190 text-white [--fill-height:0px] [--fill-top:0px] [--node:3.625rem]"
+          className="relative mx-auto w-full max-w-2xl text-white [--fill-height:0px] [--fill-top:0px] [--node:3.625rem]"
         >
           {/* Track and the sky-blue fill that follows the reading line */}
           <div
@@ -177,7 +177,7 @@ function Process() {
                       {step.title}
                     </h3>
                     <p
-                      className={`max-w-[56ch] transition-colors duration-300 ${
+                      className={`transition-colors duration-300 ${
                         lit ? "text-white" : "text-white/70"
                       }`}
                     >

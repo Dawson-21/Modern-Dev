@@ -1,32 +1,19 @@
+import {
+  hexHeight,
+  hexPoints,
+  hexRow,
+  latticeTileUrl,
+  tileHeight,
+} from "./hexLattice";
+
 // Page background: near-black with the site's blue and amber glows and a faint
-// hexagon lattice (the logo's shape) that fades toward the edges. The lattice is
-// a tiled CSS background centred on the screen, and a few cells are lit sky blue.
-// Everything is anchored to the centre so cells line up at any screen size.
+// hexagon lattice (the logo's shape) that fades toward the edges, with a few
+// cells lit sky blue. Everything is anchored to the screen centre so cells line
+// up at any screen size.
 
 const HEX_W = 56;
-const HEX_H = HEX_W * 1.1547; // pointy-top hexagon height
-const ROW = HEX_H * 0.75; // vertical distance between rows
-
-const hexPoints = (cx: number, cy: number) =>
-  [
-    [cx, cy - HEX_H / 2],
-    [cx + HEX_W / 2, cy - HEX_H / 4],
-    [cx + HEX_W / 2, cy + HEX_H / 4],
-    [cx, cy + HEX_H / 2],
-    [cx - HEX_W / 2, cy + HEX_H / 4],
-    [cx - HEX_W / 2, cy - HEX_H / 4],
-  ]
-    .map(([x, y]) => `${x.toFixed(2)},${y.toFixed(2)}`)
-    .join(" ");
-
-// One repeating tile: a full hexagon plus the two half-hexagons beside the row below.
-const latticeTile = `<svg xmlns="http://www.w3.org/2000/svg" width="${HEX_W}" height="${(2 * ROW).toFixed(2)}"><g fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1">${[
-  hexPoints(HEX_W / 2, HEX_H / 2),
-  hexPoints(0, HEX_H / 2 + ROW),
-  hexPoints(HEX_W, HEX_H / 2 + ROW),
-]
-  .map((points) => `<polygon points="${points}"/>`)
-  .join("")}</g></svg>`;
+const HEX_H = hexHeight(HEX_W);
+const ROW = hexRow(HEX_W);
 
 // Lit cells as [row, column, fill] counted from the centre cell. The hero logo
 // scales with the screen, so they stay well outside it: at the sides on wide
@@ -63,9 +50,9 @@ export default function HexBackground() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(latticeTile)}")`,
+          backgroundImage: latticeTileUrl(HEX_W, "rgba(255,255,255,0.1)"),
           backgroundPosition: "center",
-          backgroundSize: `${HEX_W}px ${(2 * ROW).toFixed(2)}px`,
+          backgroundSize: `${HEX_W}px ${tileHeight(HEX_W).toFixed(2)}px`,
           maskImage: fade,
           WebkitMaskImage: fade,
         }}
@@ -75,7 +62,7 @@ export default function HexBackground() {
         style={{ maskImage: fade, WebkitMaskImage: fade }}
       >
         {litCells.map(([row, column, alpha]) => {
-          // Centre cell sits half a tile above the screen centre.
+          // The centre cell sits a third of a row above the screen centre.
           const x = column * HEX_W + (Math.abs(row) % 2 ? HEX_W / 2 : 0);
           const y = -ROW / 3 + row * ROW;
 
@@ -92,7 +79,7 @@ export default function HexBackground() {
               }}
             >
               <polygon
-                points={hexPoints(HEX_W / 2, HEX_H / 2)}
+                points={hexPoints(HEX_W, HEX_W / 2, HEX_H / 2)}
                 fill={`rgba(56,189,248,${alpha})`}
                 stroke="rgba(56,189,248,0.4)"
                 strokeWidth="1"
