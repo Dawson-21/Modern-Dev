@@ -59,6 +59,21 @@
    ring-shaped overlay, so the fill can stay translucent. The wrapper carries the
    glow, because a filter on the clipped button itself would be cut off. */
 @layer components {
+  /* A non-interactive hexagon-cut frame (the nav). Set --cut, --edge and --fill. */
+  .hex-frame {
+    position: relative;
+    isolation: isolate;
+    background: var(--fill);
+    clip-path: polygon(
+      var(--cut) 0,
+      calc(100% - var(--cut)) 0,
+      100% 50%,
+      calc(100% - var(--cut)) 100%,
+      var(--cut) 100%,
+      0 50%
+    );
+  }
+
   .hex-btn-wrap {
     display: inline-flex;
     transition: filter 0.3s;
@@ -102,7 +117,8 @@
   .hex-btn:focus-visible {
     outline: none;
   }
-  .hex-btn::after {
+  .hex-btn::after,
+  .hex-frame::after {
     content: "";
     position: absolute;
     inset: 0;

@@ -31,7 +31,7 @@ export default function Hero() {
           <HexButton
             variant="secondary"
             onClick={() => handleClick("aboutSection")}
-            className="px-5 text-[min(3vw,16px)] sm:px-7"
+            className="px-5 text-[min(3.4vw,18px)] sm:px-7"
           >
             Learn More
           </HexButton>
@@ -39,7 +39,7 @@ export default function Hero() {
           <HexButton
             variant="secondary"
             onClick={() => handleClick("projectsSection")}
-            className="px-5 text-[min(3vw,16px)] sm:px-7"
+            className="px-5 text-[min(3.4vw,18px)] sm:px-7"
           >
             View Featured Projects
           </HexButton>
