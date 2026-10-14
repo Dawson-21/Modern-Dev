@@ -177,3 +177,13 @@
     transform: translateX(4px);
   }
 }
+
+/* Browser autofill would otherwise paint form fields white or yellow. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
+  box-shadow: 0 0 0 1000px #0c1118 inset;
+  transition: background-color 9999s ease-out;
+}

@@ -16,3 +16,7 @@ export const cardSpotlight =
   "relative isolate overflow-hidden before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:opacity-0 before:transition-opacity before:duration-400 before:bg-[radial-gradient(260px_circle_at_var(--mx,50%)_var(--my,-10%),rgba(56,189,248,0.16),transparent_70%)] hover:before:opacity-100";
 export const spotlightGlow =
   "absolute inset-0 bg-[radial-gradient(260px_circle_at_var(--mx,50%)_var(--my,-10%),rgba(56,189,248,0.16),transparent_70%)]";
+
+// Form fields: the same glass as the cards, with a sky-blue outline on focus.
+export const fieldSurface =
+  "border border-white/20 bg-white/[0.04] text-white placeholder:text-white/50 transition-colors duration-300 hover:border-white/35 focus-visible:border-sky-400/60 focus-visible:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-sky-400/40";

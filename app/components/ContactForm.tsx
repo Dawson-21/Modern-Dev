@@ -2,7 +2,12 @@
 
 import * as m from "framer-motion/m";
 import { noMobileEntrance } from "./entrance";
-import { cardHoverOutline, cardSpotlight, cardSurface } from "./cardStyles";
+import {
+  cardHoverOutline,
+  cardSpotlight,
+  cardSurface,
+  fieldSurface,
+} from "./cardStyles";
 import { spotlightHandlers } from "./spotlight";
 import HexButton from "./HexButton";
 import { useState } from "react";
@@ -95,7 +100,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Full Name"
             autoComplete="name"
-            className="w-full rounded-lg bg-neutral-800 p-3 text-white placeholder:text-white/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            className={`w-full rounded-lg p-3 ${fieldSurface}`}
             required
           />
         </div>
@@ -112,7 +117,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="you@example.com"
             autoComplete="email"
-            className="w-full rounded-lg bg-neutral-800 p-3 text-white placeholder:text-white/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            className={`w-full rounded-lg p-3 ${fieldSurface}`}
             required
           />
         </div>
@@ -129,10 +134,10 @@ export default function ContactForm() {
                 <label
                   key={option.value}
                   htmlFor={option.value}
-                  className={`relative cursor-pointer rounded-xl border p-4 transition-all duration-200 ${
+                  className={`relative cursor-pointer rounded-lg border p-4 transition-colors duration-300 focus-within:ring-1 focus-within:ring-sky-400/50 ${
                     isSelected
-                      ? "border-sky-500 bg-neutral-700 shadow-md shadow-sky-500/30"
-                      : "border-neutral-700 bg-neutral-800 hover:border-sky-400"
+                      ? "border-sky-400/70 bg-sky-400/10 shadow-[0_0_18px_-6px_rgba(56,189,248,0.5)]"
+                      : "border-white/20 bg-white/[0.04] hover:border-sky-400/45"
                   }`}
                 >
                   <input
@@ -153,7 +158,7 @@ export default function ContactForm() {
                     {isSelected && (
                       <span
                         aria-hidden="true"
-                        className="h-3 w-3 rounded-full bg-sky-500"
+                        className="h-3 w-3 rounded-full bg-sky-400"
                       />
                     )}
                   </div>
@@ -174,7 +179,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Briefly describe your goals, timeline, and any relevant links."
-            className="w-full resize-none rounded-lg bg-neutral-800 p-3 text-white placeholder:text-white/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            className={`w-full resize-none rounded-lg p-3 ${fieldSurface}`}
             required
           />
         </div>

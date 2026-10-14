@@ -86,7 +86,7 @@ function ProjectCard({
             rest: { opacity: 0 },
             hover: { opacity: 1, transition: { duration: 0.3 } },
           }}
-          className="absolute inset-0 bg-slate-800/85 flex items-center justify-center text-white p-4 max-sm:px-1"
+          className="absolute inset-0 bg-[#18212f]/85 flex items-center justify-center text-white p-4 max-sm:px-1"
         >
           <div className="text-center">
             <p className="text-[13px] sm:text-sm mt-2">{shortDescription}</p>

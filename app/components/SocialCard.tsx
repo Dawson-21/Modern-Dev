@@ -48,11 +48,14 @@ const socials: Social[] = [
 // lattice fits it edge to edge and each social hexagon is exactly one lattice
 // cell. Everything is positioned in cell units from the top-left corner.
 const ICON_ROW = 2;
+// A row of four cells is 4 wide in a card 4.5 wide, so everything shifts right
+// by a quarter cell to centre the icons.
+const SHIFT = 0.25;
 const ROW_STEP = 0.75 * 1.1547; // vertical distance between rows, in cell widths
 const CELL_HEIGHT = 1.1547; // cell height, in cell widths
 
 const cellStyle = (row: number, column: number): CSSProperties => ({
-  left: `calc(var(--cw) * ${column + (row % 2 ? 0.5 : 0)})`,
+  left: `calc(var(--cw) * ${column + SHIFT + (row % 2 ? 0.5 : 0)})`,
   top: `calc(var(--cw) * ${(row * ROW_STEP).toFixed(4)})`,
   width: "var(--cw)",
   height: `calc(var(--cw) * ${CELL_HEIGHT})`,
@@ -81,7 +84,7 @@ export default function SocialCard() {
           className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage: latticeTileUrl(56, "rgba(255,255,255,0.12)"),
-            backgroundPosition: "0 0",
+            backgroundPosition: `calc(var(--cw) * ${SHIFT}) 0`,
             backgroundSize: "var(--cw) calc(var(--cw) * 1.7320508)",
           }}
         />

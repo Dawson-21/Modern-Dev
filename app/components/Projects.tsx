@@ -26,9 +26,9 @@ function Projects() {
             <ProjectCard
               title="Waldrops Furniture"
               scope="Frontend Development"
-              shortDescription="A complete redesign of a fragmented furniture website into a cohesive, modern experience focused on simplicity, clarity, and conversion. The result is a polished, intuitive platform that enhances brand credibility and guides users seamlessly from browsing to inquiry."
-              longDescription="A fully reimagined furniture retail website built to replace an incomplete, fragmented online presence with a cohesive, high-converting experience. The site emphasizes clean visual hierarchy, intuitive navigation, and a refined modern-rustic aesthetic aligned with the brand. Custom layouts, optimized galleries, and thoughtful micro-interactions were implemented to guide users effortlessly from browsing to inquiry, while maintaining performance, responsiveness, and scalability across devices."
-              problem="An unfinished, inconsistent website created confusion, weakened brand credibility, and disrupted the customer journey."
+              shortDescription="A modern redesign of the Waldrops Furniture website, focused on simplicity, clarity, and a smooth path from browsing to inquiry. The result is a polished, intuitive site that reflects the quality of the brand."
+              longDescription="A fully reimagined website for a furniture retailer, bringing the brand's online presence together into one cohesive, high-converting experience. The site emphasizes clean visual hierarchy, intuitive navigation, and a refined modern-rustic aesthetic aligned with the brand. Custom layouts, optimized galleries, and thoughtful micro-interactions guide visitors effortlessly from browsing to inquiry, while keeping the site fast, responsive, and ready to grow."
+              problem="The site had grown in stages, and there was an opportunity to bring everything together into one clear, consistent experience that makes it easy for customers to go from browsing to inquiry."
               solution="Redesigned the site from the ground up with a simplified UX, cohesive styling, optimized media handling, and clear conversion pathways."
               results="A polished, user-friendly website that strengthens brand trust, improves engagement, and delivers a seamless browsing experience that supports real business growth."
               technologies={[
