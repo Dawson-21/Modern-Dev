@@ -53,3 +53,8 @@
     @apply bg-neutral-800 h-8 px-1 rounded-md flex flex-row items-center gap-1 pointer-events-none;
   }
 }
+
+/* Pointy-top hexagon used by the services map and process timeline */
+.hex-shape {
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
