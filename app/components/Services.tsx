@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import type { ReactNode } from "react";
 import {
   BarChart2,
   CloudUpload,
@@ -17,22 +17,39 @@ import type { LucideIcon } from "lucide-react";
 import * as m from "framer-motion/m";
 import HexIcon from "./HexIcon";
 import { noMobileEntrance } from "./entrance";
+import {
+  DevicesVisual,
+  HostingVisual,
+  PageWeightVisual,
+  SeoScoreVisual,
+  TrendVisual,
+  WebsiteVisual,
+} from "./ServiceVisuals";
 
 interface Service {
   group: string;
   title: string;
   description: string;
   icon: LucideIcon;
+  /** Grid placement for larger tiles, plus where it sits on tablet. */
+  className: string;
+  visual?: ReactNode;
+  large?: boolean;
 }
 
+// Listed in desktop reading order (4 columns). On tablet (2 columns) the
+// `sm:max-lg:order-*` classes move Custom Logo Design next to SEO, so neither
+// is left alone on a row beside a two-column tile.
 const services: Service[] = [
-  // Build
   {
     group: "Build",
     title: "Custom Website Development",
     description:
       "Bespoke websites built using React, Next.js, or WordPress, tailored to your brand and business goals.",
     icon: Code2,
+    className: "sm:max-lg:order-1 sm:col-span-2 lg:row-span-2",
+    visual: <WebsiteVisual />,
+    large: true,
   },
   {
     group: "Build",
@@ -40,6 +57,8 @@ const services: Service[] = [
     description:
       "Ensure your website looks and performs great on all devices: mobile, tablet, and desktop.",
     icon: MonitorSmartphone,
+    className: "sm:max-lg:order-2",
+    visual: <DevicesVisual />,
   },
   {
     group: "Build",
@@ -47,43 +66,7 @@ const services: Service[] = [
     description:
       "Pixel-perfect implementation of your Figma or Adobe XD designs using modern web technologies.",
     icon: Paintbrush,
-  },
-  {
-    group: "Build",
-    title: "Custom Logo Design",
-    description:
-      "Unique, professional logos crafted to reflect your brand's personality, vision, and values.",
-    icon: PenTool,
-  },
-  // Grow
-  {
-    group: "Grow",
-    title: "Landing Page Design",
-    description:
-      "High-converting single-page websites for product launches, lead generation, or marketing campaigns.",
-    icon: LayoutTemplate,
-  },
-  {
-    group: "Grow",
-    title: "SEO Best Practices",
-    description:
-      "Improve your site's visibility with clean semantic code, metadata, and performance-focused architecture.",
-    icon: Search,
-  },
-  {
-    group: "Grow",
-    title: "Analytics & Conversion Optimization",
-    description:
-      "Track user behavior with Google Analytics, Hotjar, and other performance tools, then refine layouts, CTAs, and page flows to turn visitors into customers.",
-    icon: BarChart2,
-  },
-  // Launch and run
-  {
-    group: "Launch and run",
-    title: "E-Commerce Integration",
-    description:
-      "Setup simple stores or product showcases with Shopify, WooCommerce, or custom solutions.",
-    icon: ShoppingCart,
+    className: "sm:max-lg:order-3",
   },
   {
     group: "Launch and run",
@@ -91,6 +74,50 @@ const services: Service[] = [
     description:
       "Faster load times with image compression, lazy loading, and code-splitting for a better user experience.",
     icon: Settings2,
+    className: "sm:max-lg:order-4 sm:col-span-2",
+    visual: <PageWeightVisual />,
+  },
+  {
+    group: "Grow",
+    title: "SEO & Search Visibility",
+    description:
+      "Improve your site's visibility with clean semantic code, metadata, and performance-focused architecture.",
+    icon: Search,
+    className: "sm:max-lg:order-5",
+    visual: <SeoScoreVisual />,
+  },
+  {
+    group: "Grow",
+    title: "Analytics & Conversion Optimization",
+    description:
+      "Track user behavior with Google Analytics, Hotjar, and other performance tools, then refine layouts, CTAs, and page flows to turn visitors into customers.",
+    icon: BarChart2,
+    className: "sm:max-lg:order-7 sm:col-span-2",
+    visual: <TrendVisual />,
+  },
+  {
+    group: "Grow",
+    title: "Landing Page Design",
+    description:
+      "High-converting single-page websites for product launches, lead generation, or marketing campaigns.",
+    icon: LayoutTemplate,
+    className: "sm:max-lg:order-8",
+  },
+  {
+    group: "Launch and run",
+    title: "E-Commerce Integration",
+    description:
+      "Setup simple stores or product showcases with Shopify, WooCommerce, or custom solutions.",
+    icon: ShoppingCart,
+    className: "sm:max-lg:order-9",
+  },
+  {
+    group: "Build",
+    title: "Custom Logo Design",
+    description:
+      "Unique, professional logos crafted to reflect your brand's personality, vision, and values.",
+    icon: PenTool,
+    className: "sm:max-lg:order-6",
   },
   {
     group: "Launch and run",
@@ -98,26 +125,12 @@ const services: Service[] = [
     description:
       "Launch on modern platforms like Vercel, Netlify, or traditional hosting, then keep your website secure, fast, and functional with ongoing updates, fixes, and enhancements.",
     icon: CloudUpload,
+    className: "sm:max-lg:order-10 sm:col-span-2",
+    visual: <HostingVisual />,
   },
 ];
 
-// Hexagons per row, top to bottom: Build, Grow, Launch and run.
-const rowSizes = [4, 3, 3];
-const rows = rowSizes.map((size, row) => {
-  const start = rowSizes.slice(0, row).reduce((sum, n) => sum + n, 0);
-  return services.slice(start, start + size);
-});
-
 export default function ServicesSection() {
-  const [selected, setSelected] = useState(0);
-
-  const handleClick = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <div id="servicesSection" className="w-full h-fit">
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
@@ -130,87 +143,43 @@ export default function ServicesSection() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.2 }}
-          className={`grid items-center gap-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:gap-12 lg:gap-16 ${noMobileEntrance}`}
+          viewport={{ once: true, amount: 0.1 }}
+          className={`grid auto-rows-[minmax(210px,auto)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 ${noMobileEntrance}`}
         >
-          <div className="mx-auto w-full max-w-135 md:mx-0">
-            {/* Honeycomb: width of one hexagon is 1/4.5 of the container. */}
-            <div className="[container-type:inline-size]">
-              <div
-                role="group"
-                aria-label="Services"
-                className="flex flex-col [--hw:calc(100cqw/4.5)]"
-              >
-                {rows.map((row, rowIndex) => (
-                  <div
-                    key={rowIndex}
-                    className="flex even:ml-[calc(var(--hw)/2)] not-first:-mt-[calc(var(--hw)*0.275)]"
-                  >
-                    {row.map((service) => {
-                      const index = services.indexOf(service);
-                      const active = index === selected;
-
-                      return (
-                        <button
-                          key={service.title}
-                          type="button"
-                          onClick={() => setSelected(index)}
-                          aria-pressed={active}
-                          aria-controls="service-panel"
-                          aria-label={service.title}
-                          title={service.title}
-                          className="group block w-(--hw) shrink-0 cursor-pointer focus-visible:outline-none"
-                        >
-                          <HexIcon
-                            icon={service.icon}
-                            active={active}
-                            className="w-full"
-                          />
-                        </button>
-                      );
-                    })}
-                  </div>
-                ))}
+          {services.map((service) => (
+            <article
+              key={service.title}
+              className={`group relative flex flex-col gap-2.5 overflow-hidden rounded-lg border border-white/20 bg-white/[0.035] p-5.5 text-white transition-colors duration-300 before:pointer-events-none before:absolute before:inset-0 before:bg-linear-to-br before:from-sky-950/55 before:from-20% before:to-yellow-700/20 before:opacity-0 before:transition-opacity before:duration-400 hover:border-sky-400/45 hover:before:opacity-100 ${service.className}`}
+            >
+              <div className="relative mb-1.5 flex items-center justify-between gap-3">
+                <HexIcon
+                  icon={service.icon}
+                  className="w-11.5"
+                  iconClassName="size-[44%]"
+                />
+                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-400">
+                  {service.group}
+                </span>
               </div>
-            </div>
-            <p className="mt-4 text-sm text-white/70">
-              Select a hexagon to read about each service.
-            </p>
-          </div>
-
-          {/* Every panel shares one grid cell, so the box is always as tall as
-              the longest description and switching never shifts the page. */}
-          <div
-            id="service-panel"
-            aria-live="polite"
-            className="grid rounded-lg border border-white/20 bg-linear-to-br from-sky-950/40 from-25% to-yellow-700/20 p-6 sm:p-8"
-          >
-            {services.map((service, index) => (
-              <div
-                key={service.title}
-                className={`col-start-1 row-start-1 grid content-start gap-3.5 transition-opacity duration-300 ${
-                  index === selected ? "opacity-100" : "invisible opacity-0"
+              <h3
+                className={`relative font-semibold leading-tight ${
+                  service.large ? "text-2xl" : "text-[1.15rem]"
                 }`}
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-400">
-                  {service.group}
-                </p>
-                <h3 className="text-[clamp(1.35rem,3vw,1.75rem)] font-semibold leading-tight text-white">
-                  {service.title}
-                </h3>
-                <p className="max-w-[52ch] text-white/70">
-                  {service.description}
-                </p>
-                <button
-                  type="button"
-                  onClick={() => handleClick("contactSection")}
-                  className="mt-1.5 w-fit cursor-pointer rounded-full bg-white/85 px-4.5 py-2.25 text-sm font-bold text-black transition duration-200 hover:scale-105 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
-                >
-                  Start a Project
-                </button>
-              </div>
-            ))}
-          </div>
+                {service.title}
+              </h3>
+              <p
+                className={`relative text-white/70 ${
+                  service.large ? "max-w-[44ch]" : "text-[0.92rem]"
+                }`}
+              >
+                {service.description}
+              </p>
+              {service.visual && (
+                <div className="relative mt-auto pt-3.5">{service.visual}</div>
+              )}
+            </article>
+          ))}
         </m.div>
       </div>
     </div>
