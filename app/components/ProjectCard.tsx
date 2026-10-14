@@ -49,7 +49,7 @@ function ProjectCard({
   return (
     <div
       {...spotlightHandlers}
-      className={`group grid w-full gap-3.5 rounded-lg p-4 ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}
+      className={`group grid w-full gap-3.5 p-4 ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}
     >
       {/* The screenshot in a small browser window, cut at two corners. The
           outer wrapper carries the glow, since a filter on the clipped frame

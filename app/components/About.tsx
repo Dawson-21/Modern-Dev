@@ -108,7 +108,7 @@ export default function About() {
           <m.div
             ref={profileRef}
             {...spotlightHandlers}
-            className={`rounded-lg text-white col-span-7 lg:col-span-5 ${cardSurface}`}
+            className={`text-white col-span-7 lg:col-span-5 ${cardSurface}`}
             variants={cardOutlineVariants}
             initial="rest"
             whileHover="hover"
@@ -121,7 +121,7 @@ export default function About() {
               />
               <m.div
                 variants={aboutImageVariants}
-                className="relative float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 rounded-md overflow-hidden"
+                className="relative float-left w-24 sm:w-[20%] md:w-34 lg:w-[23%] px-[3%] pt-[1%] mr-5 overflow-hidden"
               >
                 <m.div
                   variants={aboutImageBgVariants}
@@ -154,14 +154,14 @@ export default function About() {
           </m.div>
           {/****************** SOCIALS ********************/}
           <m.div {...spotlightHandlers}
-            className={`rounded-lg text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}>
+            className={`text-white col-span-7 sm:col-span-3 lg:col-span-2 flex items-stretch ${cardSurface} ${cardHoverOutline} ${cardSpotlight}`}>
             <SocialCard />
           </m.div>
           {/****************** TESTIMONIALS ********************/}
           <m.div
             ref={testimonialsRef}
             {...spotlightHandlers}
-            className={`relative rounded-lg text-white col-span-7 sm:col-span-4 lg:col-span-3 p-4 sm:pt-5 overflow-hidden ${cardSurface}`}
+            className={`relative text-white col-span-7 sm:col-span-4 lg:col-span-3 p-4 sm:pt-5 overflow-hidden ${cardSurface}`}
             variants={cardOutlineVariants}
             initial="rest"
             whileHover="hover"
@@ -182,7 +182,7 @@ export default function About() {
           <m.div
             ref={techRef}
             {...spotlightHandlers}
-            className={`relative rounded-lg text-white col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base overflow-hidden ${cardSurface}`}
+            className={`relative text-white col-span-7 lg:col-span-4 p-5 lg:text-[14px] text-base overflow-hidden ${cardSurface}`}
             variants={cardOutlineVariants}
             initial="rest"
             whileHover="hover"

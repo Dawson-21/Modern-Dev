@@ -152,7 +152,7 @@ export default function ServicesSection() {
             <article
               key={service.title}
               {...spotlightHandlers}
-              className={`group flex flex-col gap-2.5 rounded-lg p-5.5 text-white transition-colors duration-300 hover:border-sky-400/45 ${cardSurface} ${cardSpotlight} ${service.className}`}
+              className={`group flex flex-col gap-2.5 p-5.5 text-white transition-colors duration-300 hover:border-sky-400/45 ${cardSurface} ${cardSpotlight} ${service.className}`}
             >
               <div className="relative mb-1.5 flex items-center justify-between gap-3">
                 <HexIcon

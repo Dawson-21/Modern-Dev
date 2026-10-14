@@ -76,7 +76,7 @@ export default function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
-      className={`mx-auto w-full max-w-2xl rounded-lg p-6 backdrop-blur-md focus-within:border-sky-400/45 ${cardSurface} ${cardHoverOutline} ${cardSpotlight} ${noMobileEntrance}`}
+      className={`mx-auto w-full max-w-2xl p-6 backdrop-blur-md focus-within:border-sky-400/45 ${cardSurface} ${cardHoverOutline} ${cardSpotlight} ${noMobileEntrance}`}
       {...spotlightHandlers}
     >
       <h2 className="mb-4 text-center text-2xl font-semibold text-white">
@@ -100,7 +100,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Full Name"
             autoComplete="name"
-            className={`w-full rounded-lg p-3 ${fieldSurface}`}
+            className={`w-full p-3 ${fieldSurface}`}
             required
           />
         </div>
@@ -117,7 +117,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="you@example.com"
             autoComplete="email"
-            className={`w-full rounded-lg p-3 ${fieldSurface}`}
+            className={`w-full p-3 ${fieldSurface}`}
             required
           />
         </div>
@@ -134,7 +134,7 @@ export default function ContactForm() {
                 <label
                   key={option.value}
                   htmlFor={option.value}
-                  className={`relative cursor-pointer rounded-lg border p-4 transition-colors duration-300 focus-within:ring-1 focus-within:ring-sky-400/50 ${
+                  className={`relative cursor-pointer border p-4 transition-colors duration-300 focus-within:ring-1 focus-within:ring-sky-400/50 ${
                     isSelected
                       ? "border-sky-400/70 bg-sky-400/10 shadow-[0_0_18px_-6px_rgba(56,189,248,0.5)]"
                       : "border-white/20 bg-white/[0.04] hover:border-sky-400/45"
@@ -179,7 +179,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Briefly describe your goals, timeline, and any relevant links."
-            className={`w-full resize-none rounded-lg p-3 ${fieldSurface}`}
+            className={`w-full resize-none p-3 ${fieldSurface}`}
             required
           />
         </div>

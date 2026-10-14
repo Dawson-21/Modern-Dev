@@ -62,7 +62,7 @@ export default function Modal({
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            className="relative max-h-[90dvh] w-[90%] max-w-lg overflow-y-auto rounded-lg border border-sky-400/50 bg-white/[0.035] p-4 text-white shadow-[0_0_40px_-12px_rgba(56,189,248,0.35)] backdrop-blur-xl sm:p-6"
+            className="relative max-h-[90dvh] w-[90%] max-w-lg overflow-y-auto border border-sky-400/50 bg-white/[0.035] p-4 text-white shadow-[0_0_40px_-12px_rgba(56,189,248,0.35)] backdrop-blur-xl sm:p-6"
             initial={{ scale: 0.5, opacity: 0.2 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.5, opacity: 0 }}
@@ -72,7 +72,7 @@ export default function Modal({
               ref={closeButtonRef}
               type="button"
               onClick={onClose}
-              className="absolute right-3 top-3 grid size-8 cursor-pointer place-items-center rounded-md text-sky-400 transition-colors duration-200 hover:bg-sky-400/10 hover:text-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+              className="absolute right-3 top-3 grid size-8 cursor-pointer place-items-center text-sky-400 transition-colors duration-200 hover:bg-sky-400/10 hover:text-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
               aria-label="Close dialog"
             >
               <X className="size-5" aria-hidden="true" />

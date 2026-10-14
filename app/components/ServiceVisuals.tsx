@@ -21,7 +21,7 @@ export function WebsiteVisual() {
     <div className="grid gap-3.5">
       <div
         aria-hidden="true"
-        className="overflow-hidden rounded-lg border border-white/15 bg-black/35"
+        className="overflow-hidden border border-white/15 bg-black/35"
       >
         <div className="flex gap-1.5 border-b border-white/10 px-3 py-2.25">
           {[0, 1, 2].map((dot) => (
@@ -29,12 +29,12 @@ export function WebsiteVisual() {
           ))}
         </div>
         <div className="grid gap-3.5 p-5">
-          <div className="h-28 rounded-md bg-linear-to-br from-sky-800 via-sky-950 to-[#011728] sm:h-30" />
+          <div className="h-28 bg-linear-to-br from-sky-800 via-sky-950 to-[#011728] sm:h-30" />
           <div className="grid grid-cols-3 gap-3.5">
             {[0, 1, 2].map((block) => (
               <b
                 key={block}
-                className="h-16 rounded-md border border-white/10 bg-white/3 sm:h-21"
+                className="h-16 border border-white/10 bg-white/3 sm:h-21"
               />
             ))}
           </div>
