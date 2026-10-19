@@ -76,9 +76,9 @@ export default function About() {
             Hey There! I&apos;m Dawson.
           </h1>
           <p className="col-span-7 md:col-span-4 text-[min(4.5vw,20px)] text-white/70 sm:mt-5">
-            Texas based software engineer dedicated to helping small businesses
-            build a stronger online presence and stand out in today&apos;s digital
-            landscape.
+            I&apos;m a Texas-based freelance web developer helping small
+            businesses build a stronger online presence and stand out in a
+            crowded digital landscape.
           </p>
           <HexButton
             onClick={() => handleClick("contactSection")}
@@ -149,13 +149,13 @@ export default function About() {
                 variants={aboutTextVariants}
                 className="relative z-10 text-[min(4.3vw,18px)] font-light leading-6 lg:leading-8 tracking-wide"
               >
-                I&apos;m a Software Engineer passionate about building modern,
-                user-focused, mobile-first websites and web applications. With a
-                B.S. in Computer Science from Texas A&M University Corpus
-                Christi and a strong foundation in both business and technology,
-                I craft digital solutions that not only look great but drive
-                results. I thrive on taking on new challenges and helping
-                businesses level up their online presence.
+                I design and build modern, mobile-first websites and web
+                applications for small businesses. With a B.S. in Computer
+                Science from Texas A&amp;M University&ndash;Corpus Christi and a
+                background in both business and technology, I build sites that
+                look great and do their job: bringing in customers. I love a new
+                challenge, and I&apos;m happiest when I&apos;m helping a business
+                show up online the way it deserves to.
               </m.p>
             </div>
           </m.div>
