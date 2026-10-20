@@ -114,11 +114,12 @@ export default function SocialCard() {
       card.style.setProperty("--sy", `${shift.toFixed(1)}px`);
     };
 
-    centre();
-    // The web font can change where the text wraps once it loads.
-    document.fonts.ready.then(centre);
+    // The ResizeObserver reports right after the browser lays out the page, so
+    // measuring there never forces an extra layout. Watching the intro text also
+    // catches it re-wrapping once the web font loads.
     const resize = new ResizeObserver(centre);
     resize.observe(card);
+    resize.observe(intro);
     return () => resize.disconnect();
   }, []);
 

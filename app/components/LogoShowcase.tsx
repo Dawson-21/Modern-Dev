@@ -103,8 +103,10 @@ export default function LogoShowcase() {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    let width = stage.clientWidth;
-    let screenWidth = document.documentElement.clientWidth;
+    // Sizes come from the ResizeObserver below: the stage width from its own
+    // report and the screen width from the window, so neither forces a layout.
+    let width = 0;
+    let screenWidth = 0;
     let angle = 0;
     let speed = 1;
     let hovered = false;
@@ -114,6 +116,7 @@ export default function LogoShowcase() {
     let running = false;
 
     const place = () => {
+      if (!width) return; // not measured yet
       // On phones the ring is wider than the stage, so logos fade out right at
       // the screen edges, hanging slightly past them. The section clips
       // sideways, so this never widens the page.
@@ -179,17 +182,15 @@ export default function LogoShowcase() {
       cancelAnimationFrame(frame);
     };
 
-    place();
-
     // Only animate while the ring is on screen.
     const visibility = new IntersectionObserver(([entry]) =>
       entry.isIntersecting ? start() : stop(),
     );
     visibility.observe(stage);
 
-    const resize = new ResizeObserver(() => {
-      width = stage.clientWidth;
-      screenWidth = document.documentElement.clientWidth;
+    const resize = new ResizeObserver(([entry]) => {
+      width = entry.contentRect.width;
+      screenWidth = window.innerWidth;
       place();
     });
     resize.observe(stage);

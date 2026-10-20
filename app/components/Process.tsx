@@ -107,12 +107,19 @@ function Process() {
       if (!frame) frame = requestAnimationFrame(update);
     };
 
-    update();
+    // The first reading waits until the timeline comes on screen, then runs in
+    // the next frame, when the page layout is up to date. Reading it at load
+    // would force an extra layout for a section that is far below the fold.
+    const visibility = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) onScroll();
+    });
+    visibility.observe(timeline);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
 
     return () => {
       if (frame) cancelAnimationFrame(frame);
+      visibility.disconnect();
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
