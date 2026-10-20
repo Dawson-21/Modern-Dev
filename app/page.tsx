@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import LogoShowcase from "./components/LogoShowcase";
 import Services from "./components/Services";
 import Process from "./components/Process";
 import Contact from "./components/Contact";
@@ -20,6 +21,7 @@ function App() {
       <div className="bg-black/35 backdrop-blur-[3px]">
         <About />
         <Projects />
+        <LogoShowcase />
         <Services />
         <Process />
         <Contact />
