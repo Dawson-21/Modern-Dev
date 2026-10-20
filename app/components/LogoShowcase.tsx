@@ -323,7 +323,7 @@ export default function LogoShowcase() {
           >
             {logos[front].name}
           </p>
-          <p className={`${cardAccentLabel} mt-1`}>Custom Logo design</p>
+          <p className={`${cardAccentLabel} mt-1`}>Custom Logo</p>
 
           {/* Hidden until reached with the keyboard, so it stays available for
               accessibility without cluttering the section. */}
