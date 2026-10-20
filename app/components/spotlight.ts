@@ -1,8 +1,6 @@
 import type { PointerEvent } from "react";
 
 function track(event: PointerEvent<HTMLElement>) {
-  // Touch pointers are ignored so the glow stays at its resting position.
-  // if (event.pointerType === "touch") return;
   const element = event.currentTarget;
   const rect = element.getBoundingClientRect();
   element.style.setProperty("--mx", `${event.clientX - rect.left}px`);
@@ -10,8 +8,9 @@ function track(event: PointerEvent<HTMLElement>) {
 }
 
 /**
- * Spread onto a card to feed the Spotlight hover: it records where the mouse
- * is inside the card as --mx/--my, which the glow gradient reads. The position
+ * Spread onto a card to feed the Spotlight hover: it records where the mouse,
+ * or a finger on touch screens, is inside the card as --mx/--my, which the glow
+ * gradient reads. The position
  * is deliberately kept when the pointer leaves, so the glow fades out where it
  * was instead of jumping to its resting spot.
  */

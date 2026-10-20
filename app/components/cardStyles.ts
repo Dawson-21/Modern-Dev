@@ -7,8 +7,8 @@ export const cardAccentLabel =
   "text-xs font-semibold uppercase tracking-[0.14em] text-sky-400";
 
 // Spotlight hover: a soft sky-blue glow that follows the pointer. The pointer
-// position comes from --mx/--my (see spotlight.ts); without a pointer, such as
-// on touch screens, the glow rests at the top centre of the card.
+// position comes from --mx/--my (see spotlight.ts), from the mouse or a finger;
+// until one moves over the card, the glow rests at the top centre.
 //
 // Cards also take `data-lit` from useScrollLit, so touch screens get the same
 // state while a card is at the center of the screen.
