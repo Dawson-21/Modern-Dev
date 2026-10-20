@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, ComponentType } from "react";
 import {
   FacebookIcon,
@@ -51,15 +51,19 @@ const ICON_ROW = 2;
 // A row of four cells is 4 wide in a card 5 wide, so everything shifts right by
 // half a cell to centre the icons.
 const SHIFT = 0.5;
-// The lattice also shifts down a little so the first row of icons clears the
-// text above it, even in the narrowest card.
-const SHIFT_Y = 0.35;
+// The lattice also shifts vertically by --sy (set on the card below). In the
+// narrow side-column card it shifts down a little so the icons clear the text
+// above them. On phones the card spans the screen, so it is tall and wide; there
+// the shift centres the icons and their label between the text and the bottom
+// edge. CSS gives a close first guess, then the effect below measures where the
+// text actually ends (it wraps differently on each phone) and centres exactly.
+const SHIFT_Y = "var(--sy)";
 const ROW_STEP = 0.75 * 1.1547; // vertical distance between rows, in cell widths
 const CELL_HEIGHT = 1.1547; // cell height, in cell widths
 
 const cellStyle = (row: number, column: number): CSSProperties => ({
   left: `calc(var(--cw) * ${column + SHIFT + (row % 2 ? 0.5 : 0)})`,
-  top: `calc(var(--cw) * ${(row * ROW_STEP + SHIFT_Y).toFixed(4)})`,
+  top: `calc(var(--cw) * ${(row * ROW_STEP).toFixed(4)} + ${SHIFT_Y})`,
   width: "var(--cw)",
   height: `calc(var(--cw) * ${CELL_HEIGHT})`,
 });
@@ -72,22 +76,64 @@ const litCells: [number, number][] = [
 
 // Just below the icon row. The label sits in a box of fixed height, so
 // changing its text never moves anything else.
-const labelTop = `calc(var(--cw) * ${(ICON_ROW * ROW_STEP + CELL_HEIGHT + SHIFT_Y).toFixed(4)} + 12px)`;
+const labelTop = `calc(var(--cw) * ${(ICON_ROW * ROW_STEP + CELL_HEIGHT).toFixed(4)} + ${SHIFT_Y} + 12px)`;
 
 export default function SocialCard() {
   const [active, setActive] = useState<number | null>(null);
   const selected = active === null ? null : socials[active];
+  const cardRef = useRef<HTMLDivElement>(null);
+  const introRef = useRef<HTMLParagraphElement>(null);
+  const labelRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    const intro = introRef.current;
+    const label = labelRef.current;
+    if (!card || !intro || !label) return;
+
+    const range = document.createRange();
+
+    const centre = () => {
+      // Phones: below the sm breakpoint, where the card spans the screen.
+      if (window.innerWidth >= 640) {
+        card.style.removeProperty("--sy");
+        return;
+      }
+      const box = card.getBoundingClientRect();
+      const cw = box.width / 5;
+      range.selectNodeContents(intro);
+      const textEnd = range.getBoundingClientRect().bottom - box.top;
+      // From the top of the label box to the bottom of its text.
+      range.selectNodeContents(label);
+      const labelHeight =
+        range.getBoundingClientRect().bottom - label.getBoundingClientRect().top;
+      // Icons, the 12px gap and the label, centred in the space below the text.
+      const group = cw * CELL_HEIGHT + 12 + labelHeight;
+      const iconTop = textEnd + (box.height - textEnd - group) / 2;
+      const shift = iconTop - cw * ICON_ROW * ROW_STEP;
+      card.style.setProperty("--sy", `${shift.toFixed(1)}px`);
+    };
+
+    centre();
+    // The web font can change where the text wraps once it loads.
+    document.fonts.ready.then(centre);
+    const resize = new ResizeObserver(centre);
+    resize.observe(card);
+    return () => resize.disconnect();
+  }, []);
 
   return (
     <div className="min-w-0 flex-1 [container-type:inline-size]">
-      <div className="relative h-full min-h-[calc(100cqw*0.647+64px)] [--cw:calc(100cqw/5)]">
+      <div
+        ref={cardRef}
+        className="relative h-full min-h-[calc(100cqw*0.647+64px)] [--cw:calc(100cqw/5)] [--sy:calc(var(--cw)*0.35)] max-sm:[--sy:calc(47px-var(--cw)*0.692)]">
         {/* Lattice across the whole card */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage: latticeTileUrl(56, "rgba(255,255,255,0.12)"),
-            backgroundPosition: `calc(var(--cw) * ${SHIFT}) calc(var(--cw) * ${SHIFT_Y})`,
+            backgroundPosition: `calc(var(--cw) * ${SHIFT}) ${SHIFT_Y}`,
             backgroundSize: "var(--cw) calc(var(--cw) * 1.7320508)",
           }}
         />
@@ -111,7 +157,7 @@ export default function SocialCard() {
 
         <div className="relative px-5 pb-5 pt-4">
           <h2 className="text-lg font-bold">Reach Out</h2>
-          <p className="mt-1 text-sm text-white/70">
+          <p ref={introRef} className="mt-1 text-sm text-white/70">
             Connect with me through my favorite platforms.
           </p>
         </div>
@@ -140,6 +186,7 @@ export default function SocialCard() {
         ))}
 
         <p
+          ref={labelRef}
           aria-hidden="true"
           className="absolute inset-x-5 h-[2.6em] text-sm leading-[1.3] text-white/70"
           style={{ top: labelTop }}
