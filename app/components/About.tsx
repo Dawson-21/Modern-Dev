@@ -79,7 +79,7 @@ export default function About() {
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
         <div className="grid grid-cols-7 items-center">
           <h1 className="col-span-7 text-[min(8vw,50px)] font-bold text-white mt-[10vh]">
-            Hey There! I&apos;m Dawson.
+            Hi there, I&apos;m Dawson.
           </h1>
           <p className="col-span-7 md:col-span-4 text-[min(4.5vw,20px)] text-white/70 sm:mt-5">
             I&apos;m a Texas-based freelance web developer helping small

@@ -2,7 +2,7 @@ import type { PointerEvent } from "react";
 
 function track(event: PointerEvent<HTMLElement>) {
   // Touch pointers are ignored so the glow stays at its resting position.
-  if (event.pointerType === "touch") return;
+  // if (event.pointerType === "touch") return;
   const element = event.currentTarget;
   const rect = element.getBoundingClientRect();
   element.style.setProperty("--mx", `${event.clientX - rect.left}px`);
