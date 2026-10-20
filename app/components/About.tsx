@@ -5,7 +5,13 @@ import * as m from "framer-motion/m";
 import type { Variants } from "framer-motion";
 import SocialCard from "./SocialCard";
 import { noMobileEntrance } from "./entrance";
-import { cardHoverOutline, cardSpotlight, cardSurface, spotlightGlow } from "./cardStyles";
+import {
+  cardAccentLabel,
+  cardHoverOutline,
+  cardSpotlight,
+  cardSurface,
+  spotlightGlow,
+} from "./cardStyles";
 import { spotlightHandlers } from "./spotlight";
 import HexButton from "./HexButton";
 import { useScrollHover, useScrollLit } from "./useScrollHover";
@@ -98,10 +104,10 @@ export default function About() {
         </div>
 
         <div className="flex flex-row w-full items-center justify-left mt-10">
-          <p className="text-sm sm:text-base text-white/70 w-24 sm:w-24">
+          <p className={`shrink-0 whitespace-nowrap pr-4 ${cardAccentLabel}`}>
             About Me
           </p>
-          <hr className="w-full border-t border-white/20 mt-4 mb-3" />
+          <hr className="w-full border-t border-sky-400 mt-3.5 mb-3.5" />
         </div>
 
         <m.div
