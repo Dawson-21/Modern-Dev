@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Bug, Code2, LineChart, PenTool, Rocket, Users, Wrench } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import HexIcon from "./HexIcon";
+import { cardAccentLabel } from "./cardStyles";
 
 interface Step {
   phase: string;
@@ -127,11 +128,11 @@ function Process() {
         <div className="flex flex-row w-full items-center justify-left mb-10 mt-20">
           <h2
             id="process-heading"
-            className="text-sm sm:text-base text-white/70 w-26"
+            className={`shrink-0 whitespace-nowrap pr-4 ${cardAccentLabel}`}
           >
             The Process
           </h2>
-          <hr className="w-full border-t border-white/15 mt-4 mb-3" />
+          <hr className="w-full border-t border-sky-400 mt-3.5 mb-3.5" />
         </div>
 
         <div

@@ -3,16 +3,17 @@
 import ProjectCard from "./ProjectCard";
 import { noMobileEntrance } from "./entrance";
 import * as m from "framer-motion/m";
+import { cardAccentLabel } from "./cardStyles";
 
 function Projects() {
   return (
     <div id="projectsSection" className="w-full h-fit">
       <div className="flex flex-col items-left justify-center max-w-275 mx-auto px-3.75 sm:px-7.5 md:px-10 lg:px-12.5">
         <div className="flex flex-row w-full items-center justify-left mt-20">
-          <p className="text-sm sm:text-base text-white/70 w-44 sm:w-40">
+          <p className={`shrink-0 whitespace-nowrap pr-4 ${cardAccentLabel}`}>
             Featured Projects
           </p>
-          <hr className="w-full border-t border-white/15 mt-4 mb-3" />
+          <hr className="w-full border-t border-sky-400 mt-3.5 mb-3.5" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 pt-10 gap-6 sm:gap-6 items-start justify-start">
