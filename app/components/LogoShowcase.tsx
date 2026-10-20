@@ -104,6 +104,7 @@ export default function LogoShowcase() {
       "(prefers-reduced-motion: reduce)",
     ).matches;
     let width = stage.clientWidth;
+    let screenWidth = document.documentElement.clientWidth;
     let angle = 0;
     let speed = 1;
     let hovered = false;
@@ -113,7 +114,11 @@ export default function LogoShowcase() {
     let running = false;
 
     const place = () => {
-      const radius = Math.min(width * 0.4, 420);
+      // On phones the ring is wider than the stage, so logos fade out right at
+      // the screen edges, hanging slightly past them. The section clips
+      // sideways, so this never widens the page.
+      const radius =
+        screenWidth < 640 ? screenWidth * 0.52 : Math.min(width * 0.4, 420);
       const lift = Math.min(width * 0.03, 22);
       let best = 0;
       let bestDepth = -2;
@@ -184,6 +189,7 @@ export default function LogoShowcase() {
 
     const resize = new ResizeObserver(() => {
       width = stage.clientWidth;
+      screenWidth = document.documentElement.clientWidth;
       place();
     });
     resize.observe(stage);
@@ -225,7 +231,7 @@ export default function LogoShowcase() {
             the ring. The section clips sideways instead. */}
         <div
           ref={stageRef}
-          className="relative mt-6 h-[clamp(176px,32vw,330px)]"
+          className="relative mt-20 h-[calc(var(--pane)*1.1547)] [--pane:clamp(136px,19vw,200px)]"
         >
           {/* A soft pool of light under the centre spot. */}
           <div
@@ -243,7 +249,7 @@ export default function LogoShowcase() {
                 ref={(node) => {
                   itemRefs.current[i] = node;
                 }}
-                className="absolute inset-0 m-auto aspect-[100/115.47] w-[clamp(112px,19vw,200px)] will-change-transform"
+                className="absolute inset-0 m-auto aspect-[100/115.47] w-(--pane) will-change-transform"
               >
                 {/* Glow behind the pane, strongest at the front of the ring. */}
                 <div
