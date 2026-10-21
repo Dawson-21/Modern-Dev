@@ -38,9 +38,11 @@ const fade =
 
 export default function HexBackground() {
   return (
+    // Pinned to the top and as tall as the screen with the URL bar hidden, so
+    // it never resizes (and its centre never moves) as the bar shows and hides.
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-50 overflow-hidden"
+      className="pointer-events-none fixed inset-x-0 top-0 h-screen-large -z-50 overflow-hidden"
       style={{
         backgroundColor: "#04060a",
         backgroundImage:

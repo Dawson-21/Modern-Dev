@@ -48,6 +48,18 @@
   }
 }
 
+/* Stable viewport heights for phones. Mobile browsers show and hide the URL bar
+   as you scroll; vh-style units that follow it (dvh, or fixed elements pinned to
+   all four edges) resize mid-scroll and shift the page. svh is the height with
+   the URL bar showing and lvh the height with it hidden; neither changes while
+   scrolling. */
+@utility min-h-screen-small {
+  min-height: 100svh;
+}
+@utility h-screen-large {
+  height: 100lvh;
+}
+
 @layer components {
   .nav-icon {
     @apply opacity-50 hover:opacity-100 transform group-hover:scale-[1.45] transition duration-200 ease-in-out;

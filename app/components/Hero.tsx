@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section
       id="homeSection"
-      className="relative min-h-[100svh] min-h-dvh w-full flex flex-col justify-center items-center overflow-hidden"
+      className="relative min-h-screen-small w-full flex flex-col justify-center items-center overflow-hidden"
     >
       <div className="relative z-10 text-center motion-safe:animate-hero-in">
         <img
