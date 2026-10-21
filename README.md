@@ -14,14 +14,6 @@ Modern Dev is built to attract and convert small businesses looking to improve t
 
 ---
 
-## Preview
-
-![Services hover interaction](./public/readme/services-hover.gif)
-
-_The services grid: a soft glow follows the cursor across each card._
-
----
-
 ## Screenshots
 
 | Hero | Services |
@@ -89,16 +81,12 @@ The service selection was redesigned from standard radio inputs into **card-styl
 
 **Lighthouse (live site, mobile profile)**
 
-| | Before | Now |
+| | Desktop | Mobile |
 |---|---|---|
-| Performance | 83 | 94 |
-| Accessibility | 83 | 100 |
+| Performance | 100 | 99 |
+| Accessibility | 100 | 100 |
 | Best Practices | 100 | 100 |
-| SEO | 91 | 100 |
-
-**Page weight:** 4,737 KiB down to about 430 KiB. Largest Contentful Paint is around 2.7 s, Total Blocking Time around 50 ms, and Cumulative Layout Shift is 0.
-
-**What made the difference**
+| SEO | 100 | 100 |
 
 - **Images:** WebP everywhere, with `srcSet` and `sizes` so phones download 480 or 720px versions instead of full-size images. Logos are trimmed and converted from 1.6 MB of PNGs to 133 KB of WebP.
 - **Loading priority:** the hero logo loads first with `fetchPriority="high"`; everything below the fold loads lazily.
